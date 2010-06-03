@@ -6,8 +6,20 @@ public class Cancion {
 	private String nombre;
 	private String artista;
 
-	public double calcularTiempoDeNegra(){
+	public Cancion(){
+		 // lectura desde xml?
+	}
 
-}
+	public double calcularCantidadNegras(){
+		//leer las notas que vienen y pasarlo a negras.
+
+	}
+
+
+	public double calcularTiempoDeNegra(){
+		// divido el tiempo de compas en la cantidad de notas que tengo.
+
+
+	}
 
 }
