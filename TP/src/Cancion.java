@@ -7,7 +7,7 @@ public class Cancion {
 	private String artista;
 
 
-	 // supuestamente se sacan los datos desde el  xml? por el momento se usa como un costructor comun
+	 // supuestamente se sacan los datos desde el  xml, por el momento se usa como un costructor comun
 
 	public Cancion(Partitura unaPartitura, double unTiempoDeCompas, String unNombre, String unArtista ){
 		this.laPartitura=unaPartitura;
