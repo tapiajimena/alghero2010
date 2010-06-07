@@ -1,7 +1,11 @@
-//Agregar la frecuencia que corresponda
+
 public class DoSostenido extends Sonido{
+
+	//Métodos:
+	public DoSostenido(){}
+
 	public double getFrecuenciaFundamental(){
-		return()
+		return(277.183);
 	}
 
 }
