@@ -1,16 +1,26 @@
 
 public class ArmaduraDeClave {
 
-	private int numerador;
+	//Atributos:
 
-	//pongo que es int para usar directamente el identifcador asociado a la figura
-	private int denominador;
+	private int numerador;
+    private Figura denominador;
+
+  //Métodos:
 
 	public ArmaduraDeClave(int elNumerador, int elDenominador){
 		this.numerador=elNumerador;
 		this.denominador=elDenominador;
 
+	}
 
+
+	public int getNumerador(){
+		return(numerador);
+	}
+
+	public Figura getDenominador(){
+		return (denominador);
 	}
 
 }
