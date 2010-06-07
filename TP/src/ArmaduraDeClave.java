@@ -8,7 +8,7 @@ public class ArmaduraDeClave {
 
   //Métodos:
 
-	public ArmaduraDeClave(int elNumerador, int elDenominador){
+	public ArmaduraDeClave(int elNumerador, Figura elDenominador){
 		this.numerador=elNumerador;
 		this.denominador=elDenominador;
 

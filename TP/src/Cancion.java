@@ -33,21 +33,21 @@ public class Cancion {
 	}
 
 
-}
+
 
 
 	//estos metodos ya no irian
 
-	public double calcularCantidadNegras(){
+	//public double calcularCantidadNegras(){
 
 
-	}
+	//}
 
 
-	public double calcularTiempoDeNegra(){
+	//public double calcularTiempoDeNegra(){
 
 
 
-	}
+	//}
 
 }
