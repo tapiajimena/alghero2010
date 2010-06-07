@@ -1,15 +1,20 @@
 
-public class Nota {
+public class Nota extends ElementoDePartitura{
 
+	//Atributos:
 	private Sonido tipo;
-	//es figura o int para usar el identificador??
-	private Figura  duracion;
 
-    public Nota(Sonido unSonido, Figura unaFigura){
-    	this.tipo=unSonido;
-    	this.duracion=unaFigura;
+	//Métodos:
+	public Nota(Figura laDuracion, Sonido elTipo){
+		this.duracion = laDuracion;
+		this.tipo = elTipo;
+	}
 
-    }
+	public Sonido getSonido(){
+		return (tipo);
+	}
 
-
+	public Figura getFigura(){
+		return (duracion);
+	}
 }

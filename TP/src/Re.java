@@ -1,11 +1,11 @@
 
-public class Do extends Sonido{
+public class Re extends Sonido{
 
 	//Métodos:
-	public Do(){}
+	public Re(){}
 
 	public double getFrecuenciaFundamental(){
-		return(261.626);
+		return(293.665);
 	}
 
 }
