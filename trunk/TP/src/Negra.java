@@ -1,13 +1,19 @@
 
 public class Negra extends Figura{
 
-	//supongo que el hecho de ser silencio viene dado como parametro.
-	//claudio verifica que el identificador sea el correcto para esa figura
+	//Métodos:
+
 	public Negra(boolean esSilencio){
 		this.silencio = esSilencio;
-		this.identificador=3;
+
 
 	}
+
+	public double getIdentificador(){
+		return(1);
+	}
+
+
    public double duracion(double tiempoDeNegra){
 	   return(tiempoDeNegra);
    }

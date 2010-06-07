@@ -2,29 +2,25 @@ import java.util.ArrayList;
 
 public class Partitura {
 
+	//Atributos:
 	private ArrayList<Compas> compases;
 
+	//Métodos:
 	public Partitura(){
 		this.compases= new ArrayList<Compas>();
 	}
 
-
-
-
-	//queda la armadura aca o en compas???
-	private ArrayList<ArmaduraDeClave> duracionDeCompas;
-
-
-	//los metodos para agregar notas, devolver notas y demas cosas del arraylist nose
-	// si es necesario ponerlos porque no se usarian directamente los metodos
-//		que ya vienen?
-
-	public void agregarCompas(Compas unCompas){
-
-		int index = this.compases.size();
-		this.compases.add(index, unCompas);
-
+	public void addCompas(Compas unCompas){
+		this.compases.add(unCompas);
 	}
+
+	public Compas getCompas(int index){
+		//Aca no habría que tirar alguna excepcion? Que onda?
+		return(compases.get(index));
+	}
+
+
+
 
 
 
