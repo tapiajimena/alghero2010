@@ -12,8 +12,8 @@ public class BlancaTest extends TestCase {
 		/* Se obtiene el identificador y se compara con su valor esperado
 		 * correspondiente a la nota que representa.
 		 */
-		Blanca negra = new Blanca(silencio);
-		identificador = negra.getIdentificador();
+		Blanca blanca = new Blanca(silencio);
+		identificador = blanca.getIdentificador();
 		assertEquals(identificador,2.0);
 
 	}
