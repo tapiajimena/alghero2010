@@ -8,11 +8,6 @@ public abstract class Nivel {
 	protected int cantidadTeclas;
 	protected ArrayList<Cancion> canciones;
 
-	public Nivel(){
-		this.letras = new ArrayList(6);
-		this.canciones = new ArrayList();
-	}
-
 	/* Método que se encarga de leer el imput desde teclado y transformarlo en un
 	 * char.
 	 */
@@ -32,9 +27,9 @@ public abstract class Nivel {
 	}
 
 	/* Se pide al usuario que ingrese las 6 letras con las que va a jugar */
-	public void definirLetras(){
+	public void definirLetras(int cantidadTeclasNivel){
 		char letraIngresada;
-		for (int i=0;i<=6;i++){
+		for (int i=0;i<=cantidadTeclasNivel;i++){
 			letraIngresada = this.ingresarLetras();
 			this.letras.add(new Letra(letraIngresada));
 		}
@@ -44,9 +39,9 @@ public abstract class Nivel {
 	/* Devuelve las letras que se utilizaran en cada nivel dependiendo de la cantidad
 	 * de teclas disponibles según la dificultad del mismo.
 	 */
-	public ArrayList<Letra> obtenerLetras(int cantidadesTeclasNivel){
-		ArrayList<Letra> letrasDisponibles = new ArrayList<Letra>(cantidadesTeclasNivel);
-		for (int i=0;i<=cantidadesTeclasNivel;i++){
+	public ArrayList<Letra> obtenerLetras(int cantidadTeclasNivel){
+		ArrayList<Letra> letrasDisponibles = new ArrayList<Letra>(cantidadTeclasNivel);
+		for (int i=0;i<=cantidadTeclasNivel;i++){
 			letrasDisponibles.add(this.letras.get(i));
 		}
 		return letrasDisponibles;

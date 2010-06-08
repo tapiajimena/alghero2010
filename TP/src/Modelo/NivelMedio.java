@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class NivelMedio  extends Nivel{
 
 
@@ -7,7 +9,8 @@ public class NivelMedio  extends Nivel{
 	 * indicadas, en este caso son 5.
 	 */
 	public NivelMedio(){
-		super();
+		this.letras = new ArrayList(cantidadTeclas);
+		this.canciones = new ArrayList();
 		this.cantidadTeclas = 5;
 	}
 
