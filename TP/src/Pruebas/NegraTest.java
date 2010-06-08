@@ -12,9 +12,11 @@ public class NegraTest extends TestCase{
 
 	public void testGetIdentificador(){
 		boolean silencio=true;
+		double numero;
 
-		Negra negra=new Negra(silencio);
-		assertTrue((negra.getIdentificador())=(1.0));
+		Negra negra = new Negra(silencio);
+		numero = negra.getIdentificador();
+		assertTrue(numero = 1.0);
 	}
 
 
