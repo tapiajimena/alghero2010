@@ -1,12 +1,15 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class NivelFacil extends Nivel{
 
 	/* Inicializo el nivel con la cantidad de teclas disponibles para jugar
 	 * indicadas, en este caso son 3.
 	 */
 	public NivelFacil(){
-		super();
+		this.letras = new ArrayList(cantidadTeclas);
+		this.canciones = new ArrayList();
 		this.cantidadTeclas = 3;
 	}
 
