@@ -9,6 +9,8 @@ public class BlancaTest extends TestCase {
 		boolean silencio=true;
 		double identificador;
 
+
+
 		/* Se obtiene el identificador y se compara con su valor esperado
 		 * correspondiente a la nota que representa.
 		 */
