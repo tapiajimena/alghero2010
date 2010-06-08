@@ -32,7 +32,6 @@ public class Cancion {
 	public double getTiempoDeNegra(){
 		return (this.tiempoDeNegra);
 	}
-		return cantidadNegras;
 
 
 
@@ -40,7 +39,7 @@ public class Cancion {
 	//estos metodos ya no irian
 
 	//public double calcularCantidadNegras(){
-
+	//	return cantidadNegras;
 
 	//}
 
