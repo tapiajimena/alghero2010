@@ -13,7 +13,7 @@ public class NegraTest extends TestCase{
 
 		Negra negra = new Negra(silencio);
 		numero = negra.getIdentificador();
-		assertEquals(numero,1);
+		assertEquals(numero,1.0);
 	}
 
 
