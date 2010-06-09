@@ -37,9 +37,9 @@ public class Compas {
 		}
 	}
 
-	public ElementoDePartitura getElementoDePartitura(int index){
-		//Aca no habría que tirar alguna excepcion? Que onda?
-		return (elementosDePartitura.get(index));
+	public ArrayList<ElementoDePartitura> getElementoDePartitura(){
+
+		return this.elementosDePartitura;
 	}
 
 }
