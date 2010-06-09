@@ -15,9 +15,9 @@ public class Partitura {
 		this.compases.add(unCompas);
 	}
 
-	public Compas getCompas(int index){
-		//Aca no habría que tirar alguna excepcion? Que onda?
-		return(compases.get(index));
+	public ArrayList<Compas> getCompases(){
+
+		return(this.compases);
 	}
 
 
@@ -26,3 +26,4 @@ public class Partitura {
 
 
 }
+

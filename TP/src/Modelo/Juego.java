@@ -14,9 +14,9 @@ public class Juego {
 
 
 	}
-	public double obtenerPuntajeIdeal(){
+	//public double obtenerPuntajeIdeal(){
 
 
 	}
 
-}
+
