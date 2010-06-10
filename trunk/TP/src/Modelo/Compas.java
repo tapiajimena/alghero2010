@@ -37,13 +37,18 @@ public class Compas {
 		}
 	}
 
-	public ArrayList<ElementoDePartitura> getElementoDePartitura(){
+	public ArrayList<ElementoDePartitura> getElementosDePartitura(){
 		return this.elementosDePartitura;
 	}
+
 	public void addElementoDePartitura(ElementoDePartitura elemento){
 		if(this.sePuedeAgregarElementoDePartitura(elemento)){
 			elementosDePartitura.add(elemento);
 		}
+	}
+
+	public ArmaduraDeClave getArmaduraDeClave(){
+		return this.armaduraDeClave;
 	}
 
 }
