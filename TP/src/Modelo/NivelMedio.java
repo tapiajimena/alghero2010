@@ -14,12 +14,17 @@ public class NivelMedio  extends Nivel{
 		this.letras = new ArrayList(cantidadTeclas);
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 5;
-		this.puntaje = new Puntaje(0.75);
+		this.porcentajeMinimo = 0.75;
 	}
 
 	@Override
 	public double modificarTiempoDeNegra() {
 		return 0;
+	}
+
+	@Override
+	public double getPorcentajeMinimo() {
+		return 0.75;
 	}
 
 
