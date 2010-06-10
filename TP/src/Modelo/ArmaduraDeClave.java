@@ -6,14 +6,13 @@ public class ArmaduraDeClave {
 	private int numerador;
     private Figura denominador;
 
-  //Métodos:
+    //Métodos:
 
 	public ArmaduraDeClave(int elNumerador, Figura elDenominador){
 		this.numerador=elNumerador;
 		this.denominador=elDenominador;
 
 	}
-
 
 	public int getNumerador(){
 		return(numerador);
