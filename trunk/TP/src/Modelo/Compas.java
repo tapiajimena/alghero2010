@@ -19,7 +19,7 @@ public class Compas {
 		this.elementosDePartitura = new ArrayList<ElementoDePartitura>();
     }
 
-	public boolean addElementoDePartitura(ElementoDePartitura unElementoDePartitura){
+	public boolean sePuedeAgregarElementoDePartitura(ElementoDePartitura unElementoDePartitura){
 		double duracionHastaElMomento = 0;
 		/* Se cuentan cuantas duraciones fueron cargadas en el arreglo
 		 * hasta ahora.
@@ -39,6 +39,11 @@ public class Compas {
 
 	public ArrayList<ElementoDePartitura> getElementoDePartitura(){
 		return this.elementosDePartitura;
+	}
+	public void addElementoDePartitura(ElementoDePartitura elemento){
+		if(this.sePuedeAgregarElementoDePartitura(elemento)){
+			elementosDePartitura.add(elemento);
+		}
 	}
 
 }
