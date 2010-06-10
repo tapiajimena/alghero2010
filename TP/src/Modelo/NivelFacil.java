@@ -14,6 +14,7 @@ public class NivelFacil extends Nivel{
 		this.letras = new ArrayList(cantidadTeclas);
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 3;
+		this.puntaje = new Puntaje(0.55);
 	}
 
 	@Override

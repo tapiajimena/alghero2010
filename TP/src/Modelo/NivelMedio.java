@@ -14,6 +14,7 @@ public class NivelMedio  extends Nivel{
 		this.letras = new ArrayList(cantidadTeclas);
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 5;
+		this.puntaje = new Puntaje(0.75);
 	}
 
 	@Override
