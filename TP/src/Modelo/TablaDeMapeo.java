@@ -5,31 +5,27 @@ import java.util.List;
 
 public class TablaDeMapeo {
 
+	//Atributos:
+
 	private ArrayList<ElementoDeTabla> tabla;
 	private Cancion cancion;
 
+	// Métodos:
+
 	TablaDeMapeo(Cancion unaCancion){
-
 		this.cancion = unaCancion;
-
 	}
 
 	public ArrayList<ElementoDeTabla> getTabla(){
-
 		return (this.tabla);
-
 	}
 
 	public Cancion getCancion(){
-
 		return (this.cancion);
-
 	}
 
 	public void armarTabla(){
-
-		//Creacion de variables auxiliares
-
+		/* Creacion de variables auxiliares. */
 		Partitura partituraAux;
 		Compas compasAux;
 		ElementoDePartitura elementoDePartituraAux;
@@ -37,38 +33,30 @@ public class TablaDeMapeo {
 		double tiempoAux = 0;
 		double tiempoDeNegraAux = this.cancion.getTiempoDeNegra();
 
-
-		// Creamos un iterador de compas
+		/* Se crea un iterador de compases. */
 		Iterator iterCompases = cancion.getPartitura().getCompases().iterator();
 
-		// Nos paramos en el primer compas de todos porque el iterador no ME DEJA !!!!
+		/* Manejo del primer compás */
 		compasAux = cancion.getPartitura().getCompases().get(0);
 
-		// Para todos los compases....
+		/* Se prosigue con los demás compases */
 		while(iterCompases.hasNext()){
-
-
-			// Pido un iterador de ElementosDePartitura
+			/* Pido un iterador de ElementosDePartitura */
 			Iterator iterElementosDePartitura =  compasAux.getElementoDePartitura().iterator();
 
-			// Nos paramos en el primer ElementoDePartitura del compas actual.
+			/* Manejo del primer ElementoDePartitura del compas actual.*/
 			elementoDePartituraAux = compasAux.getElementoDePartitura().get(0);
 
-			// Para todos los elementos de partitura
+			/* Se prosigue con los siguientes elementos de partitura */
 			while(iterElementosDePartitura.hasNext()){
 
-				//Cargo un elemento de tabla en la tabla de mapeo.
+				/* Se carga un elemento de tabla en la tabla de mapeo.*/
 				elementoDeTablaAux = new ElementoDeTabla (elementoDePartituraAux.getFigura().duracion(tiempoDeNegraAux),elementoDePartituraAux);
 				tabla.add(elementoDeTablaAux);
 				tiempoAux = tiempoAux + elementoDePartituraAux.getFigura().duracion(tiempoDeNegraAux);
-
 			}
 
 			compasAux = (Compas) iterCompases.next();
-
 		}
-
-
 	}
-
 }
