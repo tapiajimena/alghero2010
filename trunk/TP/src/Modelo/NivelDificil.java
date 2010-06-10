@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.ArrayList;
 
-public class NivelDificil  extends Nivel{
+public class NivelDificil extends Nivel{
 
 	//Métodos:
 
@@ -14,6 +14,7 @@ public class NivelDificil  extends Nivel{
 		this.letras = new ArrayList(cantidadTeclas);
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 6;
+		this.puntaje = new Puntaje(0.95);
 	}
 
 	@Override
