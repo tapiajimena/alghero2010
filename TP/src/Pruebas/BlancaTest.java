@@ -19,4 +19,17 @@ public class BlancaTest extends TestCase {
 		assertEquals(identificador,2.0);
 
 	}
+
+	/*Veamos que devuelva la duracion esperada (en este caso el doble)
+	 *
+	 */
+	public void testDuracion(){
+		double tiempoDeNegra=5;
+		boolean silencio=true;
+		Blanca blanca = new Blanca(silencio);
+
+		assertEquals(blanca.duracion(tiempoDeNegra),10.0);
+
+	}
+
 }
