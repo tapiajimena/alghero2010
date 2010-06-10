@@ -12,7 +12,7 @@ public class TablaDeMapeo {
 
 	// Métodos:
 
-	TablaDeMapeo(Cancion unaCancion){
+	public TablaDeMapeo(Cancion unaCancion){
 		this.cancion = unaCancion;
 	}
 
