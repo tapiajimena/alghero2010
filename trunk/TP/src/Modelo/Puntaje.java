@@ -12,33 +12,36 @@ public class Puntaje {
 	/* Puntaje minimo a ser alcanzado para superar el nivel */
 	private double minimo;
 
+	/* Porcentage minimo a ser alcanzado para superar el nivel */
+	private double porcentageMinimo;
+
+
 
 	//Métodos:
 
-	public Puntaje(){
+	public Puntaje(double porcentage){
 		this.puntajeActual = 0;
 		this.minimo = 0;
+		this.porcentageMinimo = porcentage;
 	}
 
 	public void acumularPuntos(double puntos){
 		this.puntajeActual += puntos;
 	}
 
-	public void setPuntajeMinimo(ArrayList<Cancion> canciones){
-		int puntos = 0;
-		for (int i = 0; i <= canciones.get(0).getPartitura().getCompases().size(); i++){
-			for (int j = 0; j <= canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
-				int k = 0;
-				puntos += canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().get(k).
-
-
-			}
-
+	public void setPuntajeMinimo(Nivel unNivel){
+		int j = unNivel.canciones.size();
+		for (int i=0; i<=j; i++){
+			this.minimo += unNivel.elegirCancion(i).getPuntajeIdeal()* this.porcentageMinimo;
 		}
 	}
 
 	public double getPuntaje(){
 		return this.puntajeActual;
+	}
+
+	public double getMinimo(){
+		return this.minimo;
 	}
 
 	/* Se usa para preguntar si se ha superado el nivel */
