@@ -9,6 +9,7 @@ public class Nota extends ElementoDePartitura{
 	public Nota(Figura laDuracion, Sonido elTipo){
 		this.duracion = laDuracion;
 		this.tipo = elTipo;
+		this.puntajeIdeal = 5;
 	}
 
 	public Sonido getSonido(){
