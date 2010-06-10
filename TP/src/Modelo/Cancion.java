@@ -46,8 +46,7 @@ public class Cancion {
 			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementoDePartitura().size(); j++){
 
 				aux=this.getPartitura().getCompases().get(i).getElementoDePartitura().get(j);
-				if (aux instanceof Nota)
-					 && !(aux.getFigura().esSilencio()) {
+				if ((aux instanceof Nota)&&(!(aux.getFigura().esSilencio()))) {
 					puntos = puntos + 1;
 				}
 				if (aux instanceof Acorde){
@@ -63,6 +62,8 @@ public class Cancion {
 				}
 
 		}
-
+	}
+}
+}
 
 
