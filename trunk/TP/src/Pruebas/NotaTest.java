@@ -16,9 +16,9 @@ public class NotaTest extends TestCase{
 		Do notaDo = new Do();
 		boolean silencio=true;
 		Blanca blanca = new Blanca(silencio);
-		Figura unaFigura=blanca;
+
 		Sonido unSonido=notaDo;
-		Nota nota=new Nota(unaFigura,unSonido);
+		Nota nota=new Nota(blanca,notaDo);
 
 
 		assertEquals((nota.getSonido().getFrecuenciaFundamental()),(notaDo.getFrecuenciaFundamental()));
