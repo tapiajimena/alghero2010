@@ -9,6 +9,7 @@ public abstract class Nivel {
 	protected ArrayList<Letra> letras;
 	protected int cantidadTeclas;
 	protected ArrayList<Cancion> canciones;
+	protected Puntaje puntaje;
 
 
 	//Métodos:
@@ -41,6 +42,10 @@ public abstract class Nivel {
 	}
 
 	public abstract double modificarTiempoDeNegra();
+
+	public Puntaje getPuntaje(){
+		return this.puntaje;
+	}
 
 
 }
