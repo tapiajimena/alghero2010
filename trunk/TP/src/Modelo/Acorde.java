@@ -10,6 +10,7 @@ public class Acorde extends ElementoDePartitura {
 	public Acorde(Figura laDuracion, ArrayList<Sonido> elTipo){
 		this.duracion = laDuracion;
 		this.tipo = elTipo;
+		this.puntajeIdeal = (this.tipo.size()*5);
 	}
 
 	public ArrayList<Sonido> getSonido(){
