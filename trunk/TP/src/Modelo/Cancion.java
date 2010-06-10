@@ -43,9 +43,9 @@ public class Cancion {
 		ElementoDePartitura aux;
 		int puntos = 0;
 		for (int i = 0; i <= this.getPartitura().getCompases().size(); i++){
-			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementoDePartitura().size(); j++){
+			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementosDePartitura().size(); j++){
 
-				aux=this.getPartitura().getCompases().get(i).getElementoDePartitura().get(j);
+				aux=this.getPartitura().getCompases().get(i).getElementosDePartitura().get(j);
 				if ((aux instanceof Nota)&&(!(aux.getFigura().esSilencio()))) {
 					puntos = puntos + 1;
 				}
