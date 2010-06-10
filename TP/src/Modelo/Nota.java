@@ -9,6 +9,7 @@ public class Nota extends ElementoDePartitura{
 	public Nota(Figura laDuracion, Sonido elTipo){
 		this.duracion = laDuracion;
 		this.tipo = elTipo;
+		/* Se establece que el puntaje ideal será de 5 por cada nota */
 		this.puntajeIdeal = 5;
 	}
 
