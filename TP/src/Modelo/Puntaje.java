@@ -13,8 +13,8 @@ public class Puntaje {
 
 	//Métodos:
 
-	Puntaje(double actual, double minimoPorNivel){
-		this.puntajeActual = actual;
+	Puntaje(double minimoPorNivel){
+		this.puntajeActual = 0;
 		this.minimo = minimoPorNivel;
 	}
 
