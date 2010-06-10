@@ -25,8 +25,15 @@ public class Puntaje {
 	}
 
 	public void setPuntajeMinimo(ArrayList<Cancion> canciones){
-		for (int i = 0; i<=canciones.get(0).getPartitura().getCompases().size(); i++){
-				canciones.get(0).getPartitura().getCompases().get(i).getElementoDePartitura();
+		int puntos = 0;
+		for (int i = 0; i <= canciones.get(0).getPartitura().getCompases().size(); i++){
+			for (int j = 0; j <= canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
+				int k = 0;
+				puntos += canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().get(k).
+
+
+			}
+
 		}
 	}
 
