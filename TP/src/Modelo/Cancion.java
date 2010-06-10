@@ -40,7 +40,7 @@ public class Cancion {
 	}
 
 	public int contarNotas(){
-		ElementoDePartitura aux;
+		/*ElementoDePartitura aux;
 		int puntos = 0;
 		for (int i = 0; i <= this.getPartitura().getCompases().size(); i++){
 			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementosDePartitura().size(); j++){
@@ -61,9 +61,10 @@ public class Cancion {
 			}
 				}
 
-		}
+		}*/
+		return 0;
 	}
 }
-}
+
 
 
