@@ -8,6 +8,7 @@ public abstract class Figura {
 	protected int identificador;
 
 	//Métodos:
+
 	public abstract double getIdentificador();
 
 	public abstract double duracion(double tiempoDeNegra);
