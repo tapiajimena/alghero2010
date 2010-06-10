@@ -50,7 +50,7 @@ public class Cancion {
 					puntos = puntos + 1;
 				}
 				if (aux instanceof Acorde){
-					for (int k = 0; k <= (aux.getSonido().size()); i++){
+					for (int k = 0; k <= (aux.getNotas().size()); i++){
 
 
 						if (aux.getFigura().esSilencio()) {
