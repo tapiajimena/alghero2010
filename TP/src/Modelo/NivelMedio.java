@@ -15,11 +15,7 @@ public class NivelMedio  extends Nivel{
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 5;
 		this.porcentajeMinimo = 0.75;
-	}
-
-	@Override
-	public double modificarTiempoDeNegra() {
-		return 0;
+		this.factorAumentoDificultad = 2;
 	}
 
 	@Override

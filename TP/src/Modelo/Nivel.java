@@ -9,6 +9,7 @@ public abstract class Nivel {
 	protected ArrayList<Letra> letras;
 	protected int cantidadTeclas;
 	protected ArrayList<Cancion> canciones;
+	protected double factorAumentoDificultad;
 
 	/* Lleva la cuenta del puntaje acumulado */
 	protected double puntajeActual;
@@ -56,8 +57,6 @@ public abstract class Nivel {
 		return this.canciones.get(index);
 	}
 
-	public abstract double modificarTiempoDeNegra();
-
 	public abstract double getPorcentajeMinimo();
 
 	public double getPuntajeActual(){
@@ -92,6 +91,10 @@ public abstract class Nivel {
 	public boolean esSuficiente(){
 		if (this.puntajeActual >= this.puntajeMinimo) return true;
 		else return false;
+	}
+
+	public void modificarVelocidad(){
+
 	}
 
 
