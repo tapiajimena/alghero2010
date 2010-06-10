@@ -15,11 +15,7 @@ public class NivelDificil extends Nivel{
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 6;
 		this.porcentajeMinimo =	0.95;
-	}
-
-	@Override
-	public double modificarTiempoDeNegra() {
-		return 0;
+		this.factorAumentoDificultad = 3;
 	}
 
 	@Override
