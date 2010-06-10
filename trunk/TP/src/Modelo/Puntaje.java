@@ -10,8 +10,6 @@ public class Puntaje {
 	/* Puntaje minimo a ser alcanzado para superar el nivel */
 	private double minimo;
 
-	/* */
-
 
 	//Métodos:
 
@@ -28,8 +26,9 @@ public class Puntaje {
 		return this.puntajeActual;
 	}
 
+	/* Se usa para preguntar si se ha superado el nivel */
 	public boolean esSuficiente(){
-		if ((this.puntajeActual - this.minimo)<= diferencia minima aceptable para dar aprobado el nivel) return true;
+		if (this.puntajeActual >= this.minimo) return true;
 		else return false;
 	}
 
