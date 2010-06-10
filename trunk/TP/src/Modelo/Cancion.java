@@ -42,9 +42,13 @@ public class Cancion {
 	public int contarNotas(){
 		int puntos = 0;
 		for (int i = 0; i <= this.getPartitura().getCompases().size(); i++){
-			for (int j = 0; j <= this.getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
-				int k = 0;
-				puntos += this.getPartitura().getCompases().get(j).getElementoDePartitura().get(k).getFigura();
+			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementoDePartitura().size(); j++){
+				if (this.getPartitura().getCompases().get(i).getElementoDePartitura().get(j) instanceof Nota) {
+					puntos = puntos + 1;
+				}
+				if (this.getPartitura().getCompases().get(i).getElementoDePartitura().get(j) instanceof Acorde){
+					puntos = puntos + (this.getPartitura().getCompases().get(i).getElementoDePartitura().get(j).
+				}
 
 
 			}
