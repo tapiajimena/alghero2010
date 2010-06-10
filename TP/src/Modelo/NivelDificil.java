@@ -14,12 +14,17 @@ public class NivelDificil extends Nivel{
 		this.letras = new ArrayList(cantidadTeclas);
 		this.canciones = new ArrayList();
 		this.cantidadTeclas = 6;
-		this.puntaje = new Puntaje(0.95);
+		this.porcentajeMinimo =	0.95;
 	}
 
 	@Override
 	public double modificarTiempoDeNegra() {
 		return 0;
+	}
+
+	@Override
+	public double getPorcentajeMinimo() {
+		return 0.95;
 	}
 
 
