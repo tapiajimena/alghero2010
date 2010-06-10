@@ -13,11 +13,11 @@ public class ElementoDeTabla {
 		this.elemento = unElemento;
 	}
 
-	double getTiempo(){
+	public double getTiempo(){
 		return this.tiempo;
 	}
 
-	ElementoDePartitura getElemento(){
+	public ElementoDePartitura getElemento(){
 		return this.elemento;
 	}
 
