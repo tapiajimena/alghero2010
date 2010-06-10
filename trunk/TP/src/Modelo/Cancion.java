@@ -41,10 +41,10 @@ public class Cancion {
 
 	public int contarNotas(){
 		int puntos = 0;
-		for (int i = 0; i <= canciones.get(0).getPartitura().getCompases().size(); i++){
-			for (int j = 0; j <= canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
+		for (int i = 0; i <= this.getPartitura().getCompases().size(); i++){
+			for (int j = 0; j <= this.getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
 				int k = 0;
-				puntos += canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().get(k).
+				puntos += this.getPartitura().getCompases().get(j).getElementoDePartitura().get(k).getFigura();
 
 
 			}
