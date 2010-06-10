@@ -1,7 +1,9 @@
-package Modelo;
+ package Modelo;
 import java.util.ArrayList;
 
 public class Juego {
+
+	//Atributos:
 
 	private ArrayList<Nivel> niveles;
 	private double puntaje;
@@ -10,13 +12,12 @@ public class Juego {
 	private double contadorDeAciertos;
 	private double contadorDePerfectos;
 
+	//Métodos:
 	public Juego(){
-
-
-	}
-	//public double obtenerPuntajeIdeal(){
-
-
 	}
 
+	public double obtenerPuntajeIdeal(){
+		return(4.0);
+	}
 
+}
