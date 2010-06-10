@@ -4,11 +4,13 @@ import java.util.ArrayList;
 public class Partitura {
 
 	//Atributos:
+
 	private ArrayList<Compas> compases;
 
 	//Métodos:
+
 	public Partitura(){
-		this.compases= new ArrayList<Compas>();
+		this.compases = new ArrayList<Compas>();
 	}
 
 	public void addCompas(Compas unCompas){
@@ -16,7 +18,6 @@ public class Partitura {
 	}
 
 	public ArrayList<Compas> getCompases(){
-
 		return(this.compases);
 	}
 
