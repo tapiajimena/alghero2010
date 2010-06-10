@@ -4,9 +4,14 @@ import java.io.*;
 
 public abstract class Nivel {
 
+	//Atributos
+
 	protected ArrayList<Letra> letras;
 	protected int cantidadTeclas;
 	protected ArrayList<Cancion> canciones;
+
+
+	//Métodos:
 
 	/* Método que se encarga de leer el imput desde teclado y transformarlo en un
 	 * char.

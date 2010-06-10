@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class NivelMedio  extends Nivel{
 
+	//Métodos:
 
-	/* Inicializo el nivel con la cantidad de teclas disponibles para jugar
+	/*
+	 * Se inicializa el nivel con la cantidad de teclas disponibles para jugar
 	 * indicadas, en este caso son 5.
 	 */
 	public NivelMedio(){
