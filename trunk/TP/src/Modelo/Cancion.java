@@ -6,15 +6,17 @@ public class Cancion {
 	private String nombre;
 	private String artista;
 	private double tiempoDeNegra;
+	private double puntajeIdeal;
 
 	//Métodos:
 
 	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
-		this.partitura=unaPartitura;
-		this.tiempoDeNegra=unTiempoDeNegra;
-		this.nombre=unNombre;
-		this.artista=unArtista;
+		this.partitura = unaPartitura;
+		this.tiempoDeNegra = unTiempoDeNegra;
+		this.nombre = unNombre;
+		this.artista = unArtista;
+		this.puntajeIdeal = (this.contarNotas()*5);
 	}
 
 	public Partitura getPartitura(){
@@ -31,6 +33,23 @@ public class Cancion {
 
 	public double getTiempoDeNegra(){
 		return (this.tiempoDeNegra);
+	}
+
+	public double getPuntajeIdeal(){
+		return this.puntajeIdeal;
+	}
+
+	public int contarNotas(){
+		int puntos = 0;
+		for (int i = 0; i <= canciones.get(0).getPartitura().getCompases().size(); i++){
+			for (int j = 0; j <= canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().size(); j++){
+				int k = 0;
+				puntos += canciones.get(0).getPartitura().getCompases().get(j).getElementoDePartitura().get(k).
+
+
+			}
+
+		}
 	}
 
 }
