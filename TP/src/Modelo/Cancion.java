@@ -9,7 +9,7 @@ public class Cancion {
 
 	//Métodos:
 
-	//Supuestamente se sacan los datos desde el  xml, por el momento se usa como un costructor comun
+	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
 		this.partitura=unaPartitura;
 		this.tiempoDeNegra=unTiempoDeNegra;
@@ -32,22 +32,5 @@ public class Cancion {
 	public double getTiempoDeNegra(){
 		return (this.tiempoDeNegra);
 	}
-
-
-
-
-	//estos metodos ya no irian
-
-	//public double calcularCantidadNegras(){
-	//	return cantidadNegras;
-
-	//}
-
-
-	//public double calcularTiempoDeNegra(){
-
-
-
-	//}
 
 }
