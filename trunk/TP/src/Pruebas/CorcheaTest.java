@@ -1,6 +1,7 @@
 package Pruebas;
 
 import Modelo.Corchea;
+import Modelo.Negra;
 import junit.framework.TestCase;
 
 public class CorcheaTest extends TestCase {
@@ -16,6 +17,18 @@ public class CorcheaTest extends TestCase {
 		Corchea corchea = new Corchea(silencio);
 		identificador = corchea.getIdentificador();
 		assertEquals(identificador,0.5);
+
+	}
+
+	/*Veamos que devuelva la duracion esperada (en este caso la mitad)
+	 *
+	 */
+	public void testDuracion(){
+		double tiempoDeNegra=5;
+		boolean silencio=true;
+		Corchea corchea = new Corchea(silencio);
+
+		assertEquals(corchea.duracion(tiempoDeNegra),2.5);
 
 	}
 

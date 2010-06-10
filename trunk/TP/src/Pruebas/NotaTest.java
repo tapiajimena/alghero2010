@@ -5,7 +5,7 @@ import Modelo.Nota;
 import Modelo.Figura;
 import Modelo.Sonido;
 import junit.framework.TestCase;
-
+//ARREGLAAAAAAAAAAAAAAAAAAAAAR
 public class NotaTest extends TestCase{
 
 	/*Veamos que el constructor asigne bien la Figura y el Sonido
@@ -21,8 +21,8 @@ public class NotaTest extends TestCase{
 		Nota nota=new Nota(unaFigura,unSonido);
 
 
-		assertEquals(nota.getSonido().getFrecuenciaFundamental(),notaDo.getFrecuenciaFundamental());
-		assertEquals(nota.getFigura().getIdentificador(),blanca.getIdentificador());
+		assertEquals((nota.getSonido().getFrecuenciaFundamental()),(notaDo.getFrecuenciaFundamental()));
+		assertEquals((nota.getFigura().getIdentificador()),(blanca.getIdentificador()));
 
 	}
 

@@ -1,5 +1,6 @@
 package Pruebas;
 import junit.framework.TestCase;
+import Modelo.Blanca;
 import Modelo.Negra;
 
 
@@ -22,4 +23,16 @@ public class NegraTest extends TestCase{
 
 
 }
+
+	/*Veamos que devuelva la duracion esperada (la misma)
+	 *
+	 */
+	public void testDuracion(){
+		double tiempoDeNegra=5;
+		boolean silencio=true;
+		Negra negra = new Negra(silencio);
+
+		assertEquals(negra.duracion(tiempoDeNegra),5.0);
+
+	}
 }

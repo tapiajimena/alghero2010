@@ -1,6 +1,7 @@
 package Pruebas;
 
 import junit.framework.TestCase;
+import Modelo.Negra;
 import Modelo.SemiCorchea;
 
 public class SemiCorcheaTest extends TestCase {
@@ -15,6 +16,18 @@ public class SemiCorcheaTest extends TestCase {
 		SemiCorchea semiCorchea = new SemiCorchea(silencio);
 		identificador = semiCorchea.getIdentificador();
 		assertEquals(identificador,0.25);
+
+	}
+
+	/*Veamos que devuelva la duracion esperada (en este caso la cuarta parte)
+	 *
+	 */
+	public void testDuracion(){
+		double tiempoDeNegra=4;
+		boolean silencio=true;
+		SemiCorchea semicorchea = new SemiCorchea(silencio);
+
+		assertEquals(semicorchea.duracion(tiempoDeNegra),1.0);
 
 	}
 
