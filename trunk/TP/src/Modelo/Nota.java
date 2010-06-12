@@ -13,11 +13,31 @@ public class Nota extends ElementoDePartitura{
 		this.puntajeIdeal = 5;
 	}
 
+	//si la figura de la nota no es un silencio entonces la cantidad
+	//de sonidos es 1
+
+	public int obtenerCantidadDeSonidos(){
+		int cantidad=0;
+
+
+		if(!this.duracion.esSilencio()){
+			cantidad=1;
+		}
+		return cantidad;
+
+
+	}
+	//devuelve la cantidad de elementos sin importar si su figura asociada es un silencio
+	//o no
+
+	public int obtenerCantidadDeElementos(){
+		return 1;
+
+	}
+
 	public Sonido getSonido(){
 		return (tipo);
 	}
 
-	public Figura getFigura(){
-		return (duracion);
-	}
+
 }
