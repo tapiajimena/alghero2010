@@ -4,33 +4,94 @@ import Modelo.Blanca;
 import Modelo.ArmaduraDeClave;
 import junit.framework.TestCase;
 import java.util.ArrayList;
+
+import Modelo.Acorde;
 import Modelo.Nota;
 import Modelo.Do;
 import Modelo.Compas;
 import Modelo.Redonda;
+import Modelo.Negra;
+import Modelo.Sonido;
 
 public class CompasTest extends TestCase{
 
-	public void testAddElementoDePartitura(){
-		int numerador=3;
-		boolean silencio=true;
-		Blanca blanca = new Blanca(silencio);
+	//busco la duracion hasta el momento de un compas de una duracion de hasta 5 negras
+	//que tiene un acorde de negra, un silencio de negra, y una nota de negra. Por
+	//lo tanto debe devolver 3.
+
+	public void testObtenerDuracionHastaElMomento(){
+		int numerador=5;
+
+		Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas unCompas= new Compas(armadura);
 		Do unDo=new Do();
-		Nota nota=new Nota(blanca,unDo);
+		Nota unaNota=new Nota(negra,unDo);
+		unCompas.addElementoDePartitura(unaNota);
 
-		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,blanca);
-		ArrayList<Nota> notas=new ArrayList<Nota>();
-		notas.add(nota);
-		Compas compas=new Compas(armadura);
+		Negra otraNegra = new Negra(true);
+		Nota otraNota=new Nota(otraNegra,unDo);
+		unCompas.addElementoDePartitura(otraNota);
 
-		assertTrue(compas.sePuedeAgregarElementoDePartitura(nota));
-		Redonda redonda=new Redonda(silencio);
-		//Redonda no se tiene que poder agregar
-		Nota otraNota=new Nota(redonda,unDo);
-		assertFalse(compas.sePuedeAgregarElementoDePartitura(otraNota));
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra unaNegra = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(unaNegra,sonidos);
+		unCompas.addElementoDePartitura(unAcorde);
+
+
+
+		assertTrue(unCompas.obtenerDuracionHastaElMomento()==3);
 
 
 	}
+
+	//Veamos que siguiendo la prueba anterior, este metodo devuelve true si quiero
+	//agregar un nota de duracion Negra, ya que todavia hay lugar en el compas.
+	//Pero si quiero agregar una nota con una duracion de Redonda no.
+
+
+	public void testSePuedeAgregarElementoDePartitura(){
+		int numerador=5;
+
+		Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas unCompas= new Compas(armadura);
+		Do unDo=new Do();
+		Nota unaNota=new Nota(negra,unDo);
+		unCompas.addElementoDePartitura(unaNota);
+
+		Negra otraNegra = new Negra(true);
+		Nota otraNota=new Nota(otraNegra,unDo);
+		unCompas.addElementoDePartitura(otraNota);
+
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra unaNegra = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(unaNegra,sonidos);
+		unCompas.addElementoDePartitura(unAcorde);
+
+		//Veamos si devuelve true
+
+		assertTrue(unCompas.sePuedeAgregarElementoDePartitura(otraNota));
+
+		Redonda unaRedonda=new Redonda(false);
+		Nota laNota=new Nota(unaRedonda,unDo);
+
+		//Veamos si devuelve false
+
+		assertFalse(unCompas.sePuedeAgregarElementoDePartitura(laNota));
+
+
+	}
+
+	//FALTA PROBAR EL METODO DE LA EXCEPCION
 
 
 }
