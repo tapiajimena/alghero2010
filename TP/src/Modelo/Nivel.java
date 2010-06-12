@@ -56,12 +56,24 @@ public abstract class Nivel {
 		return this.canciones.get(index);
 	}
 
+	public ArrayList<Cancion> getListaCanciones(){
+		return this.canciones;
+	}
+
 	public abstract double getPorcentajeMinimo();
+
+	/* Este metodo debe ser modificado luego de establecer la verificacion de aciertos*/
+	public void setPuntajeActual(double valor){
+		this.puntajeActual = valor;
+	}
 
 	public double getPuntajeActual(){
 		return this.puntajeActual;
 	}
 
+	public double getPuntajeIdeal(){
+		return this.puntajeIdeal;
+	}
 
 	/*
 	 * Se establece el puntaje ideal del nivel, que se remite a la suma de puntajes ideales
@@ -69,11 +81,14 @@ public abstract class Nivel {
 	 */
 	public void setPuntajeIdeal(){
 		int j = this.canciones.size();
-		for (int i=0; i<=j; i++){
+		for (int i=0; i<j; i++){
 			this.puntajeIdeal += this.elegirCancion(i).getPuntajeIdeal();
 		}
 	}
 
+	public double getPuntajeMinimo(){
+		return this.puntajeMinimo;
+	}
 	/*
 	 * Se establece el puntaje minimo del nivel, que se remite a la suma de puntajes
 	 * minimos de cada canción que compone al nivel.
@@ -81,7 +96,7 @@ public abstract class Nivel {
 	public void setPuntajeMinimo(){
 		int j = this.canciones.size();
 		double valor = 0;
-		for (int i=0; i<=j; i++){
+		for (int i=0; i<j; i++){
 			valor = valor + this.elegirCancion(i).getPuntajeIdeal()* this.getPorcentajeMinimo();
 		}
 		this.puntajeMinimo = valor;
