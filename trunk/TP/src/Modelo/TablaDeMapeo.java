@@ -42,10 +42,10 @@ public class TablaDeMapeo {
 		/* Se prosigue con los demás compases */
 		while(iterCompases.hasNext()){
 			/* Pido un iterador de ElementosDePartitura */
-			Iterator iterElementosDePartitura =  compasAux.getElementosDePartitura().iterator();
+			Iterator iterElementosDePartitura =  compasAux.getElementoDePartitura().iterator();
 
 			/* Manejo del primer ElementoDePartitura del compas actual.*/
-			elementoDePartituraAux = compasAux.getElementosDePartitura().get(0);
+			elementoDePartituraAux = compasAux.getElementoDePartitura().get(0);
 
 			/* Se prosigue con los siguientes elementos de partitura */
 			while(iterElementosDePartitura.hasNext()){
@@ -60,3 +60,4 @@ public class TablaDeMapeo {
 		}
 	}
 }
+
