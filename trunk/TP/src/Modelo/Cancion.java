@@ -16,7 +16,7 @@ public class Cancion {
 		this.tiempoDeNegra = unTiempoDeNegra;
 		this.nombre = unNombre;
 		this.artista = unArtista;
-		this.puntajeIdeal = (this.contarNotas()*5);
+		this.puntajeIdeal = (this.obtenerCantidadDeNotas()*5);
 	}
 
 	public Partitura getPartitura(){
@@ -39,32 +39,27 @@ public class Cancion {
 		return this.puntajeIdeal;
 	}
 
-	public int contarNotas(){
-		/*ElementoDePartitura aux;
-		int puntos = 0;
-		for (int i = 0; i <= this.getPartitura().getCompases().size(); i++){
-			for (int j = 0; j <= this.getPartitura().getCompases().get(i).getElementosDePartitura().size(); j++){
+	public int obtenerCantidadDeNotas(){
+		int cantidadTotal=0;
+		int cantidadDeCompases=this.getPartitura().getCompases().size();
 
-				aux=this.getPartitura().getCompases().get(i).getElementosDePartitura().get(j);
-				if ((aux instanceof Nota)&&(!(aux.getFigura().esSilencio()))) {
-					puntos = puntos + 1;
-				}
-				if (aux instanceof Acorde){
-					for (int k = 0; k <= (aux.getNotas().size()); i++){
+		for (int i = 0; i < cantidadDeCompases ; i++){
 
+			Compas compasActual=this.getPartitura().getCompases().get(i);
 
-						if (aux.getFigura().esSilencio()) {
-							puntos = puntos + 1;
-				}
-
+			for (int j = 0; j < compasActual.getElementosDePartitura().size(); j++){
+				ElementoDePartitura elementoActual=compasActual.getElementosDePartitura().get(j);
+				cantidadTotal= cantidadTotal + elementoActual.obtenerCantidadDeSonidos();
 
 			}
-				}
 
-		}*/
-		return 0;
+
+		}
+		return cantidadTotal;
+
 	}
 }
+
 
 
 
