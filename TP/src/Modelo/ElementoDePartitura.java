@@ -6,7 +6,12 @@ public abstract class ElementoDePartitura {
 	protected double puntajeIdeal;
 
 	//Métodos:
-	public abstract Figura getFigura();
+	public abstract int obtenerCantidadDeElementos();
+	public abstract int obtenerCantidadDeSonidos();
+	public Figura getFigura(){
+		return(duracion);
+
+	}
 
 }
 
