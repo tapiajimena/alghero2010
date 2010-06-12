@@ -19,36 +19,44 @@ public class Compas {
 		this.elementosDePartitura = new ArrayList<ElementoDePartitura>();
     }
 
-	public boolean sePuedeAgregarElementoDePartitura(ElementoDePartitura unElementoDePartitura){
+	public double obtenerDuracionHastaElMomento(){
 		double duracionHastaElMomento = 0;
-		/* Se cuentan cuantas duraciones fueron cargadas en el arreglo
-		 * hasta ahora.
-		 */
-		for(int i=0 ; i<elementosDePartitura.size() ; i++)
-			duracionHastaElMomento = duracionHastaElMomento + ((elementosDePartitura.get(i)).getFigura()).getIdentificador();
-		/* Se chequea si la duración hasta el momento y la que se quiere agregar supera a
+		for(int i=0 ; i<elementosDePartitura.size() ; i++){
+
+			double duracionActual=elementosDePartitura.get(i).getFigura().getIdentificador();
+			duracionHastaElMomento = duracionHastaElMomento + duracionActual;
+
+		}
+		return duracionHastaElMomento;
+
+	}
+
+	public boolean sePuedeAgregarElementoDePartitura(ElementoDePartitura unElementoDePartitura){
+
+
+		/* Se chequea si la suma de la duración hasta el momento y la que se quiere agregar supera a
 		 * la impuesta por la armadura de clave, para luego enviar un true o false según corresponda.
 		 */
-		if(duracionHastaElMomento + (unElementoDePartitura.getFigura()).getIdentificador() <= (armaduraDeClave.getDenominador()).getIdentificador()){
-			elementosDePartitura.add(unElementoDePartitura);
-			return true;
-		}else{
-			return false;
-		}
+
+		boolean sePuede;
+		double tiemposDelElemento;
+		tiemposDelElemento= (unElementoDePartitura.obtenerCantidadDeElementos())* (unElementoDePartitura.getFigura().getIdentificador());
+
+		sePuede=((tiemposDelElemento+this.obtenerDuracionHastaElMomento()) <= ((armaduraDeClave.getDenominador().getIdentificador())* (armaduraDeClave.getNumerador())));
+
+		return sePuede;
 	}
+
 
 	public ArrayList<ElementoDePartitura> getElementosDePartitura(){
 		return this.elementosDePartitura;
 	}
 
+	//Se podria tirar una excepcion aca
 	public void addElementoDePartitura(ElementoDePartitura elemento){
 		if(this.sePuedeAgregarElementoDePartitura(elemento)){
 			elementosDePartitura.add(elemento);
 		}
-	}
-
-	public ArmaduraDeClave getArmaduraDeClave(){
-		return this.armaduraDeClave;
 	}
 
 }
