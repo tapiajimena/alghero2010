@@ -14,6 +14,10 @@ public class FiguraTest extends TestCase{
 
 		Blanca blanca = new Blanca(silencio);
 		assertTrue(blanca.esSilencio());
+		silencio=false;
+
+		Blanca otraBlanca = new Blanca(silencio);
+		assertFalse(otraBlanca.esSilencio());
 
 	}
 
