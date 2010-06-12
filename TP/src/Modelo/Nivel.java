@@ -1,6 +1,5 @@
 package Modelo;
 import java.util.ArrayList;
-import java.io.*;
 
 public abstract class Nivel {
 
@@ -63,9 +62,10 @@ public abstract class Nivel {
 		return this.puntajeActual;
 	}
 
+
 	/*
-	 * Se establece el puntaje ideal del nivel, que se remite a la suma de puntajes ideales de cada
-	 * canción que compone al nivel.
+	 * Se establece el puntaje ideal del nivel, que se remite a la suma de puntajes ideales
+	 *  de cada canción que compone al nivel.
 	 */
 	public void setPuntajeIdeal(){
 		int j = this.canciones.size();
@@ -75,8 +75,8 @@ public abstract class Nivel {
 	}
 
 	/*
-	 * Se establece el puntaje minimo del nivel, que se remite a la suma de puntajes minimos de cada
-	 * canción que compone al nivel.
+	 * Se establece el puntaje minimo del nivel, que se remite a la suma de puntajes
+	 * minimos de cada canción que compone al nivel.
 	 */
 	public void setPuntajeMinimo(){
 		int j = this.canciones.size();
