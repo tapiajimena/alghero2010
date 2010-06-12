@@ -6,8 +6,13 @@ public class Juego {
 	//Atributos:
 
 	private ArrayList<Nivel> niveles;
+	private TablaDeMapeo tabla;
 
 	//Métodos:
+
+	public Juego(TablaDeMapeo unaTabla){
+		this.tabla = unaTabla;
+	}
 
 	/*
 	 * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
@@ -20,6 +25,11 @@ public class Juego {
 			}
 		}
 		return superado;
+	}
+
+	/* Método que lleva a cabo el conteo de puntos */
+	public void calcularPuntaje(){
+		//
 	}
 
 
