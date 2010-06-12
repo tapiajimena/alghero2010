@@ -2,55 +2,237 @@ package Pruebas;
 
 import java.util.ArrayList;
 
-import Modelo.ArmaduraDeClave;
-import Modelo.Blanca;
+import junit.framework.TestCase;
+import Modelo.Acorde;
 import Modelo.Cancion;
-import Modelo.Compas;
 import Modelo.Do;
-import Modelo.Letra;
-import Modelo.NivelDificil;
+import Modelo.Compas;
+import Modelo.ArmaduraDeClave;
+import Modelo.Negra;
 import Modelo.Nota;
 import Modelo.Partitura;
-import junit.framework.TestCase;
+import Modelo.Re;
+import Modelo.Sonido;
+import Modelo.Nivel;
+import Modelo.NivelMedio;
 
 public class NivelMedioTest extends TestCase {
 
-	public void testGeneral(){
+	public void testCargarCancion(){
 
-		NivelDificil unNivelDificil = new NivelDificil();
-		ArrayList<Letra> letras = new ArrayList<Letra>();
-		ArrayList<Cancion> canciones = new ArrayList<Cancion>();
+		/* Armo el primer compas */
 
-		int numerador = 3;
-		boolean silencio = false;
+		Negra unaNegra=new Negra(false);
+		Negra otraNegra=new Negra(true);
+		Re unRe=new Re();
+		Nota primerNota= new Nota(unaNegra,unRe);
+		Nota segundaNota= new Nota(otraNegra,unRe);
+		int numerador=5;
+        Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas primerCompas= new Compas(armadura);
+		primerCompas.addElementoDePartitura(primerNota);
+		primerCompas.addElementoDePartitura(segundaNota);
 
-		Blanca blanca = new Blanca(silencio);
+		/* Armo el segundo compas */
+
+		Compas segundoCompas= new Compas(armadura);
 		Do unDo=new Do();
-		Nota nota=new Nota(blanca,unDo);
+		Nota unaNota=new Nota(negra,unDo);
+		segundoCompas.addElementoDePartitura(unaNota);
+		Negra negraAux = new Negra(true);
+		Nota otraNota=new Nota(negraAux,unDo);
+		segundoCompas.addElementoDePartitura(otraNota);
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra negraAuxDos = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(negraAuxDos,sonidos);
+		segundoCompas.addElementoDePartitura(unAcorde);
 
-		ArmaduraDeClave armadura = new ArmaduraDeClave(numerador,blanca);
+		Partitura laPartitura= new Partitura();
+		laPartitura.addCompas(primerCompas);
+		laPartitura.addCompas(segundoCompas);
 
-		ArrayList<Nota> notas = new ArrayList<Nota>();
-		notas.add(nota);
+		/* La canción queda creada con 4 notas.*/
 
-		Compas compas = new Compas(armadura);
+		Cancion unaCancion=new Cancion(laPartitura,"titulo","artista",5);
 
-		/* Armo una partitura de un solo compás */
-		Partitura unaPartitura = new Partitura();
-		unaPartitura.addCompas(compas);
+		/* Armo el nivel y asigno la canción armada previamente. */
+		NivelMedio nivel = new NivelMedio();
 
-		String unNombre = "Feliz Cumpleaños";
-		String unAutor = "Anonimo";
+		nivel.cargarCancion(unaCancion);
 
-		Cancion unaCancion = new Cancion(unaPartitura,unNombre,unAutor,2);
-
-		unNivelDificil.cargarCancion(unaCancion);
-
-
-
-
+		/* Comprueba que la lista no este vacia */
+		assertTrue(nivel.getListaCanciones().isEmpty()== false);
 
 	}
 
+	public void testSetPuntajeIdeal(){
+
+		/* Armo el primer compas */
+
+		Negra unaNegra=new Negra(false);
+		Negra otraNegra=new Negra(true);
+		Re unRe=new Re();
+		Nota primerNota= new Nota(unaNegra,unRe);
+		Nota segundaNota= new Nota(otraNegra,unRe);
+		int numerador=5;
+        Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas primerCompas= new Compas(armadura);
+		primerCompas.addElementoDePartitura(primerNota);
+		primerCompas.addElementoDePartitura(segundaNota);
+
+		/* Armo el segundo compas */
+
+		Compas segundoCompas= new Compas(armadura);
+		Do unDo=new Do();
+		Nota unaNota=new Nota(negra,unDo);
+		segundoCompas.addElementoDePartitura(unaNota);
+		Negra negraAux = new Negra(true);
+		Nota otraNota=new Nota(negraAux,unDo);
+		segundoCompas.addElementoDePartitura(otraNota);
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra negraAuxDos = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(negraAuxDos,sonidos);
+		segundoCompas.addElementoDePartitura(unAcorde);
+
+		Partitura laPartitura= new Partitura();
+		laPartitura.addCompas(primerCompas);
+		laPartitura.addCompas(segundoCompas);
+
+		/* La canción queda creada con 4 notas.*/
+
+		Cancion unaCancion=new Cancion(laPartitura,"titulo","artista",5);
+
+		/* Armo el nivel y asigno la canción armada previamente. */
+		NivelMedio nivel = new NivelMedio();
+
+		nivel.cargarCancion(unaCancion);
+
+		nivel.setPuntajeIdeal();
+
+		/* Comprueba que la lista tengo un puntaje ideal de 4*5 = 20 */
+		assertTrue(nivel.getPuntajeIdeal()== 20.0);
+
+	}
+
+	public void testSetPuntajeMinimo(){
+
+		/* Armo el primer compas */
+
+		Negra unaNegra=new Negra(false);
+		Negra otraNegra=new Negra(true);
+		Re unRe=new Re();
+		Nota primerNota= new Nota(unaNegra,unRe);
+		Nota segundaNota= new Nota(otraNegra,unRe);
+		int numerador=5;
+        Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas primerCompas= new Compas(armadura);
+		primerCompas.addElementoDePartitura(primerNota);
+		primerCompas.addElementoDePartitura(segundaNota);
+
+		/* Armo el segundo compas */
+
+		Compas segundoCompas= new Compas(armadura);
+		Do unDo=new Do();
+		Nota unaNota=new Nota(negra,unDo);
+		segundoCompas.addElementoDePartitura(unaNota);
+		Negra negraAux = new Negra(true);
+		Nota otraNota=new Nota(negraAux,unDo);
+		segundoCompas.addElementoDePartitura(otraNota);
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra negraAuxDos = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(negraAuxDos,sonidos);
+		segundoCompas.addElementoDePartitura(unAcorde);
+
+		Partitura laPartitura= new Partitura();
+		laPartitura.addCompas(primerCompas);
+		laPartitura.addCompas(segundoCompas);
+
+		/* La canción queda creada con 4 notas.*/
+
+		Cancion unaCancion=new Cancion(laPartitura,"titulo","artista",5);
+
+		/* Armo el nivel y asigno la canción armada previamente. */
+		NivelMedio nivel = new NivelMedio();
+
+		nivel.cargarCancion(unaCancion);
+
+		nivel.setPuntajeIdeal();
+		nivel.setPuntajeMinimo();
+
+		/* Comprueba que la lista tengo un puntaje minimo de 20*0.75 = 15 */
+		assertTrue(nivel.getPuntajeMinimo()== 15);
+
+	}
+
+	public void testEsSuficiente(){
+
+		/* Armo el primer compas */
+
+		Negra unaNegra=new Negra(false);
+		Negra otraNegra=new Negra(true);
+		Re unRe=new Re();
+		Nota primerNota= new Nota(unaNegra,unRe);
+		Nota segundaNota= new Nota(otraNegra,unRe);
+		int numerador=5;
+        Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(numerador,negra);
+		Compas primerCompas= new Compas(armadura);
+		primerCompas.addElementoDePartitura(primerNota);
+		primerCompas.addElementoDePartitura(segundaNota);
+
+		/* Armo el segundo compas */
+
+		Compas segundoCompas= new Compas(armadura);
+		Do unDo=new Do();
+		Nota unaNota=new Nota(negra,unDo);
+		segundoCompas.addElementoDePartitura(unaNota);
+		Negra negraAux = new Negra(true);
+		Nota otraNota=new Nota(negraAux,unDo);
+		segundoCompas.addElementoDePartitura(otraNota);
+		ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+        Do notaDo = new Do();
+        Do otraNotaDo=new Do();
+		Negra negraAuxDos = new Negra(false);
+		sonidos.add(notaDo);
+		sonidos.add(otraNotaDo);
+		Acorde unAcorde= new Acorde(negraAuxDos,sonidos);
+		segundoCompas.addElementoDePartitura(unAcorde);
+
+		Partitura laPartitura= new Partitura();
+		laPartitura.addCompas(primerCompas);
+		laPartitura.addCompas(segundoCompas);
+
+		/* La canción queda creada con 4 notas.*/
+
+		Cancion unaCancion=new Cancion(laPartitura,"titulo","artista",5);
+
+		/* Armo el nivel y asigno la canción armada previamente. */
+		NivelMedio nivel = new NivelMedio();
+
+		nivel.cargarCancion(unaCancion);
+
+		nivel.setPuntajeIdeal();
+		nivel.setPuntajeMinimo();
+		nivel.setPuntajeActual(16);
+
+		/* Comprueba que se pase el nivel habiendo hecho 16 puntos. */
+		assertTrue(nivel.esSuficiente()== true);
+
+	}
 
 }
