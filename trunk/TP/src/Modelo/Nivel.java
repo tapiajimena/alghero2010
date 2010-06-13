@@ -108,9 +108,7 @@ public abstract class Nivel {
 		else return false;
 	}
 
-	public void modificarVelocidad(){
-
-	}
+	public abstract void modificarVelocidad();
 
 
 }
