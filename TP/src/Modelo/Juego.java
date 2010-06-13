@@ -10,8 +10,8 @@ public class Juego {
 
 	//Métodos:
 
-	public Juego(TablaDeMapeo unaTabla){
-		this.tabla = unaTabla;
+	public Juego(ArrayList<Nivel> losNiveles){
+		this.niveles = losNiveles;
 	}
 
 	/*
@@ -19,7 +19,7 @@ public class Juego {
 	 */
 	public boolean ganoJuego(){
 		boolean superado = false;
-		for (int i=0; i<= niveles.size(); i++){
+		for (int i=0; i< niveles.size(); i++){
 			if (this.niveles.get(i).esSuficiente()){
 				superado = true;
 			}
