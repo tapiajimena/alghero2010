@@ -36,13 +36,6 @@ public class Acorde extends ElementoDePartitura {
 		return (sonidos);
 	}
 
-	public double getPuntajeIdeal(){
-		return (puntajeIdeal);
-	}
-
-
-
-
 
 }
 
