@@ -23,5 +23,13 @@ public class NivelMedio  extends Nivel{
 		return 0.75;
 	}
 
+	@Override
+	public void modificarVelocidad() {
+		for (int i = 0; i < this.canciones.size(); i++){
+			double tiempo = (this.canciones.get(i).getTiempoDeNegra() * 0.6);
+			this.canciones.get(i).setTiempoDeNegra(tiempo);
+		}
+	}
+
 
 }
