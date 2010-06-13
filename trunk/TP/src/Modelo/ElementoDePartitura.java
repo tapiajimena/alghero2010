@@ -13,6 +13,11 @@ public abstract class ElementoDePartitura {
 
 	}
 
+
+	public double getPuntajeIdeal(){
+		return (puntajeIdeal);
+	}
+
 }
 
 
