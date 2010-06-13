@@ -39,6 +39,10 @@ public class Cancion {
 		return this.puntajeIdeal;
 	}
 
+	public void setTiempoDeNegra(double tiempo){
+		this.tiempoDeNegra = tiempo;
+	}
+
 	public int obtenerCantidadDeNotas(){
 		int cantidadTotal=0;
 		int cantidadDeCompases=this.getPartitura().getCompases().size();
