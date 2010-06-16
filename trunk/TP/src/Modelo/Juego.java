@@ -62,7 +62,7 @@ public class Juego {
 
         	for (int i=0; i < Imax; i++){
            		Letra letraAgregada = this.letras.get(i);
-                this.niveles.get(j).letras.add(i, letraAgregada);
+                this.niveles.get(j).letras.add(i,letraAgregada);
            	}
         }
     }
