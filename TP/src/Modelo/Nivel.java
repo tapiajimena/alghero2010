@@ -34,52 +34,6 @@ package Modelo;
          //Métodos:
 
 
-         public char ingresarLetras(){
-
-         char letraIngresada;
-         InputStreamReader reader = new InputStreamReader (System.in);
-         BufferedReader f = new BufferedReader (reader);
-
-         try {
-                 letraIngresada = f.readLine().charAt(0);
-                 } catch (IOException e) {
-
-         // TODO Auto-generated catch block
-
-         }
-
-         letraIngresada = 'Y';
-         return letraIngresada;
-
-
-         }
-
-         /* Se definen las letras a utilizar en el nivel. El menu de configuracion pide
-          * 6 letras siempre. Despues dependiendo del nivel se usa una cierta cantidad */
-         public void definirLetras(){
-
-                 char letraIngresada;
-
-                 for (int i=0;i<6;i++){
-
-                 letraIngresada = this.ingresarLetras();
-
-                 this.letras.add(new Letra(letraIngresada));
-
-                 }
-         }
-
-         /* Devuelve las letras que se utilizaran en cada nivel dependiendo de la cantidad
-          * de teclas disponibles según la dificultad del mismo.
-          */
-         public ArrayList<Letra> obtenerLetras(){
-                 ArrayList<Letra> letrasDisponibles = new ArrayList<Letra>(cantidadTeclas);
-                 for (int i=0;i<cantidadTeclas;i++){
-                         letrasDisponibles.add(this.letras.get(i));
-                 }
-                 return letrasDisponibles;
-         }
-
          public void cargarCancion(Cancion unaCancion){
                  this.canciones.add(unaCancion);
          }
