@@ -1,0 +1,146 @@
+package Modelo;
+ import java.io.BufferedReader;
+ import java.io.IOException;
+ import java.io.InputStreamReader;
+ import java.util.ArrayList;
+
+
+ public abstract class Nivel {
+
+         //Atributos:
+
+         protected ArrayList<Letra> letras;
+         protected int cantidadTeclas;
+         protected ArrayList<Cancion> canciones;
+         protected double factorAumentoDificultad;
+
+         /* Lleva la cuenta del puntaje acumulado */
+         protected double puntajeActual;
+
+         /* Puntaje minimo a ser alcanzado para superar el nivel */
+         protected double puntajeMinimo;
+
+         /* Porcentage minimo a ser alcanzado para superar el nivel */
+         protected double porcentajeMinimo;
+
+         /* Puntaje ideal del nivel. */
+         protected double puntajeIdeal;
+
+         /* Llevan el conteo de lo que sucede con la apreciacion de las notas */
+         protected double contadorDeErrores;
+         protected double contadorDeAciertos;
+         protected double contadorDePerfectos;
+
+         //Métodos:
+
+
+         public char ingresarLetras(){
+
+         char letraIngresada;
+         InputStreamReader reader = new InputStreamReader (System.in);
+         BufferedReader f = new BufferedReader (reader);
+
+         try {
+                 letraIngresada = f.readLine().charAt(0);
+                 } catch (IOException e) {
+
+         // TODO Auto-generated catch block
+
+         }
+
+         letraIngresada = 'Y';
+         return letraIngresada;
+
+
+         }
+
+         /* Se definen las letras a utilizar en el nivel. El menu de configuracion pide
+          * 6 letras siempre. Despues dependiendo del nivel se usa una cierta cantidad */
+         public void definirLetras(){
+
+                 char letraIngresada;
+
+                 for (int i=0;i<6;i++){
+
+                 letraIngresada = this.ingresarLetras();
+
+                 this.letras.add(new Letra(letraIngresada));
+
+                 }
+         }
+
+         /* Devuelve las letras que se utilizaran en cada nivel dependiendo de la cantidad
+          * de teclas disponibles según la dificultad del mismo.
+          */
+         public ArrayList<Letra> obtenerLetras(){
+                 ArrayList<Letra> letrasDisponibles = new ArrayList<Letra>(cantidadTeclas);
+                 for (int i=0;i<cantidadTeclas;i++){
+                         letrasDisponibles.add(this.letras.get(i));
+                 }
+                 return letrasDisponibles;
+         }
+
+         public void cargarCancion(Cancion unaCancion){
+                 this.canciones.add(unaCancion);
+         }
+
+         public Cancion elegirCancion(int index){
+                 return this.canciones.get(index);
+         }
+
+         public ArrayList<Cancion> getListaCanciones(){
+                 return this.canciones;
+         }
+
+         public abstract double getPorcentajeMinimo();
+
+         /* Este metodo debe ser modificado luego de establecer la verificacion de aciertos*/
+         public void setPuntajeActual(double valor){
+                 this.puntajeActual = valor;
+         }
+
+         public double getPuntajeActual(){
+                 return this.puntajeActual;
+         }
+
+         public double getPuntajeIdeal(){
+                 return this.puntajeIdeal;
+         }
+
+         /*
+          * Se establece el puntaje ideal del nivel, que se remite a la suma de puntajes ideales
+          *  de cada canción que compone al nivel.
+          */
+         public void setPuntajeIdeal(){
+                 int j = this.canciones.size();
+                 for (int i=0; i<j; i++){
+                         this.puntajeIdeal += this.elegirCancion(i).getPuntajeIdeal();
+                 }
+         }
+
+         public double getPuntajeMinimo(){
+                 return this.puntajeMinimo;
+         }
+         /*
+          * Se establece el puntaje minimo del nivel, que se remite a la suma de puntajes
+          * minimos de cada canción que compone al nivel.
+          */
+         public void setPuntajeMinimo(){
+                 int j = this.canciones.size();
+                 double valor = 0;
+                 for (int i=0; i<j; i++){
+                         valor = valor + this.elegirCancion(i).getPuntajeIdeal()* this.getPorcentajeMinimo();
+                 }
+                 this.puntajeMinimo = valor;
+         }
+
+         /* Se usa para preguntar si se ha superado el nivel */
+         public boolean esSuficiente(){
+                 if (this.puntajeActual >= this.puntajeMinimo) return true;
+                 else return false;
+         }
+
+         public abstract void modificarVelocidad();
+
+
+ }
