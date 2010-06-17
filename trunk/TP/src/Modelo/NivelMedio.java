@@ -11,7 +11,7 @@ public class NivelMedio  extends Nivel{
 	 * indicadas, en este caso son 5.
 	 */
 	public NivelMedio(){
-		this.letras = new ArrayList(5);
+		this.letras = new ArrayList(4);
 		this.canciones = new ArrayList();
 		this.porcentajeMinimo = 0.75;
 		this.factorAumentoDificultad = 2;
