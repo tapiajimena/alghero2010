@@ -92,5 +92,31 @@ public class CompasTest extends TestCase{
 
 	}
 
+	/* Veo agregar una nota de duracion negra a un compas de 1 negra de duracion.
+	 * Y despues veo que al querer agregar otra igual se lance la excepcion correspondiente
+	 */
 
+	public void testAddElementoDePartitura() throws CompasLlenoException{
+		Negra negra = new Negra(false);
+		ArmaduraDeClave armadura=new ArmaduraDeClave(1,negra);
+		Compas unCompas= new Compas(armadura);
+		Do unDo=new Do();
+		Nota unaNota=new Nota(negra,unDo);
+		unCompas.addElementoDePartitura(unaNota);
+
+		assertTrue(unCompas.getElementosDePartitura().size()==1);
+
+		try {
+			unCompas.addElementoDePartitura(unaNota);
+
+		  } catch (CompasLlenoException expected) {
+		    assertTrue(true);
+		  }
+		
+
+
+	}
 }
+
+
+
