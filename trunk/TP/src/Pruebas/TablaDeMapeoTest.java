@@ -55,7 +55,8 @@ public class TablaDeMapeoTest extends TestCase {
 	    tabla.armarTabla();
 
 
-	    assertTrue(tabla.getTabla().get(0)==unaNota);
+	    assertTrue(tabla.getTabla().containsValue(otraNota));
+
 
 
 
