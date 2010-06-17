@@ -2,6 +2,7 @@ package Pruebas;
 
 import java.util.ArrayList;
 
+import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
 import Modelo.Cancion;
@@ -19,7 +20,7 @@ import junit.framework.TestCase;
 
 public class JuegoTest extends TestCase {
 
-	public void testGanoJuego(){
+	public void testGanoJuego() throws CompasLlenoException{
 
 		/* Armo el primer compas */
 

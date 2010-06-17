@@ -1,4 +1,5 @@
 package Pruebas;
+import Excepciones.CompasLlenoException;
 import Modelo.Blanca;
 import Modelo.ArmaduraDeClave;
 import Modelo.Compas;
@@ -25,7 +26,7 @@ public class TablaDeMapeoTest extends TestCase {
 	 *
 	 */
 
-	public void testArmarTabla(){
+	public void testArmarTabla() throws CompasLlenoException{
 
 		Blanca blanca=new Blanca(false);
 		ArmaduraDeClave unaArmadura=new ArmaduraDeClave(2,blanca);
