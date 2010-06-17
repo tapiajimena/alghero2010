@@ -11,9 +11,8 @@ public class NivelFacil extends Nivel{
 	 * indicadas, en este caso son 3.
 	 */
 	public NivelFacil(){
-		this.letras = new ArrayList(cantidadTeclas);
+		this.letras = new ArrayList(3);
 		this.canciones = new ArrayList();
-		this.cantidadTeclas = 3;
 		this.porcentajeMinimo = 0.55;
 		this.factorAumentoDificultad = 1;
 	}
