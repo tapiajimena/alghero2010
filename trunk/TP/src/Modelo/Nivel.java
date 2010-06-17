@@ -105,6 +105,10 @@ import java.util.Map;
         	 return tablaDeTeclas;
          }
 
+         public int getCantidadDeTeclas(){
+     		return cantidadTeclas;
+     	}
+
          public ArrayList<Letra> getLetras(){
         	 return letras;
 
