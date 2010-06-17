@@ -1,6 +1,8 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NivelMedio  extends Nivel{
 
@@ -11,6 +13,7 @@ public class NivelMedio  extends Nivel{
 	 * indicadas, en este caso son 5.
 	 */
 	public NivelMedio(){
+		Map<Double,Letra> tablaDeTeclas = new HashMap<Double,Letra>();
 		this.letras = new ArrayList(4);
 		this.canciones = new ArrayList();
 		this.porcentajeMinimo = 0.75;

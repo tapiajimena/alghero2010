@@ -1,24 +1,26 @@
 package Modelo;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class TablaDeMapeo {
 
 	//Atributos:
 
-	private ArrayList<ElementoDeTabla> tabla;
+	private Map<Double,ElementoDePartitura> tabla;
 	private Cancion cancion;
 
 	// Métodos:
 
 	public TablaDeMapeo(Cancion unaCancion){
 		this.cancion = unaCancion;
-		this.tabla = new ArrayList<ElementoDeTabla>();
+		this.tabla =new HashMap<Double,ElementoDePartitura>();
 
 	}
 
-	public ArrayList<ElementoDeTabla> getTabla(){
+	public  Map<Double,ElementoDePartitura> getTabla(){
 		return (this.tabla);
 	}
 
@@ -47,8 +49,8 @@ public class TablaDeMapeo {
 				ElementoDePartitura elementoActual=compasActual.getElementosDePartitura().get(j);
 
 
-				ElementoDeTabla unElemento=new ElementoDeTabla(tiempo,elementoActual);
-				this.tabla.add(unElemento);
+
+				this.tabla.put(tiempo, elementoActual);
 				tiempo=tiempo+ elementoActual.getFigura().duracion(tiempoDeNegra);
 
 
