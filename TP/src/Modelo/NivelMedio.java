@@ -10,12 +10,13 @@ public class NivelMedio  extends Nivel{
 
 	/*
 	 * Se inicializa el nivel con la cantidad de teclas disponibles para jugar
-	 * indicadas, en este caso son 5.
+	 * indicadas, en este caso son 4.
 	 */
 	public NivelMedio(){
+		this.cantidadTeclas=4;
 		Map<Double,Letra> tablaDeTeclas = new HashMap<Double,Letra>();
-		this.letras = new ArrayList(4);
-		this.canciones = new ArrayList();
+		this.letras = new ArrayList<Letra>();
+		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo = 0.75;
 		this.factorAumentoDificultad = 2;
 	}

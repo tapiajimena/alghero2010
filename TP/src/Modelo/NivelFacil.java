@@ -13,12 +13,17 @@ public class NivelFacil extends Nivel{
 	 * indicadas, en este caso son 3.
 	 */
 	public NivelFacil(){
+		this.cantidadTeclas=3;
 		Map<Double,Letra> tablaDeTeclas = new HashMap<Double,Letra>();
-		this.letras = new ArrayList(3);
-		this.canciones = new ArrayList();
+		this.letras = new ArrayList<Letra>();
+		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo = 0.55;
 		this.factorAumentoDificultad = 1;
 	}
+
+
+
+
 
 	@Override
 	public double getPorcentajeMinimo() {

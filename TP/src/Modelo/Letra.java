@@ -8,4 +8,8 @@ public class Letra {
 		this.simbolo = letraIngresada;
 	}
 
+	public char getSimbolo(){
+		return simbolo;
+	}
+
 }

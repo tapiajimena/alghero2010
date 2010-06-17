@@ -17,7 +17,16 @@ public class Juego {
 	//Métodos:
 
 	public Juego(ArrayList<Nivel> losNiveles){
+		this.letras= new ArrayList<Letra>();
 		this.niveles = losNiveles;
+	}
+
+	public ArrayList<Letra> getLetras(){
+		return letras;
+	}
+
+	public ArrayList<Nivel> getNiveles(){
+		return niveles;
 	}
 
 	/* Método por el cual se ingresan las 6 letras a utilizar durante todo
@@ -59,11 +68,11 @@ public class Juego {
     public void asignarLetrasNivel(){
         for (int j = 0; j < this.niveles.size(); j++){
 
-        	int Imax = this.niveles.get(j).letras.size();
+        	int cantidadDeTeclas=this.niveles.get(j).getCantidadDeTeclas();
 
-        	for (int i=0; i < Imax; i++){
+        	for (int i=0; i < cantidadDeTeclas; i++){
            		Letra letraAgregada = this.letras.get(i);
-                this.niveles.get(j).letras.add(i,letraAgregada);
+                this.niveles.get(j).getLetras().add(i,letraAgregada);
            	}
         }
     }

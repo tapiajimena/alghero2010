@@ -50,7 +50,7 @@ public class TablaDeMapeo {
 
 
 
-				this.tabla.put(tiempo, elementoActual);
+				this.tabla.put(tiempo,elementoActual);
 				tiempo=tiempo+ elementoActual.getFigura().duracion(tiempoDeNegra);
 
 
