@@ -54,8 +54,13 @@ public class TablaDeMapeoTest extends TestCase {
 
 	    tabla.armarTabla();
 
-
+	    /* Compruebo que se halla agregado otraNota a la Tabla */
 	    assertTrue(tabla.getTabla().containsValue(otraNota));
+
+	    /* Compruebo que la clave se corresponda con el dato */
+	    /* Y me tira error: expectet <null> but was:<Modelo.Nota@12f0999>*/
+	    /* igualando a null corre perfecto */
+	    assertEquals(tabla.getTabla().get(0),unaNota);
 
 
 
