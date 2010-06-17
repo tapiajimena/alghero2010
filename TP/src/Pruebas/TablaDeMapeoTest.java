@@ -53,18 +53,9 @@ public class TablaDeMapeoTest extends TestCase {
 
 	    tabla.armarTabla();
 
-	    assertTrue(tabla.getTabla().get(0).getTiempo()==0);
-	    assertTrue(tabla.getTabla().get(0).getElemento()==unaNota);
-	    assertTrue(tabla.getTabla().get(1).getTiempo()==4);
-	    assertTrue(tabla.getTabla().get(1).getElemento()==unaNota);
-	    assertTrue(tabla.getTabla().get(2).getTiempo()==8);
-	    assertTrue(tabla.getTabla().get(2).getElemento()==otraNota);
-	    assertTrue(tabla.getTabla().get(3).getTiempo()==10);
-	    assertTrue(tabla.getTabla().get(3).getElemento()==otraNota);
-	    assertTrue(tabla.getTabla().get(4).getTiempo()==12);
-	    assertTrue(tabla.getTabla().get(4).getElemento()==otraNota);
-	    assertTrue(tabla.getTabla().get(5).getTiempo()==14);
-	    assertTrue(tabla.getTabla().get(5).getElemento()==otraNota);
+
+	    assertTrue(tabla.getTabla().get(0)==unaNota);
+
 
 
 
