@@ -1,6 +1,7 @@
 package Pruebas;
 import java.util.ArrayList;
 
+import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
 import Modelo.Compas;
@@ -24,7 +25,7 @@ public class CancionTest extends TestCase{
 
 	*/
 
-	public void testobtenerCantidadDeNotas(){
+	public void testobtenerCantidadDeNotas() throws CompasLlenoException{
 
 		//armo el primer Compas
 

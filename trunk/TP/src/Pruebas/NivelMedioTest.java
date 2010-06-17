@@ -3,6 +3,7 @@ package Pruebas;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
+import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.Cancion;
 import Modelo.Do;
@@ -18,7 +19,7 @@ import Modelo.NivelMedio;
 
 public class NivelMedioTest extends TestCase {
 
-	public void testCargarCancion(){
+	public void testCargarCancion() throws CompasLlenoException{
 
 		/* Armo el primer compas */
 
@@ -70,7 +71,7 @@ public class NivelMedioTest extends TestCase {
 
 	}
 
-	public void testSetPuntajeIdeal(){
+	public void testSetPuntajeIdeal() throws CompasLlenoException{
 
 		/* Armo el primer compas */
 
@@ -124,7 +125,7 @@ public class NivelMedioTest extends TestCase {
 
 	}
 
-	public void testSetPuntajeMinimo(){
+	public void testSetPuntajeMinimo() throws CompasLlenoException{
 
 		/* Armo el primer compas */
 
@@ -179,7 +180,7 @@ public class NivelMedioTest extends TestCase {
 
 	}
 
-	public void testEsSuficiente(){
+	public void testEsSuficiente() throws CompasLlenoException{
 
 		/* Armo el primer compas */
 

@@ -1,4 +1,5 @@
 package Pruebas;
+import Excepciones.CompasLlenoException;
 import Modelo.ArmaduraDeClave;
 import Modelo.Blanca;
 import Modelo.ArmaduraDeClave;
@@ -19,7 +20,7 @@ public class CompasTest extends TestCase{
 	//que tiene un acorde de negra, un silencio de negra, y una nota de negra. Por
 	//lo tanto debe devolver 3.
 
-	public void testObtenerDuracionHastaElMomento(){
+	public void testObtenerDuracionHastaElMomento() throws CompasLlenoException{
 		int numerador=5;
 
 		Negra negra = new Negra(false);
@@ -54,7 +55,7 @@ public class CompasTest extends TestCase{
 	//Pero si quiero agregar una nota con una duracion de Redonda no.
 
 
-	public void testSePuedeAgregarElementoDePartitura(){
+	public void testSePuedeAgregarElementoDePartitura() throws CompasLlenoException{
 		int numerador=5;
 
 		Negra negra = new Negra(false);
@@ -90,8 +91,6 @@ public class CompasTest extends TestCase{
 
 
 	}
-
-	//FALTA PROBAR EL METODO DE LA EXCEPCION
 
 
 }
