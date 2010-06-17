@@ -1,6 +1,8 @@
 package Modelo;
 import java.util.ArrayList;
 
+import Excepciones.CompasLlenoException;
+
 public class Compas {
 
 	//Atributos:
@@ -52,11 +54,14 @@ public class Compas {
 		return this.elementosDePartitura;
 	}
 
-	//Se podria tirar una excepcion aca
-	public void addElementoDePartitura(ElementoDePartitura elemento){
+	/* Este método lanza una excepcion del tipo CompasLlenoException */
+	public void addElementoDePartitura(ElementoDePartitura elemento) throws CompasLlenoException{
 		if(this.sePuedeAgregarElementoDePartitura(elemento)){
 			elementosDePartitura.add(elemento);
 		}
+			else{
+				throw new CompasLlenoException("No puede agregarse mas elementos De Partitura");
+			}
 	}
 
 }
