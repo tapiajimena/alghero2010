@@ -2,17 +2,20 @@ package Modelo;
  import java.io.BufferedReader;
  import java.io.IOException;
  import java.io.InputStreamReader;
- import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.Map;
 
 
  public abstract class Nivel {
 
          //Atributos:
 
+
          protected ArrayList<Letra> letras;
          protected int cantidadTeclas;
          protected ArrayList<Cancion> canciones;
          protected double factorAumentoDificultad;
+         protected Map<Double,Letra> tablaDeTeclas;
 
          /* Lleva la cuenta del puntaje acumulado */
          protected double puntajeActual;
@@ -95,6 +98,17 @@ package Modelo;
          }
 
          public abstract void modificarVelocidad();
+
+         public abstract void distribuirTeclas();
+
+         public Map<Double,Letra> getTablaDeTeclas(){
+        	 return tablaDeTeclas;
+         }
+
+         public ArrayList<Letra> getLetras(){
+        	 return letras;
+
+         }
 
 
  }
