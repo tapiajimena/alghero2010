@@ -44,7 +44,8 @@ public class Juego {
 	/* Se definen las letras a utilizar en el nivel. */
     public void definirLetras(){
             char letraIngresada;
-            for (int i=0 ; i<6 ; i++){
+            int maximaCantidadLetras = 6;
+            for (int i=0 ; i<maximaCantidadLetras ; i++){
             	letraIngresada = this.ingresarLetras();
             	this.letras.add(new Letra(letraIngresada));
             }
