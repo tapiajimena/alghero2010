@@ -9,6 +9,7 @@ import Modelo.Cancion;
 import Modelo.Do;
 import Modelo.Compas;
 import Modelo.ArmaduraDeClave;
+import Modelo.Letra;
 import Modelo.Negra;
 import Modelo.Nota;
 import Modelo.Partitura;
@@ -233,6 +234,44 @@ public class NivelFacilTest extends TestCase {
 		/* Comprueba que se pase el nivel habiendo hecho 10 puntos. */
 		/* Dado que el minimo es 11, no deberia poder pasar de nivel. */
 		assertTrue(nivel.esSuficiente()== false);
+
+	}
+
+	/* Veamos que la distribucion de teclas se haga en forma correcta
+	 *
+	 */
+
+	public void testDistribuirTeclas(){
+
+		Letra a=new Letra('a');
+		Letra s=new Letra('s');
+		Letra d=new Letra('d');
+
+
+		NivelFacil unNivelFacil= new NivelFacil();
+		unNivelFacil.getLetras().add(a);
+		unNivelFacil.getLetras().add(s);
+		unNivelFacil.getLetras().add(d);
+
+		unNivelFacil.distribuirTeclas();
+
+
+
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(1)==a);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(2)==a);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(3)==a);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(4)==a);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(5)==s);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(6)==s);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(7)==s);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(8)==s);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(9)==d);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(10)==d);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(11)==d);
+		assertTrue(unNivelFacil.getTablaDeTeclas().get(12)==d);
+
+
+
 
 	}
 

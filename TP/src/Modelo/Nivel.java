@@ -13,7 +13,7 @@ import java.util.Map;
          protected int cantidadTeclas;
          protected ArrayList<Cancion> canciones;
          protected double factorAumentoDificultad;
-         /*Guarda la relacion entre los sonidos (relacionados con su identifcador) y
+         /*Guarda la relacion entre los sonidos (usando su identifcador) y
           * la letra que tiene asignada
           */
          protected Map<Integer,Letra> tablaDeTeclas;
