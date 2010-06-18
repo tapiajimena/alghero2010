@@ -6,7 +6,7 @@ import Modelo.Do;
 import Modelo.Sonido;
 
 import java.util.ArrayList;
-import Modelo.Nota;
+
 
 public class AcordeTest extends TestCase{
 

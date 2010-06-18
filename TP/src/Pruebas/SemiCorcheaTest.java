@@ -1,7 +1,6 @@
 package Pruebas;
 
 import junit.framework.TestCase;
-import Modelo.Negra;
 import Modelo.SemiCorchea;
 
 public class SemiCorcheaTest extends TestCase {

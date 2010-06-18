@@ -1,6 +1,5 @@
 package Pruebas;
 import junit.framework.TestCase;
-import Modelo.Blanca;
 import Modelo.Negra;
 
 

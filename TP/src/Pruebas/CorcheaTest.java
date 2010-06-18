@@ -1,7 +1,6 @@
 package Pruebas;
 
 import Modelo.Corchea;
-import Modelo.Negra;
 import junit.framework.TestCase;
 
 public class CorcheaTest extends TestCase {

@@ -1,8 +1,6 @@
 package Pruebas;
 import Excepciones.CompasLlenoException;
 import Modelo.ArmaduraDeClave;
-import Modelo.Blanca;
-import Modelo.ArmaduraDeClave;
 import junit.framework.TestCase;
 import java.util.ArrayList;
 
@@ -112,7 +110,7 @@ public class CompasTest extends TestCase{
 		  } catch (CompasLlenoException expected) {
 		    assertTrue(true);
 		  }
-		
+
 
 
 	}
