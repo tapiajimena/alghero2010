@@ -1,5 +1,6 @@
 package Modelo;
 
+
 public class SolSostenido extends Sonido{
 
 	//Métodos:
