@@ -14,7 +14,7 @@ public class NivelMedio  extends Nivel{
 	 */
 	public NivelMedio(){
 		this.cantidadTeclas=4;
-		Map<Integer,Letra> tablaDeTeclas = new HashMap<Integer,Letra>();
+		this.tablaDeTeclas = new HashMap<Integer,Letra>();
 		this.letras = new ArrayList<Letra>();
 		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo = 0.75;

@@ -9,7 +9,9 @@ import Modelo.Cancion;
 import Modelo.Do;
 import Modelo.Compas;
 import Modelo.ArmaduraDeClave;
+import Modelo.Letra;
 import Modelo.Negra;
+import Modelo.NivelDificil;
 import Modelo.Nota;
 import Modelo.Partitura;
 import Modelo.Re;
@@ -234,5 +236,47 @@ public class NivelMedioTest extends TestCase {
 		assertTrue(nivel.esSuficiente()== true);
 
 	}
+
+	/* Veamos que la distribucion de teclas se haga en forma correcta
+	 *
+	 */
+
+	public void testDistribuirTeclas(){
+
+		Letra a=new Letra('a');
+		Letra s=new Letra('s');
+		Letra d=new Letra('d');
+		Letra f=new Letra('f');
+
+
+		NivelMedio unNivelMedio= new NivelMedio();
+		unNivelMedio.getLetras().add(a);
+		unNivelMedio.getLetras().add(s);
+		unNivelMedio.getLetras().add(d);
+		unNivelMedio.getLetras().add(f);
+
+
+		unNivelMedio.distribuirTeclas();
+
+
+
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(1)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(2)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(3)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(4)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(5)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(6)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(7)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(8)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(9)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(10)==f);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(11)==f);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(12)==f);
+
+
+
+
+	}
+
 
 }
