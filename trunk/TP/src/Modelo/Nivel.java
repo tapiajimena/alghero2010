@@ -15,7 +15,10 @@ import java.util.Map;
          protected int cantidadTeclas;
          protected ArrayList<Cancion> canciones;
          protected double factorAumentoDificultad;
-         protected Map<Double,Letra> tablaDeTeclas;
+         /*Guarda la relacion entre los sonidos (relacionados con su identifcador) y
+          * la letra que tiene asignada
+          */
+         protected Map<Integer,Letra> tablaDeTeclas;
 
          /* Lleva la cuenta del puntaje acumulado */
          protected double puntajeActual;
@@ -35,6 +38,25 @@ import java.util.Map;
          protected double contadorDePerfectos;
 
          //Métodos:
+
+         public abstract void modificarVelocidad();
+
+         public abstract void distribuirTeclas();
+
+
+
+         public Map<Integer,Letra> getTablaDeTeclas(){
+        	 return tablaDeTeclas;
+         }
+
+         public int getCantidadDeTeclas(){
+     		return cantidadTeclas;
+     	}
+
+         public ArrayList<Letra> getLetras(){
+        	 return letras;
+
+         }
 
 
          public void cargarCancion(Cancion unaCancion){
@@ -96,23 +118,6 @@ import java.util.Map;
                  if (this.puntajeActual >= this.puntajeMinimo) return true;
                  else return false;
          }
-
-         public abstract void modificarVelocidad();
-
-         public abstract void distribuirTeclas();
-
-         public Map<Double,Letra> getTablaDeTeclas(){
-        	 return tablaDeTeclas;
-         }
-
-         public int getCantidadDeTeclas(){
-     		return cantidadTeclas;
-     	}
-
-         public ArrayList<Letra> getLetras(){
-        	 return letras;
-
-         }
-
-
  }
+
+
