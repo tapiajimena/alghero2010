@@ -14,7 +14,6 @@ import Modelo.Nota;
 import Modelo.Partitura;
 import Modelo.Re;
 import Modelo.Sonido;
-import Modelo.Nivel;
 import Modelo.NivelMedio;
 
 public class NivelMedioTest extends TestCase {
