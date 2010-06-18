@@ -2,8 +2,10 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class TablaDeMapeo {
 
@@ -50,7 +52,7 @@ public class TablaDeMapeo {
 
 
 
-				this.tabla.put(tiempo,elementoActual);
+				this.tabla.put(tiempo, elementoActual);
 				tiempo=tiempo+ elementoActual.getFigura().duracion(tiempoDeNegra);
 
 
