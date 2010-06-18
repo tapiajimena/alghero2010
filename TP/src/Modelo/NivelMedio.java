@@ -14,7 +14,7 @@ public class NivelMedio  extends Nivel{
 	 */
 	public NivelMedio(){
 		this.cantidadTeclas=4;
-		Map<Double,Letra> tablaDeTeclas = new HashMap<Double,Letra>();
+		Map<Integer,Letra> tablaDeTeclas = new HashMap<Integer,Letra>();
 		this.letras = new ArrayList<Letra>();
 		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo = 0.75;
@@ -37,19 +37,18 @@ public class NivelMedio  extends Nivel{
 	public void distribuirTeclas(){
 
 
-
-		this.getTablaDeTeclas().put(261.626, (this.getLetras().get(0)));//do
-		this.getTablaDeTeclas().put(293.665, (this.getLetras().get(0)));//re
-		this.getTablaDeTeclas().put(329.628, (this.getLetras().get(0)));//mi
-		this.getTablaDeTeclas().put(349.228, (this.getLetras().get(1)));//fa
-		this.getTablaDeTeclas().put(391.995, (this.getLetras().get(1)));//sol
-		this.getTablaDeTeclas().put(440.0, (this.getLetras().get(1)));//la
-		this.getTablaDeTeclas().put(493.883, (this.getLetras().get(2)));//si
-		this.getTablaDeTeclas().put(277.183, (this.getLetras().get(2)));//dosostenido
-		this.getTablaDeTeclas().put(311.127, (this.getLetras().get(2)));//resostenido
-		this.getTablaDeTeclas().put(369.994, (this.getLetras().get(3)));//fasostenido
-		this.getTablaDeTeclas().put(415.305, (this.getLetras().get(3)));//solsostenido
-		this.getTablaDeTeclas().put(466.164, (this.getLetras().get(3)));//lasostenido
+		this.getTablaDeTeclas().put(1, (this.getLetras().get(0)));//do
+		this.getTablaDeTeclas().put(2, (this.getLetras().get(0)));//re
+		this.getTablaDeTeclas().put(3, (this.getLetras().get(0)));//mi
+		this.getTablaDeTeclas().put(4, (this.getLetras().get(1)));//fa
+		this.getTablaDeTeclas().put(5, (this.getLetras().get(1)));//sol
+		this.getTablaDeTeclas().put(6, (this.getLetras().get(1)));//la
+		this.getTablaDeTeclas().put(7, (this.getLetras().get(2)));//si
+		this.getTablaDeTeclas().put(8, (this.getLetras().get(2)));//dosostenido
+		this.getTablaDeTeclas().put(9, (this.getLetras().get(2)));//resostenido
+		this.getTablaDeTeclas().put(10, (this.getLetras().get(3)));//fasostenido
+		this.getTablaDeTeclas().put(11, (this.getLetras().get(3)));//solsostenido
+		this.getTablaDeTeclas().put(12, (this.getLetras().get(3)));//lasostenido
 
 
 
