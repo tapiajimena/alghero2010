@@ -1,4 +1,5 @@
 package Modelo;
+
 public class Cancion {
 
 	//Atributos:
@@ -9,6 +10,8 @@ public class Cancion {
 	private double puntajeIdeal;
 
 	//Métodos:
+
+
 
 	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
