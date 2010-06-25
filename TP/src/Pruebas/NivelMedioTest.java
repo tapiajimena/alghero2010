@@ -11,7 +11,6 @@ import Modelo.Compas;
 import Modelo.ArmaduraDeClave;
 import Modelo.Letra;
 import Modelo.Negra;
-import Modelo.NivelDificil;
 import Modelo.Nota;
 import Modelo.Partitura;
 import Modelo.Re;
