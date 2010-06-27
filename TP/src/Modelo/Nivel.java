@@ -35,6 +35,10 @@ import java.util.Map;
          protected double contadorDeAciertos;
          protected double contadorDePerfectos;
 
+
+
+
+
          //Métodos:
 
          public abstract void modificarVelocidad();

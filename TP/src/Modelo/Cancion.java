@@ -1,5 +1,16 @@
 package Modelo;
 
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import persistenciaNoOficial.Anotador;
+import persistenciaNoOficial.Nota;
+
 public class Cancion {
 
 	//Atributos:
@@ -10,6 +21,20 @@ public class Cancion {
 	private double puntajeIdeal;
 
 	//Métodos:
+
+/*
+	 public static Cancion recuperar(String archivo) throws IOException{
+	       Cancion cancion = new Cancion();
+	       SAXReader reader = new SAXReader();
+	       try{
+		        Document document = reader.read(archivo);
+		        Element elemAnotador = document.getRootElement();
+		        cancion = recuperar(elemAnotador);
+	       }catch(DocumentException ex){
+	           throw new IOException();
+	       }
+	       return cancion;
+	   }
 
 
 
