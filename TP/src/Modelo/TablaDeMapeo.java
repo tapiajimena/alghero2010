@@ -10,12 +10,14 @@ public class TablaDeMapeo {
 
 	private Map<Double,ElementoDePartitura> tabla;
 	private Cancion cancion;
+	private double cantidadDeSegundosDeLaCancion;
 
 	// Métodos:
 
 	public TablaDeMapeo(Cancion unaCancion){
 		this.cancion = unaCancion;
 		this.tabla =new HashMap<Double,ElementoDePartitura>();
+		this.cantidadDeSegundosDeLaCancion=0;
 
 	}
 
@@ -25,6 +27,10 @@ public class TablaDeMapeo {
 
 	public Cancion getCancion(){
 		return (this.cancion);
+	}
+
+	public double getCantidadDeSegundosDeLaCancion(){
+		return (this.cantidadDeSegundosDeLaCancion);
 	}
 
 	public void armarTabla(){
@@ -60,6 +66,7 @@ public class TablaDeMapeo {
 
 
 			}
+		this.cantidadDeSegundosDeLaCancion=tiempo;
 
 
 
