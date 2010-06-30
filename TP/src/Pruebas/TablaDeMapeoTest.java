@@ -60,6 +60,10 @@ public class TablaDeMapeoTest extends TestCase {
 	    assertTrue(tabla.getTabla().get(10d)==otraNota);
 	    assertTrue(tabla.getTabla().get(12d)==otraNota);
 	    assertTrue(tabla.getTabla().get(14d)==otraNota);
+	    assertTrue(tabla.getTabla().size()==6);
+	    assertTrue(tabla.getCantidadDeSegundosDeLaCancion()==16d);
+
+
 
 
 
