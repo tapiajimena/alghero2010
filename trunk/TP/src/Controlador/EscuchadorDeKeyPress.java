@@ -1,14 +1,17 @@
 package Controlador;
-
+/*
 import Controlador.KeyPressedObservador;
+import Modelo.Cancion;
+import Modelo.Juego;
+
 import java.awt.event.KeyEvent;
 
 public class EscuchadorDeKeyPress implements KeyPressedObservador {
 
-	private Pelota pelota;
+	private Juego juego;
 
-	public EscuchadorDeKeyPress(Pelota pelota){
-		this.pelota = pelota;
+	public EscuchadorDeKeyPress(Juego unJuego){
+		this.juego = unJuego;
 	}
 
 	public void keyPressed(KeyEvent event) {
@@ -36,3 +39,4 @@ public class EscuchadorDeKeyPress implements KeyPressedObservador {
 	}
 
 }
+*/
