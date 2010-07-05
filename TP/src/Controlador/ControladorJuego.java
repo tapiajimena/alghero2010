@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import Modelo.Juego;
 
-import Controlador.KeyPressedObservador;
 import Vista.Dibujable;
 import Controlador.KeyPressedObservador;
 import Vista.MouseClickObservador;
@@ -92,9 +91,9 @@ public class ControladorJuego implements Runnable {
                 	  if (elementoActual instanceof Nota){
                 		  Sonido sonidoActual=((Nota)elementoActual).getSonido();
                 		  if (segundaTabla.get(sonidoActual)==teclaIngresada){
-                			  unJuego.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
-                			  unJuego.getNiveles().get(indiceDeNivel).setPuntajeActual()=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
-                			  }else{unJuego.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                			  unJuego.getNiveles().get(indiceDeNivel).aumetarContadorDeAciertos();
+                			  unJuego.getNiveles().get(indiceDeNivel).incrementarPuntajeActual(primerTabla.get(segundosQuePasaron).getPuntajeIdeal());
+                			  }else{unJuego.getNiveles().get(indiceDeNivel).aumetarContadorDeErroress();
                       }
 
                 		  if (elementoActual instanceof Acorde){
@@ -103,9 +102,9 @@ public class ControladorJuego implements Runnable {
                     			 Sonido elSonidoActual = sonidosActuales.get(i);
 
                     		  if (segundaTabla.get(elSonidoActual)==teclaIngresada){
-                    			  unJuego.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
-                    			  unJuego.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
-                    			  }else{unJuego.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                    			  unJuego.getNiveles().get(indiceDeNivel).aumetarContadorDeAciertos();
+                    			  unJuego.getNiveles().get(indiceDeNivel).incrementarPuntajeActual(primerTabla.get(segundosQuePasaron).getPuntajeIdeal());
+                    			  }else{unJuego.getNiveles().get(indiceDeNivel).aumetarContadorDeErroress();
                           }
                     		  }
                 		  }
