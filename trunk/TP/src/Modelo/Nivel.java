@@ -45,7 +45,17 @@ import java.util.Map;
 
          public abstract void distribuirTeclas();
 
+         public void aumetarContadorDeAciertos(){
+        	 this.contadorDeAciertos++;
+         }
 
+         public void aumetarContadorDeErroress(){
+        	 this.contadorDeErrores++;
+         }
+
+         public void aumetarContadorDePerfectos(){
+        	 this.contadorDePerfectos++;
+         }
 
          public Map<Integer,Letra> getTablaDeTeclas(){
         	 return tablaDeTeclas;
@@ -76,8 +86,8 @@ import java.util.Map;
          public abstract double getPorcentajeMinimo();
 
          /* Este metodo debe ser modificado luego de establecer la verificacion de aciertos*/
-         public void setPuntajeActual(double valor){
-                 this.puntajeActual = valor;
+         public void incrementarPuntajeActual(double valor){
+                 this.puntajeActual = (this.puntajeActual + valor);
          }
 
          public double getPuntajeActual(){
