@@ -3,15 +3,27 @@ package Controlador;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import Modelo.Juego;
 
-import Controlador.Dibujable;
 import Controlador.KeyPressedObservador;
-import Controlador.MouseClickObservador;
-import Controlador.ObjetoVivo;
-import Controlador.OperacionNoValida;
-import Controlador.SuperficieDeDibujo;
+import Vista.Dibujable;
+import Controlador.KeyPressedObservador;
+import Vista.MouseClickObservador;
+import Vista.ObjetoVivo;
+import Excepciones.OperacionNoValida;
+import Vista.SuperficieDeDibujo;
+
+import Modelo.Acorde;
+import Modelo.Cancion;
+import Modelo.ElementoDePartitura;
+import Modelo.Letra;
+import Modelo.Nota;
+import Modelo.Sonido;
+import Modelo.TablaDeMapeo;
 
 
 public class ControladorJuego implements Runnable {
@@ -36,6 +48,85 @@ public class ControladorJuego implements Runnable {
 		if(this.estaReproductorActivo)
 			this.reproductor = new Reproductor();*/
 	}
+
+	public void Jugar(Juego unJuego,int indiceDeNivel,int indiceDeCancion){
+
+    	/*La primer tabla es de la forma: Segundo-ElementoDePartitura
+    	 * La segunda tabla es de la forma: Sonido-Tecla
+    	 * Entonces se fija que sonido tiene el elemento que se toco en
+    	 * ese segundo y se fija si  la tecla asociada coincide con la
+    	 * tecla asoc a ese sonido
+    	 */
+
+
+        Cancion cancionActual = unJuego.getNiveles().get(indiceDeNivel).elegirCancion(indiceDeCancion);
+        TablaDeMapeo unaTabla= new TablaDeMapeo(cancionActual) ;
+        unaTabla.armarTabla();
+        Map<Double, ElementoDePartitura> primerTabla = unaTabla.getTabla();
+
+        unJuego.getNiveles().get(indiceDeNivel).distribuirTeclas();
+        Map<Integer, Letra> segundaTabla = unJuego.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
+
+        long time=System.currentTimeMillis();
+        Date fechaDeComienzo=new Date(time);
+        Boolean fin=false;
+        Boolean sePresionaTecla=false; //CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
+        Letra teclaIngresada=new Letra('a');//CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
+
+
+      //Se habilita el teclado
+
+        while (!fin) {
+
+        if (sePresionaTecla){
+
+        	long timeNuevo=System.currentTimeMillis();
+            Date fechaActual=new Date(timeNuevo);
+            long segundosQuePasaron = ((fechaActual.getTime()-fechaDeComienzo.getTime())/1000);
+
+            if  ( primerTabla.containsKey(segundosQuePasaron)){
+
+            	  ElementoDePartitura elementoActual=primerTabla.get(segundosQuePasaron);
+                  if (!elementoActual.getFigura().esSilencio()){
+
+                	  if (elementoActual instanceof Nota){
+                		  Sonido sonidoActual=((Nota)elementoActual).getSonido();
+                		  if (segundaTabla.get(sonidoActual)==teclaIngresada){
+                			  unJuego.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
+                			  unJuego.getNiveles().get(indiceDeNivel).setPuntajeActual()=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
+                			  }else{unJuego.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                      }
+
+                		  if (elementoActual instanceof Acorde){
+                    		  ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
+                    		  for(int i=0;i<sonidosActuales.size();i++){
+                    			 Sonido elSonidoActual = sonidosActuales.get(i);
+
+                    		  if (segundaTabla.get(elSonidoActual)==teclaIngresada){
+                    			  unJuego.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
+                    			  unJuego.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
+                    			  }else{unJuego.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                          }
+                    		  }
+                		  }
+                	  }
+                  }
+            }
+        }
+
+        long timeUltimo=System.currentTimeMillis();
+        Date fechaUltima=new Date(timeUltimo);
+        long segundos= ((fechaUltima.getTime()-fechaDeComienzo.getTime())/1000);
+        if (segundos==unaTabla.getCantidadDeSegundosDeLaCancion()){
+        	fin=true;
+        }
+
+
+
+        }
+
+        }
+
 
 	public boolean estaEnEjecucion(){
 		return this.estaEnEjecucion;
