@@ -23,14 +23,16 @@ public class Juego {
 
     //Métodos:
 
-    public void Jugar(int indiceDeNivel,int indiceDeCancion){
+    /*
+     *
+     public void Jugar(int indiceDeNivel,int indiceDeCancion){
 
     	/*La primer tabla es de la forma: Segundo-ElementoDePartitura
     	 * La segunda tabla es de la forma: Sonido-Tecla
     	 * Entonces se fija que sonido tiene el elemento que se toco en
     	 * ese segundo y se fija si  la tecla asociada coincide con la
     	 * tecla asoc a ese sonido
-    	 */
+
 
 
         Cancion cancionActual = this.niveles.get(indiceDeNivel).elegirCancion(indiceDeCancion);
@@ -100,6 +102,8 @@ public class Juego {
         }
 
         }
+        */
+
 
 
 
@@ -121,7 +125,7 @@ public class Juego {
 
     /* Método por el cual se ingresan las 6 letras a utilizar durante todo
 	 * el juego.
-	 */
+
 	public char ingresarLetras(){
 
         char letraIngresada;
@@ -142,7 +146,9 @@ public class Juego {
 
 
 
-    /* Se definen las letras que quiere usar el usuario */
+
+
+     Se definen las letras que quiere usar el usuario
     public void definirLetras(){
             char letraIngresada;
             int maximaCantidadLetras = 6;
@@ -150,7 +156,7 @@ public class Juego {
                 letraIngresada = this.ingresarLetras();
                 this.letras.add(new Letra(letraIngresada));
             }
-    }
+    }*/
 
 
     /* Método por el cual asigno las letras a utilizar en cada uno de los
