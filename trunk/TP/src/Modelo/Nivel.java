@@ -17,6 +17,7 @@ import java.util.Map;
           * la letra que tiene asignada
           */
          protected Map<Integer,Letra> tablaDeTeclas;
+         protected String nombre;
 
          /* Lleva la cuenta del puntaje acumulado */
          protected double puntajeActual;
@@ -130,6 +131,10 @@ import java.util.Map;
                  if (this.puntajeActual >= this.puntajeMinimo) return true;
                  else return false;
          }
+
+		public void setNombre(String nombreNivel) {
+			this.nombre = nombreNivel;
+		}
  }
 
 
