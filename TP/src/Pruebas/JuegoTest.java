@@ -71,7 +71,7 @@ public class JuegoTest extends TestCase {
 		nivel.cargarCancion(unaCancion);
 		nivel.setPuntajeIdeal();
 		nivel.setPuntajeMinimo();
-		nivel.setPuntajeActual(20);
+		nivel.incrementarPuntajeActual(20);
 
 		ArrayList<Nivel> listaNiveles = new ArrayList<Nivel>();
 		listaNiveles.add(0, nivel);

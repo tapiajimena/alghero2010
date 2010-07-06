@@ -229,7 +229,7 @@ public class NivelDificilTest extends TestCase {
 
 		nivel.setPuntajeIdeal();
 		nivel.setPuntajeMinimo();
-		nivel.setPuntajeActual(20);
+		nivel.incrementarPuntajeActual(20);
 
 		/* Comprueba que se pase el nivel habiendo hecho 20 puntos. */
 		assertTrue(nivel.esSuficiente()== true);
