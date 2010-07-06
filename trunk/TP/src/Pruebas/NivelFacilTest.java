@@ -229,7 +229,7 @@ public class NivelFacilTest extends TestCase {
 
 		nivel.setPuntajeIdeal();
 		nivel.setPuntajeMinimo();
-		nivel.setPuntajeActual(10);
+		nivel.incrementarPuntajeActual(10);
 
 		/* Comprueba que se pase el nivel habiendo hecho 10 puntos. */
 		/* Dado que el minimo es 11, no deberia poder pasar de nivel. */
