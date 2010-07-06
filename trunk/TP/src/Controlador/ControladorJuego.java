@@ -2,6 +2,9 @@ package Controlador;
 
 
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -10,7 +13,6 @@ import java.util.Map;
 import Modelo.Juego;
 
 import Vista.Dibujable;
-import Controlador.KeyPressedObservador;
 import Vista.MouseClickObservador;
 import Vista.ObjetoVivo;
 import Excepciones.OperacionNoValida;
@@ -48,6 +50,15 @@ public class ControladorJuego implements Runnable {
 			this.reproductor = new Reproductor();*/
 	}
 
+	//Devuelve el char asociado a la tecla presionada
+
+	public char getTeclaPresionada(KeyEvent event) {
+
+		return event.getKeyChar();
+
+	}
+
+
 	public void Jugar(Juego unJuego,int indiceDeNivel,int indiceDeCancion){
 
     	/*La primer tabla es de la forma: Segundo-ElementoDePartitura
@@ -76,7 +87,8 @@ public class ControladorJuego implements Runnable {
       //Se habilita el teclado
 
         while (!fin) {
-
+// FORMA PARA VER SI SE PRESIONA UNA TECLA?
+        	//Y ADEMAS GUARDAR EL EVENT EN UNA VARIABLE PARA COMPARAR
         if (sePresionaTecla){
 
         	long timeNuevo=System.currentTimeMillis();
@@ -280,6 +292,45 @@ public class ControladorJuego implements Runnable {
 	public void run() {
 		this.comenzarJuego();
 	}
+
+
+
+
+    /* Método por el cual se ingresan las 6 letras a utilizar durante todo
+	 * el juego.*/
+
+	public char ingresarLetras(){
+
+        char letraIngresada;
+        InputStreamReader reader = new InputStreamReader (System.in);
+        BufferedReader f = new BufferedReader (reader);
+
+        try {
+                letraIngresada = f.readLine().charAt(0);
+                } catch (IOException e) {
+
+        // TODO Auto-generated catch block
+
+        }
+
+        letraIngresada = 'Y';
+        return letraIngresada;
+    }
+
+
+
+
+
+    /* Se definen las letras que quiere usar el usuario */
+    public void definirLetras(Juego unJuego){
+            char letraIngresada;
+            int maximaCantidadLetras = 6;
+            for (int i=0 ; i<maximaCantidadLetras ; i++){
+                letraIngresada = this.ingresarLetras();
+                unJuego.getLetras().add(new Letra(letraIngresada));
+            }
+    }
+
 
 	/*public Reproductor getReproductorDeAudio() {
 		if(!this.estaReproductorActivo)
