@@ -33,9 +33,9 @@ public class VistaJuego extends JFrame{
 	private VistaNivel vista;
 
 	public VistaJuego() {
-		this.nivel = CreadorNiveles.crearNivel();
-		this.vista = new VistaNivel(this.niveles[1]);
-		barraMenu();
+		//this.nivel = CreadorNiveles.crearNivel();
+		//this.vista = new VistaNivel(this.niveles[1]);
+		//barraMenu();
 		super.getContentPane().add(vista);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		super.getContentPane().setLayout(
