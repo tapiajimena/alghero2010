@@ -3,6 +3,8 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.swing.Icon;
+
 
  public abstract class Nivel {
 
@@ -132,8 +134,9 @@ import java.util.Map;
                  else return false;
          }
 
-		public void setNombre(String nombreNivel) {
-			this.nombre = nombreNivel;
+
+		public String getNombre() {
+			return this.nombre;
 		}
  }
 
