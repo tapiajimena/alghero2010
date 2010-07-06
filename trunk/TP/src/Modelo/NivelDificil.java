@@ -19,6 +19,7 @@ public class NivelDificil extends Nivel{
 		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo =	0.95;
 		this.factorAumentoDificultad = 3;
+		this.nombre = "Difícil";
 	}
 
 	@Override
