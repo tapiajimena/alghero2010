@@ -1,6 +1,8 @@
 package Controlador;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +12,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javax.swing.JRadioButton;
+
 import Modelo.Juego;
 
 import Vista.Dibujable;
@@ -58,6 +63,28 @@ public class ControladorJuego implements Runnable {
 
 	}
 
+	/*
+	 * Asocia a este controlador el botonSeleccionCancion
+	 */
+	public void setControlador(JRadioButton botonSeleccionCancion) {
+		botonSeleccionCancion.addActionListener(new EscuchadorBoton(botonSeleccionCancion));
+	}
+
+	private class EscuchadorBoton implements ActionListener {
+
+		private JRadioButton boton;
+
+		public EscuchadorBoton(JRadioButton botonSeleccionado){
+			this.boton = botonSeleccionado;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			boton = (JRadioButton) e.getSource();
+			nivel.
+
+		}
+
+	}
 
 	public void Jugar(Juego unJuego,int indiceDeNivel,int indiceDeCancion){
 
