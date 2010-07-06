@@ -42,24 +42,7 @@ public class VistaNivel extends JPanel {
 	}
 
 	public void actualizarVista() {
-		int nroVivosModelo = nivel.cantidadDePooglinsVivos();
-		escenario.actualizar();
-		actualizarProgress();
-		while (nroVivosModelo > this.pooglins.size()) {
-			Pooglin nuevoPooglin = nivel.getPooglinsVivos().get(
-					this.pooglins.size());
-			VistaPooglin vistaPooglin = new VistaPooglin(nuevoPooglin);
-			controlador.setPooglin(vistaPooglin, nuevoPooglin);
-			pooglins.add(vistaPooglin);
-			escenario.add(vistaPooglin);
-		}
-		for (int i = 0; i < this.pooglins.size(); i++) {
-			pooglins.get(i).actualizar();
-			if ((pooglins.get(i).getPooglin().EstaSalvado())
-					|| (pooglins.get(i).getPooglin().estaMuerto())) {
-				pooglins.get(i).borrar();
-				pooglins.remove(i);
-			}
+
 		}
 
 
