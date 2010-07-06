@@ -19,6 +19,7 @@ public class NivelMedio  extends Nivel{
 		this.canciones = new ArrayList<Cancion>();
 		this.porcentajeMinimo = 0.75;
 		this.factorAumentoDificultad = 2;
+		this.nombre = "Medio";
 	}
 
 	@Override
