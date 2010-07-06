@@ -27,6 +27,7 @@ import Modelo.Acorde;
 import Modelo.Cancion;
 import Modelo.ElementoDePartitura;
 import Modelo.Letra;
+import Modelo.Nivel;
 import Modelo.Nota;
 import Modelo.Sonido;
 import Modelo.TablaDeMapeo;
@@ -66,21 +67,22 @@ public class ControladorJuego implements Runnable {
 	/*
 	 * Asocia a este controlador el botonSeleccionCancion
 	 */
-	public void setControlador(JRadioButton botonSeleccionCancion) {
-		botonSeleccionCancion.addActionListener(new EscuchadorBoton(botonSeleccionCancion));
+	public void setControlador(JRadioButton botonSeleccionCancion,  Cancion cancionSeleccionada) {
+		botonSeleccionCancion.addActionListener(new EscuchadorBoton(botonSeleccionCancion,cancionSeleccionada));
 	}
 
 	private class EscuchadorBoton implements ActionListener {
 
 		private JRadioButton boton;
 
-		public EscuchadorBoton(JRadioButton botonSeleccionado){
+		public EscuchadorBoton(JRadioButton botonSeleccionado, Cancion cancionSeleccionada){
 			this.boton = botonSeleccionado;
-		}
+
+ 		}
 
 		public void actionPerformed(ActionEvent e) {
 			boton = (JRadioButton) e.getSource();
-			nivel.
+			//Hacer que se empiece a jugar la cancion que se eligio.
 
 		}
 
