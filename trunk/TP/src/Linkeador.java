@@ -26,11 +26,28 @@ public class Linkeador {
 		    this.tabla.armarTabla();
 
 	}
-	
+
 	public ArrayList<Struct> getContenedor(){
-		
-		
-		
+
+		int i = 0;
+		int cronometro = 0;
+
+		while ( cronometro <= this.tabla.getCantidadDeSegundosDeLaCancion()){
+
+			//usariamos este tiempo para ver cuando viene la prosima nota... no?
+			this.tabla.getCancion().getTiempoDeNegra();
+
+			//cargo el struct con el tiempo y la columna
+			Struct dato = new Struct(0,0);
+
+			//lo meto en el contenedor
+			this.contenedor.add(i,dato);
+			i++;
+			cronometro += 0;
+		}
+
+		return contenedor;
+
 	}
 
 
