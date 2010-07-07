@@ -31,11 +31,14 @@ public class Linkeador {
 
 		int i = 0;
 		int segundosTranscurridos = 0;
+		int dimensionVector = this.tabla.getCancion().obtenerCantidadDeNotas();
+		Double segundos[dimensionVector];
 
 		while ( segundosTranscurridos <= this.tabla.getCantidadDeSegundosDeLaCancion()){
 
 			//usariamos este tiempo para ver cuando viene la proxima nota... no?
 			this.tabla.getCancion().getTiempoDeNegra();
+			segundos = this.tabla.getTabla().keySet();
 
 			//cargo el struct con el tiempo y la columna
 			Struct dato = new Struct(0,0);
