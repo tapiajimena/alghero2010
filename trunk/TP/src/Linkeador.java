@@ -30,11 +30,11 @@ public class Linkeador {
 	public ArrayList<Struct> getContenedor(){
 
 		int i = 0;
-		int cronometro = 0;
+		int segundosTranscurridos = 0;
 
-		while ( cronometro <= this.tabla.getCantidadDeSegundosDeLaCancion()){
+		while ( segundosTranscurridos <= this.tabla.getCantidadDeSegundosDeLaCancion()){
 
-			//usariamos este tiempo para ver cuando viene la prosima nota... no?
+			//usariamos este tiempo para ver cuando viene la proxima nota... no?
 			this.tabla.getCancion().getTiempoDeNegra();
 
 			//cargo el struct con el tiempo y la columna
@@ -43,7 +43,9 @@ public class Linkeador {
 			//lo meto en el contenedor
 			this.contenedor.add(i,dato);
 			i++;
-			cronometro += 0;
+
+			//lleva la cuenta de los segundos transcurridos de la cancion
+			segundosTranscurridos += 0;
 		}
 
 		return contenedor;
