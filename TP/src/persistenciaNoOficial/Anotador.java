@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import org.dom4j.Document;
 import org.dom4j.*;
 import org.dom4j.io.SAXReader;
+
 /**
 * @author Nicolas
 */
