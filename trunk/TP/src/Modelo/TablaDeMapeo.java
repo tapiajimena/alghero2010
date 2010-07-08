@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,14 +12,21 @@ public class TablaDeMapeo {
 	private Map<Double,ElementoDePartitura> tabla;
 	private Cancion cancion;
 	private double cantidadDeSegundosDeLaCancion;
+	private ArrayList<Double> arrayDeSegundos;
 
 	// Métodos:
 
 	public TablaDeMapeo(Cancion unaCancion){
 		this.cancion = unaCancion;
 		this.tabla =new HashMap<Double,ElementoDePartitura>();
+		this.arrayDeSegundos =new ArrayList<Double>();
 		this.cantidadDeSegundosDeLaCancion=0;
 
+
+	}
+
+	public ArrayList<Double> getArrayDeSegundos(){
+		return (this.arrayDeSegundos);
 	}
 
 	public  Map<Double,ElementoDePartitura> getTabla(){
@@ -54,7 +62,7 @@ public class TablaDeMapeo {
 				ElementoDePartitura elementoActual=compasActual.getElementosDePartitura().get(j);
 
 
-
+                this.arrayDeSegundos.add(tiempo);
 				this.tabla.put(tiempo, elementoActual);
 				tiempo=tiempo+ elementoActual.getFigura().duracion(tiempoDeNegra);
 
