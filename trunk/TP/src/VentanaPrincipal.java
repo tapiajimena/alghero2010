@@ -1,106 +1,74 @@
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.GridBagLayout;
 import java.awt.Panel;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+
 
 public class VentanaPrincipal extends Frame {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    private static final long serialVersionUID = 1L;
+    private Panel panel;
+    private ArrayList<Pelotita> pelotitas = new ArrayList<Pelotita>();
 
-		VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-		ventanaPrincipal.setVisible(true);
+    public VentanaPrincipal(){
+        this.addWindowListener(new java.awt.event.WindowAdapter(){
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(NORMAL);
+            }
+        });
 
-	}
+        this.panel = new Panel();
+        ImageIcon imagen = new ImageIcon("Presentacion.jpg");
+        // Aca hay que tratar de poner la imagen de fondo.
+        this.panel.setBackground(Color.WHITE);
+        this.panel.setLayout(new GridBagLayout());
+        add(this.panel, BorderLayout.CENTER);
+
+        setSize(800, 600);
+        setVisible(true);
+    }
+
+    private void addPelotita(int laColumna){
+
+    	this.pelotitas.add(new Pelotita(this.panel, laColumna));
+
+    }
+
+    private void run() {
+
+        while(true){
+            for(Pelotita pelotita: this.pelotitas){
+                pelotita.run();
+                pelotita.dibujar();
+                try {
+                    Thread.sleep(20/pelotitas.size());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+        ventanaPrincipal.addPelotita(0);
+        ventanaPrincipal.addPelotita(1);
+        ventanaPrincipal.addPelotita(2);
+        ventanaPrincipal.run();
+
+        //Como hago para lanzar otras pelotitas unos segundos dsp
+        //de lanzar las anteriores?
+
+        ventanaPrincipal.addPelotita(3);
+        ventanaPrincipal.addPelotita(4);
+        ventanaPrincipal.addPelotita(5);
 
 
-	private static final long serialVersionUID = 1L;
-	private Button botonIniciar = null;
-	private Pelotita panelDeDibujo = null;
-
-	/**
-	 * This method initializes botonIniciar
-	 *
-	 * @return java.awt.Button
-	 */
-	private Button getBotonIniciar() {
-
-		if (botonIniciar == null) {
-
-			botonIniciar = new Button();
-
-			botonIniciar.setLabel("Inicar simulación");
-
-			botonIniciar.addActionListener(new java.awt.event.ActionListener(){
-
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-
-					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-					Thread thread = new Thread(panelDeDibujo);
-					thread.start();
-
-				}
-			});
-		}
-
-		return botonIniciar;
-	}
-
-	/**
-	 * This method initializes panelDeDibujo
-	 *
-	 * @return java.awt.Panel
-	 */
-	private Panel getPanelDeDibujo() {
-
-		if (panelDeDibujo == null) {
-
-			panelDeDibujo = new Pelotita();
-
-			panelDeDibujo.setLayout(new GridBagLayout());
-
-		}
-
-		return panelDeDibujo;
-	}
-
-	/**
-	 * This is the default constructor
-	 */
-	public VentanaPrincipal() {
-
-		super();
-		initialize();
-
-	}
-
-	/**
-	 * This method initializes this
-	 *
-	 * @return void
-	 */
-	private void initialize() {
-
-		this.setSize(800,600 );
-
-		this.setTitle("Java2D - Ejemplo 2");
-
-		this.add(getBotonIniciar(), BorderLayout.SOUTH);
-
-		this.add(getPanelDeDibujo(), BorderLayout.CENTER);
-
-		this.addWindowListener(new java.awt.event.WindowAdapter(){
-
-			public void windowClosing(java.awt.event.WindowEvent e) {
-
-				System.out.println("windowClosing()");
-				System.exit(NORMAL);
-
-			}
-		});
-	}
+    }
 
 }
