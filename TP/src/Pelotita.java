@@ -1,98 +1,67 @@
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Panel;
 
-public class Pelotita extends Panel implements Runnable{
+public class Pelotita implements Runnable {
 
-	private static final long serialVersionUID = 1L;
-	private boolean hayQuePintar;
-	private int radio;
-	private int incremento;
-	private boolean estoyPintando;
-	private int centroX;
-	private int centroY;
-	private int contador;
+    private Panel panel;
+    private int radio;
+    private int incremento;
+    private int centroX;
+    private int centroY;
+    private int columna;
 
-	public Pelotita(){
-		this.radio = 40;
-		this.incremento = 5;
-		this.estoyPintando = false;
-		this.hayQuePintar = false;
-		this.contador = 0;
-	}
+    public Pelotita(Panel panel, int laColumna) {
+        this.panel = panel;
+        this.radio = 40;
+        this.incremento = 5;
+        this.columna = laColumna;
+        this.centroX = (int) (this.panel.getWidth() / 6 ) * columna;
+        this.centroY = (int) 0;
+    }
 
-	//@Override
-	public void run() {
+    public void run(){
+        this.centroY += this.incremento;
+    }
 
-		if(this.estoyPintando)
-			return;
+    public void dibujar() {
+        Graphics g = this.panel.getGraphics();
 
-		this.centroX= (int) (this.getWidth() / 6 ) * contador;
-		this.centroY= (int) 0;
-		this.hayQuePintar = true;
-		this.estoyPintando = true;
-		while(hayQuePintar){
-			try {
-				Thread.sleep(15);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			this.centroY += this.incremento;
+        //Esto es para no dejar la estela
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, this.panel.getWidth(), this.panel.getHeight());
 
-			if(this.centroY < 1 || this.centroY + this.radio > this.getHeight()){
+        switch(columna){
 
-				this.hayQuePintar = false;
-				this.estoyPintando = false;
+        	case 0:
+        		g.setColor(Color.RED);
+        		break;
 
-			}
-			this.repaint();
-		}
+        	case 1:
+        		g.setColor(Color.BLUE);
+        		break;
 
-		contador = (contador + 1) % 6;
-	}
+        	case 2:
+        		g.setColor(Color.GREEN);
+        		break;
 
-	@Override
-	public void paint(Graphics graphics){
-		if(hayQuePintar){
-			switch(contador){
+        	case 3:
+        		g.setColor(Color.YELLOW);
+        		break;
 
-			case 0:
-				graphics.setColor(Color.BLUE);
+        	case 4:
+        		g.setColor(Color.ORANGE);
+        		break;
 
-				break;
+        	case 5:
+        		g.setColor(Color.CYAN);
+        		break;
 
-			case 1:
-				graphics.setColor(Color.RED);
+        }
 
-				break;
+        g.fillOval(this.centroX, this.centroY, this.radio, this.radio);
+    }
 
-			case 2:
-				graphics.setColor(Color.GREEN);
-
-				break;
-
-			case 3:
-				graphics.setColor(Color.BLACK);
-
-				break;
-
-			case 4:
-				graphics.setColor(Color.YELLOW);
-
-				break;
-
-			case 5:
-				graphics.setColor(Color.ORANGE);
-
-				break;
-
-			}
-
-			graphics.fillOval(this.centroX, this.centroY, this.radio, this.radio);
-		}
-		//super.paint(graphics);
-	}
 }
 
 
