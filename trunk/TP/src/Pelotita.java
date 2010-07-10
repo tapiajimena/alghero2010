@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -22,6 +23,12 @@ public class Pelotita implements Runnable {
 
     public void run(){
         this.centroY += this.incremento;
+    }
+
+    public int getCentroY(){
+
+    	return centroY;
+
     }
 
     public void dibujar() {
@@ -63,6 +70,8 @@ public class Pelotita implements Runnable {
     }
 
 }
+
+
 
 
 
