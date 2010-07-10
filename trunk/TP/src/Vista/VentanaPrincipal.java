@@ -65,13 +65,13 @@ public class VentanaPrincipal extends Frame {
 
     }
 
-    private void addPelotita(int laColumna){
+    public void addPelotita(int laColumna){
 
     	this.pelotitas.add(new Pelotita(this.panel, laColumna));
 
     }
 
-    private void run() {
+    public void run() {
 
     	for(int i = 0 ; i < pelotitas.size() ; i++){
              pelotitas.get(i).run();
@@ -118,8 +118,6 @@ public class VentanaPrincipal extends Frame {
             	ventanaPrincipal.addPelotita(3);
 
         }
-
-
 
     }
 
