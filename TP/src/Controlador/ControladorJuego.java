@@ -124,13 +124,9 @@ public class ControladorJuego  {
 	    ArrayList<ElementoDeContenedor> contenedor =new ArrayList<ElementoDeContenedor>();
 	    contenedor = unArmador.getContenedor();
 
-//HASTA ACA TODO BIEN
 
 	    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 
-        /*ventanaPrincipal.addPelotita(0);
-        ventanaPrincipal.addPelotita(1);
-        ventanaPrincipal.addPelotita(2);*/
 
         // Pedimos la fecha del comienzo del ciclo.
         long time = System.currentTimeMillis();
