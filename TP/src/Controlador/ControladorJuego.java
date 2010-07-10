@@ -1,6 +1,5 @@
 package Controlador;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,6 +17,7 @@ import Modelo.Partitura;
 import Modelo.Re;
 import Modelo.Sol;
 import Modelo.Sonido;
+import Vista.VentanaPrincipal;
 
 
 
@@ -67,8 +67,57 @@ public class ControladorJuego  {
 			e.printStackTrace();
 		}
 
+		Compas segundoCompas= new Compas(unaArmadura);
+		Nota notaUno=new Nota(otraNegra,unMi);
+		Nota notaDos=new Nota(otraNegra,unDo);
+		Nota notaTres=new Nota(otraNegra,unRe);
+		Nota notaCuatro=new Nota(otraNegra,unFa);
+		Nota notaCinco=new Nota(otraNegra,unDoSostenido);
+		Nota notaSeis=new Nota(otraNegra,unSol);
+
+		try {
+			segundoCompas.addElementoDePartitura(notaUno);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaDos);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaTres);
+		} catch (CompasLlenoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaCuatro);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaCinco);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaSeis);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
 	    Partitura unaPartitura=new Partitura();
 	    unaPartitura.getCompases().add(primerCompas);
+	    unaPartitura.getCompases().add(segundoCompas);
 
 
 	    ArmadorDeContenedor unArmador=new ArmadorDeContenedor(unaPartitura);
@@ -77,7 +126,107 @@ public class ControladorJuego  {
 
 //HASTA ACA TODO BIEN
 
-		int index=0;
+	    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+
+        /*ventanaPrincipal.addPelotita(0);
+        ventanaPrincipal.addPelotita(1);
+        ventanaPrincipal.addPelotita(2);*/
+
+        // Pedimos la fecha del comienzo del ciclo.
+        long time = System.currentTimeMillis();
+        Date fechaDeComienzo = new Date(time);
+        int j = 0;
+
+        while(true){
+
+        	// Borramos las pelotitas que ya terminaron de dibujarse.
+        	for(int i = 0 ; i < ventanaPrincipal.getPelotitas().size() ; i++){
+
+        		if(((ventanaPrincipal.getPelotitas()).get(i)).getCentroY() > (ventanaPrincipal.getPanel()).getHeight())
+        			(ventanaPrincipal.getPelotitas()).remove(i);
+
+        	}
+
+        	// Dibujamos todas las pelotitas que hay que dibujar
+        	ventanaPrincipal.run();
+
+        	// Nos fijamos si hay que agregar alguna pelotita mas.
+
+        	time = System.currentTimeMillis();
+            Date fechaActual = new Date(time);
+
+            // Este if lo ponemos para no acceder a un elemento no existente de
+            // contenedor.
+
+            if(j < contenedor.size()){
+
+            	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * (contenedor.get(j)).getSegundo()){
+
+            		// Cambiar getColumna de double a int.
+            		ventanaPrincipal.addPelotita((int)(contenedor.get(j)).getColumna());
+            		j++;
+            	}
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
+/*	    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+
+        ventanaPrincipal.addPelotita(0);
+        ventanaPrincipal.addPelotita(1);
+        ventanaPrincipal.addPelotita(2);
+
+        // Pedimos la fecha del comienzo del ciclo.
+        long time = System.currentTimeMillis();
+        Date fechaDeComienzo = new Date(time);
+
+        while(true){
+
+        	// Borramos las pelotitas que ya terminaron de dibujarse.
+        	for(int i = 0 ; i < ventanaPrincipal.getPelotitas().size() ; i++){
+
+        		if(((ventanaPrincipal.getPelotitas()).get(i)).getCentroY() > (ventanaPrincipal.getPanel()).getHeight())
+        			(ventanaPrincipal.getPelotitas()).remove(i);
+
+        	}
+
+        	ventanaPrincipal.run();
+
+        	time = System.currentTimeMillis();
+            Date fechaAux = new Date(time);
+
+            // Pasado 1 segundo de lanzar las primeras 3 pelotitas lanzo una
+            // cuarta pelotita.
+
+            if(fechaAux.getTime()==(1000 + fechaDeComienzo.getTime()))
+            	ventanaPrincipal.addPelotita(3);
+
+        }
+
+
+    }
+
+}
+
+
+*/
+
+
+
+
+/*
+
+	    int index=0;
 
 
 	        	ventanaPrincipal.run();
@@ -113,7 +262,7 @@ public class ControladorJuego  {
 
 
 }
-
+*/
 //COSAS VIEJAS/PARA AGREGAR
 /*VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 
@@ -276,5 +425,6 @@ public void Jugar(Juego unJuego,int indiceDeNivel,int indiceDeCancion){
 
 
     }*/
+
 
 
