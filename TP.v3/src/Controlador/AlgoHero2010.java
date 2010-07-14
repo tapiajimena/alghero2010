@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import Audio.Elemento;
-import Modelo.ZonaDeJuego;
-import Modelo.Pelota;
+import Vista.ZonaDeJuego;
+import Vista.Pelota;
 import Vista.VistaZonaDeJuego;
 import Vista.VistaPelota;
 
