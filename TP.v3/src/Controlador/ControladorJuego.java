@@ -105,9 +105,9 @@ public class ControladorJuego implements Runnable {
 	}
 
 	private void dibujar() {
-        for(int i = 0; i < this.objetosVivos.size(); ++i){
-            ObjetoVivo o = this.objetosVivos.get(i);
-            o.vivir();
+        for(int i = 0; i < this.dibujables.size(); ++i){
+            Dibujable d = this.dibujables.get(i);
+            d.dibujar(this.superficieDeDibujo);
         }
 		this.superficieDeDibujo.actualizar();
 	}
