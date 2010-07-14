@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="src" path="Copy of Audio"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/Administrador/Escritorio/PersistenciaEnJava/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="dom4j-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
