@@ -105,11 +105,10 @@ public class ControladorJuego implements Runnable {
 	}
 
 	private void dibujar() {
-		Iterator<Dibujable> iterador = dibujables.iterator();
-		while(iterador.hasNext()){
-			Dibujable dibujable = iterador.next();
-			dibujable.dibujar(this.superficieDeDibujo);
-		}
+        for(int i = 0; i < this.objetosVivos.size(); ++i){
+            ObjetoVivo o = this.objetosVivos.get(i);
+            o.vivir();
+        }
 		this.superficieDeDibujo.actualizar();
 	}
 
@@ -118,10 +117,10 @@ public class ControladorJuego implements Runnable {
 	 */
 	private void simular() {
 		this.superficieDeDibujo.limpiar();
-		Iterator<ObjetoVivo> iterador = objetosVivos.iterator();
-		while(iterador.hasNext()){
-			iterador.next().vivir();
-		}
+        for(int i = 0; i < this.objetosVivos.size(); ++i){
+            ObjetoVivo o = this.objetosVivos.get(i);
+            o.vivir();
+        }
 	}
 
 	public SuperficieDeDibujo getSuperficieDeDibujo() {
