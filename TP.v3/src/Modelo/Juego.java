@@ -17,7 +17,7 @@ public class Juego {
 
     private ArrayList<Nivel> niveles;
     private ArrayList<Letra> letras;//LAS LETRAS QUE INGRESA EL USUARIO
-    private ArrayList<ElementoDeContenedor> contenedor;
+
 
 
 
@@ -27,13 +27,15 @@ public class Juego {
     public Juego(ArrayList<Nivel> losNiveles){
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
-        this.contenedor= new ArrayList<ElementoDeContenedor>();
+
     }
 
   //ARMA Y DEVUELVE EL CONTENEDOR ( SEGUNDO-COLUMNA)
 
 
 	public ArrayList<ElementoDeContenedor> getContenedor(int indiceDeNivel,int indiceDeCancion){
+
+		ArrayList<ElementoDeContenedor> contenedor=new ArrayList<ElementoDeContenedor>();
 
 		Cancion cancion=this.getNiveles().get(indiceDeNivel).getListaCanciones().get(indiceDeCancion);
 		TablaDeMapeo unaTabla=new TablaDeMapeo(cancion);
@@ -50,7 +52,7 @@ public class Juego {
 		if (elementoActual instanceof Nota){
 			int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
 			ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-			this.contenedor.add(struct);
+			contenedor.add(struct);
 		}
 
 		if (elementoActual instanceof Acorde){
@@ -60,7 +62,7 @@ public class Juego {
   			   Sonido elSonidoActual = sonidosActuales.get(j);
   			   int identificadorActual= elSonidoActual.getIdentificador();
   			 ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-				   this.contenedor.add(struct);
+				   contenedor.add(struct);
 
 		}
 		}
@@ -74,6 +76,7 @@ public class Juego {
 
 		Map<Integer,Letra> tablaDeTeclas=this.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
 		Letra letra=tablaDeTeclas.get(tipoDeSonido);
+
 		int columna=this.getNiveles().get(indiceDeNivel).getLetras().indexOf(letra);
 
 		return columna;
