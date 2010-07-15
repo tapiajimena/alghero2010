@@ -32,7 +32,7 @@ import Modelo.Sonido;
  * Segundo-Columna
  * 2-2
  * 4-3
- * 4-5
+ * 4-1
  * 4-2
  * 4-4
  * 6-2

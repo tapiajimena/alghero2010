@@ -79,7 +79,7 @@ public class Juego {
 
 		int columna=this.getNiveles().get(indiceDeNivel).getLetras().indexOf(letra);
 
-		return columna;
+		return (columna+1);
 
 
 	}
