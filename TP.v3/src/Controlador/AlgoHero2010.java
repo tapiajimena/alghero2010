@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import Audio.Elemento;
 import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
-import Modelo.ArmadorDeContenedor;
 import Modelo.ArmaduraDeClave;
 import Modelo.Compas;
 import Modelo.Do;
