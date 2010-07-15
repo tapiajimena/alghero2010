@@ -16,102 +16,61 @@ public class Juego {
     //Atributos:
 
     private ArrayList<Nivel> niveles;
-    private ArrayList<Letra> letras;
-    private TablaDeMapeo tabla;
+    private ArrayList<Letra> letras;//LAS LETRAS QUE INGRESA EL USUARIO
+    private ArrayList<ElementoDeContenedor> contenedor;
+
 
 
 
     //Métodos:
 
-    /*
-     *
-     public void Jugar(int indiceDeNivel,int indiceDeCancion){
-
-    	/*La primer tabla es de la forma: Segundo-ElementoDePartitura
-    	 * La segunda tabla es de la forma: Sonido-Tecla
-    	 * Entonces se fija que sonido tiene el elemento que se toco en
-    	 * ese segundo y se fija si  la tecla asociada coincide con la
-    	 * tecla asoc a ese sonido
-
-
-
-        Cancion cancionActual = this.niveles.get(indiceDeNivel).elegirCancion(indiceDeCancion);
-        TablaDeMapeo unaTabla= new TablaDeMapeo(cancionActual) ;
-        unaTabla.armarTabla();
-        Map<Double, ElementoDePartitura> primerTabla = unaTabla.getTabla();
-
-        this.getNiveles().get(indiceDeNivel).distribuirTeclas();
-        Map<Integer, Letra> segundaTabla = this.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
-
-        long time=System.currentTimeMillis();
-        Date fechaDeComienzo=new Date(time);
-        Boolean fin=false;
-        Boolean sePresionaTecla=false; //CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
-        Letra teclaIngresada=new Letra('a');//CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
-
-
-      //Se habilita el teclado
-
-        while (!fin) {
-
-        if (sePresionaTecla){
-
-        	long timeNuevo=System.currentTimeMillis();
-            Date fechaActual=new Date(timeNuevo);
-            long segundosQuePasaron = ((fechaActual.getTime()-fechaDeComienzo.getTime())/1000);
-
-            if  ( primerTabla.containsKey(segundosQuePasaron)){
-
-            	  ElementoDePartitura elementoActual=primerTabla.get(segundosQuePasaron);
-                  if (!elementoActual.getFigura().esSilencio()){
-
-                	  if (elementoActual instanceof Nota){
-                		  Sonido sonidoActual=((Nota)elementoActual).getSonido();
-                		  if (segundaTabla.get(sonidoActual)==teclaIngresada){
-                			  this.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
-                			  this.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
-                			  }else{this.getNiveles().get(indiceDeNivel).contadorDeErrores++;
-                      }
-
-                		  if (elementoActual instanceof Acorde){
-                    		  ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-                    		  for(int i=0;i<sonidosActuales.size();i++){
-                    			 Sonido elSonidoActual = sonidosActuales.get(i);
-
-                    		  if (segundaTabla.get(elSonidoActual)==teclaIngresada){
-                    			  this.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
-                    			  this.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
-                    			  }else{this.getNiveles().get(indiceDeNivel).contadorDeErrores++;
-                          }
-                    		  }
-                		  }
-                	  }
-                  }
-            }
-        }
-
-        long timeUltimo=System.currentTimeMillis();
-        Date fechaUltima=new Date(timeUltimo);
-        long segundos= ((fechaUltima.getTime()-fechaDeComienzo.getTime())/1000);
-        if (segundos==unaTabla.getCantidadDeSegundosDeLaCancion()){
-        	fin=true;
-        }
-
-
-
-        }
-
-        }
-        */
-
-
-
-
-
     public Juego(ArrayList<Nivel> losNiveles){
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
+        this.contenedor= new ArrayList<ElementoDeContenedor>();
     }
+
+  //ARMA Y DEVUELVE EL CONTENEDOR ( SEGUNDO-COLUMNA)
+
+
+	public ArrayList<ElementoDeContenedor> getContenedor(int indiceDeNivel,int indiceDeCancion){
+
+		Cancion cancion=this.getNiveles().get(indiceDeNivel).getListaCanciones().get(indiceDeCancion);
+		TablaDeMapeo unaTabla=new TablaDeMapeo(cancion);
+		unaTabla.armarTabla();
+
+	for(int i=0; i< unaTabla.getArrayDeSegundos().size();i++){
+
+		double segundoActual=unaTabla.getArrayDeSegundos().get(i);
+
+		ElementoDePartitura elementoActual=unaTabla.getTabla().get((segundoActual));
+
+		if(!elementoActual.getFigura().esSilencio()){
+
+		if (elementoActual instanceof Nota){
+			int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
+			ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
+			this.contenedor.add(struct);
+		}
+
+		if (elementoActual instanceof Acorde){
+
+			ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
+  		    for(int j=0;j<sonidosActuales.size();j++){
+  			   Sonido elSonidoActual = sonidosActuales.get(j);
+  			   int identificadorActual= elSonidoActual.getIdentificador();
+  			 ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
+				   this.contenedor.add(struct);
+
+		}
+		}
+
+	}
+	}
+	return contenedor;
+}
+
+
 
     public ArrayList<Letra> getLetras(){
         return letras;
@@ -120,6 +79,44 @@ public class Juego {
     public ArrayList<Nivel> getNiveles(){
         return niveles;
     }
+
+
+
+    /* Método por el cual asigno las letras a utilizar en cada uno de los
+     * niveles. Para el nivel fácil se usarán 3, para el nivel medio se usarán 5
+     * y para el nivel difícil se usarán 6.
+     */
+    public void asignarLetrasNivel(){
+        for (int j = 0; j < this.niveles.size(); j++){
+
+            int cantidadDeTeclas=this.niveles.get(j).getCantidadDeTeclas();
+
+            for (int i=0; i < cantidadDeTeclas; i++){
+                   Letra letraAgregada = this.letras.get(i);
+                this.niveles.get(j).getLetras().add(i,letraAgregada);
+               }
+        }
+    }
+
+
+    /*
+     * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
+     */
+    public boolean ganoJuego(){
+        boolean superado = false;
+        for (int i=0; i< niveles.size(); i++){
+            if (this.niveles.get(i).esSuficiente()){
+                superado = true;
+            }
+        }
+        return superado;
+    }
+
+
+
+
+
+}
 
 
 
@@ -159,38 +156,84 @@ public class Juego {
     }*/
 
 
-    /* Método por el cual asigno las letras a utilizar en cada uno de los
-     * niveles. Para el nivel fácil se usarán 3, para el nivel medio se usarán 5
-     * y para el nivel difícil se usarán 6.
-     */
-    public void asignarLetrasNivel(){
-        for (int j = 0; j < this.niveles.size(); j++){
+/*
+*
+public void Jugar(int indiceDeNivel,int indiceDeCancion){
 
-            int cantidadDeTeclas=this.niveles.get(j).getCantidadDeTeclas();
-
-            for (int i=0; i < cantidadDeTeclas; i++){
-                   Letra letraAgregada = this.letras.get(i);
-                this.niveles.get(j).getLetras().add(i,letraAgregada);
-               }
-        }
-    }
-
-
-    /*
-     * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
-     */
-    public boolean ganoJuego(){
-        boolean superado = false;
-        for (int i=0; i< niveles.size(); i++){
-            if (this.niveles.get(i).esSuficiente()){
-                superado = true;
-            }
-        }
-        return superado;
-    }
+	/*La primer tabla es de la forma: Segundo-ElementoDePartitura
+	 * La segunda tabla es de la forma: Sonido-Tecla
+	 * Entonces se fija que sonido tiene el elemento que se toco en
+	 * ese segundo y se fija si  la tecla asociada coincide con la
+	 * tecla asoc a ese sonido
 
 
 
+   Cancion cancionActual = this.niveles.get(indiceDeNivel).elegirCancion(indiceDeCancion);
+   TablaDeMapeo unaTabla= new TablaDeMapeo(cancionActual) ;
+   unaTabla.armarTabla();
+   Map<Double, ElementoDePartitura> primerTabla = unaTabla.getTabla();
+
+   this.getNiveles().get(indiceDeNivel).distribuirTeclas();
+   Map<Integer, Letra> segundaTabla = this.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
+
+   long time=System.currentTimeMillis();
+   Date fechaDeComienzo=new Date(time);
+   Boolean fin=false;
+   Boolean sePresionaTecla=false; //CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
+   Letra teclaIngresada=new Letra('a');//CAMBIARLO TENIENDO ENCUENTA CONTROLADOR
 
 
-}
+ //Se habilita el teclado
+
+   while (!fin) {
+
+   if (sePresionaTecla){
+
+   	long timeNuevo=System.currentTimeMillis();
+       Date fechaActual=new Date(timeNuevo);
+       long segundosQuePasaron = ((fechaActual.getTime()-fechaDeComienzo.getTime())/1000);
+
+       if  ( primerTabla.containsKey(segundosQuePasaron)){
+
+       	  ElementoDePartitura elementoActual=primerTabla.get(segundosQuePasaron);
+             if (!elementoActual.getFigura().esSilencio()){
+
+           	  if (elementoActual instanceof Nota){
+           		  Sonido sonidoActual=((Nota)elementoActual).getSonido();
+           		  if (segundaTabla.get(sonidoActual)==teclaIngresada){
+           			  this.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
+           			  this.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
+           			  }else{this.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                 }
+
+           		  if (elementoActual instanceof Acorde){
+               		  ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
+               		  for(int i=0;i<sonidosActuales.size();i++){
+               			 Sonido elSonidoActual = sonidosActuales.get(i);
+
+               		  if (segundaTabla.get(elSonidoActual)==teclaIngresada){
+               			  this.getNiveles().get(indiceDeNivel).contadorDeAciertos++;
+               			  this.getNiveles().get(indiceDeNivel).puntajeActual=+primerTabla.get(segundosQuePasaron).puntajeIdeal;
+               			  }else{this.getNiveles().get(indiceDeNivel).contadorDeErrores++;
+                     }
+               		  }
+           		  }
+           	  }
+             }
+       }
+   }
+
+   long timeUltimo=System.currentTimeMillis();
+   Date fechaUltima=new Date(timeUltimo);
+   long segundos= ((fechaUltima.getTime()-fechaDeComienzo.getTime())/1000);
+   if (segundos==unaTabla.getCantidadDeSegundosDeLaCancion()){
+   	fin=true;
+   }
+
+
+
+   }
+
+   }
+   */
+
