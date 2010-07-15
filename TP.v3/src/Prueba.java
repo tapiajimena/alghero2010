@@ -173,6 +173,18 @@ public class Prueba {
 
 
 }
+	    for(int i=0;i< contenedorMedio.size();i++){
+	    	System.out.println(contenedorMedio.get(i).getSegundo());
+	    	System.out.println(contenedorMedio.get(i).getColumna());
+
+
+}
+	    for(int i=0;i< contenedorFacil.size();i++){
+	    	System.out.println(contenedorFacil.get(i).getSegundo());
+	    	System.out.println(contenedorFacil.get(i).getColumna());
+
+
+}
 
 
 
