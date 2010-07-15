@@ -247,6 +247,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 			controlador.agregarObjetoVivo(Pelota2);
 			controlador.agregarDibujable(vistaPelota2);
 
+
 			System.out.println("Creamos una pelota");
 
 
