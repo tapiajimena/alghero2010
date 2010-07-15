@@ -26,6 +26,52 @@ import Modelo.Sol;
 import Modelo.Sonido;
 
 
+/*
+ * En este caso
+ * Para Dificil
+ * Segundo-Columna
+ * 2-2
+ * 4-3
+ * 4-5
+ * 4-2
+ * 4-4
+ * 6-2
+ * 8-1
+ * 10-1
+ * 12-2
+ * 14-4
+ * 16-3
+ *
+ * * Para Medio
+ * Segundo-Columna
+ * 2-1
+ * 4-2
+ * 4-1
+ * 4-2
+ * 4-3
+ * 6-1
+ * 8-1
+ * 10-1
+ * 12-2
+ * 14-3
+ * 16-2
+ *
+ *   Para Facil
+ * Segundo-Columna
+ * 2-1
+ * 4-2
+ * 4-1
+ * 4-1
+ * 4-2
+ * 6-1
+ * 8-1
+ * 10-1
+ * 12-1
+ * 14-2
+ * 16-2
+ *
+ */
+
 public class Prueba {
 
 	/**
