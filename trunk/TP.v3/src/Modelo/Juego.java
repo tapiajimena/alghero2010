@@ -49,7 +49,7 @@ public class Juego {
 
 		if (elementoActual instanceof Nota){
 			int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-			ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
+			ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
 			this.contenedor.add(struct);
 		}
 
@@ -59,7 +59,7 @@ public class Juego {
   		    for(int j=0;j<sonidosActuales.size();j++){
   			   Sonido elSonidoActual = sonidosActuales.get(j);
   			   int identificadorActual= elSonidoActual.getIdentificador();
-  			 ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
+  			 ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
 				   this.contenedor.add(struct);
 
 		}
@@ -69,6 +69,18 @@ public class Juego {
 	}
 	return contenedor;
 }
+
+	public int asignarColumna(int tipoDeSonido,int indiceDeNivel){
+
+		Map<Integer,Letra> tablaDeTeclas=this.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
+		Letra letra=tablaDeTeclas.get(tipoDeSonido);
+		int columna=this.getNiveles().get(indiceDeNivel).getLetras().indexOf(letra);
+
+		return columna;
+
+
+	}
+
 
 
 
