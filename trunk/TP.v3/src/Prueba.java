@@ -4,26 +4,27 @@ import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
 import Modelo.Blanca;
+import Modelo.Cancion;
 import Modelo.Compas;
 import Modelo.Do;
 import Modelo.DoSostenido;
+import Modelo.ElementoDeContenedor;
 import Modelo.ElementoDePartitura;
 import Modelo.Fa;
+import Modelo.Juego;
+import Modelo.Letra;
 import Modelo.Mi;
 import Modelo.Negra;
+import Modelo.Nivel;
+import Modelo.NivelDificil;
+import Modelo.NivelFacil;
+import Modelo.NivelMedio;
 import Modelo.Nota;
 import Modelo.Partitura;
 import Modelo.Re;
 import Modelo.Sol;
 import Modelo.Sonido;
 
-/* EN ESTE CASO:
- 0  unaNota
- 2  otraNota
- 4   unAcorde
-
-
-*/
 
 public class Prueba {
 
@@ -31,6 +32,7 @@ public class Prueba {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
 
 		Negra negra=new Negra(true);
 		Negra otraNegra=new Negra(false);
@@ -74,39 +76,105 @@ public class Prueba {
 			e.printStackTrace();
 		}
 
+		Compas segundoCompas= new Compas(unaArmadura);
+		Nota notaUno=new Nota(otraNegra,unMi);
+		Nota notaDos=new Nota(otraNegra,unDo);
+		Nota notaTres=new Nota(otraNegra,unRe);
+		Nota notaCuatro=new Nota(otraNegra,unFa);
+		Nota notaCinco=new Nota(otraNegra,unDoSostenido);
+		Nota notaSeis=new Nota(otraNegra,unSol);
 
-
+		try {
+			segundoCompas.addElementoDePartitura(notaUno);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaDos);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaTres);
+		} catch (CompasLlenoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaCuatro);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaCinco);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			segundoCompas.addElementoDePartitura(notaSeis);
+		} catch (CompasLlenoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 	    Partitura unaPartitura=new Partitura();
 	    unaPartitura.getCompases().add(primerCompas);
+	    unaPartitura.getCompases().add(segundoCompas);
+
+	    Cancion cancion=new Cancion(unaPartitura,"hola","chau",2);
+	    NivelDificil nivelDificil = new NivelDificil();
+		nivelDificil.cargarCancion(cancion);
+	    NivelMedio nivelMedio = new NivelMedio();
+		nivelMedio.cargarCancion(cancion);
+	    NivelFacil nivelFacil = new NivelFacil();
+		nivelFacil.cargarCancion(cancion);
+
+		ArrayList<Nivel> listaNiveles = new ArrayList<Nivel>();
+		listaNiveles.add(nivelDificil);
+		listaNiveles.add(nivelMedio);
+		listaNiveles.add(nivelFacil);
+
+		Juego juego = new Juego(listaNiveles);
+
+        //Estas letras las ingresa el usuario
+		Letra a=new Letra('a');
+		Letra s=new Letra('s');
+		Letra d=new Letra('d');
+		Letra f=new Letra('f');
+		Letra g=new Letra('g');
+		Letra h=new Letra('h');
+
+		juego.getLetras().add(a);
+		juego.getLetras().add(s);
+		juego.getLetras().add(d);
+		juego.getLetras().add(f);
+		juego.getLetras().add(g);
+		juego.getLetras().add(h);
+
+		juego.asignarLetrasNivel();
+		for(int i=0;i< juego.getNiveles().size();i++){
+			juego.getNiveles().get(i).distribuirTeclas();
+
+		}
 
 
-	    Linkeador link=new Linkeador(unaPartitura);
-/*// PARA VERIFICAR QUE LOS SEGUNDOS DE TABLA DE MAPEO ESTAN BIEN
-	    for(int i=0;i< link.getTabla().getArrayDeSegundos().size();i++){
-	    	System.out.println(link.getTabla().getArrayDeSegundos().get(i));
+		ArrayList<ElementoDeContenedor> contenedorDificil=juego.getContenedor(0, 0);
+		ArrayList<ElementoDeContenedor> contenedorMedio=juego.getContenedor(1, 0);
+		ArrayList<ElementoDeContenedor> contenedorFacil=juego.getContenedor(2, 0);
+
+	    for(int i=0;i< contenedorDificil.size();i++){
+	    	System.out.println(contenedorDificil.get(i).getSegundo());
+	    	System.out.println(contenedorDificil.get(i).getColumna());
 
 
-	    }*/
+}
 
-	    /*EN ESTE CASO EL CONTENEDOR DEBERIA QUEDAR:
-	     *  Segundo - Columna
-	     *  2          2
-	     *  4          3
-	     *  4          1
-	     *  4          2
-	     *  4          4
 
-	     * LA NOTA DEL SEGUNDO CERO NO APARECE PORQUE
-	     * ES UN SILENCIO
-	     */
-
-	   ArrayList<Struct> resultado=link.getContenedor();
-
-	    for(int i=0;i< resultado.size();i++){
-	    	System.out.println(resultado.get(i).getSegundo());
-	    	System.out.println(resultado.get(i).getColumna());
 
 
 }
@@ -116,6 +184,6 @@ public class Prueba {
 
 
 }
-}
+
 
 
