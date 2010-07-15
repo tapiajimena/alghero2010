@@ -249,6 +249,7 @@ public class NivelFacilTest extends TestCase {
 
 
 		NivelFacil unNivelFacil= new NivelFacil();
+
 		unNivelFacil.getLetras().add(a);
 		unNivelFacil.getLetras().add(s);
 		unNivelFacil.getLetras().add(d);
