@@ -1,4 +1,4 @@
- package Modelo;
+package Modelo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +17,7 @@ public class Juego {
 
     private ArrayList<Nivel> niveles;
     private ArrayList<Letra> letras;//LAS LETRAS QUE INGRESA EL USUARIO
-
+    private ArrayList<ElementoDeContenedor> elContenedor;
 
 
 
@@ -27,6 +27,8 @@ public class Juego {
     public Juego(ArrayList<Nivel> losNiveles){
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
+        this.elContenedor = new ArrayList<ElementoDeContenedor>();
+
 
     }
 
@@ -35,41 +37,40 @@ public class Juego {
 
 	public ArrayList<ElementoDeContenedor> getContenedor(int indiceDeNivel,int indiceDeCancion){
 
-		ArrayList<ElementoDeContenedor> contenedor=new ArrayList<ElementoDeContenedor>();
 
 		Cancion cancion=this.getNiveles().get(indiceDeNivel).getListaCanciones().get(indiceDeCancion);
 		TablaDeMapeo unaTabla=new TablaDeMapeo(cancion);
 		unaTabla.armarTabla();
 
-	for(int i=0; i< unaTabla.getArrayDeSegundos().size();i++){
+		for(int i=0; i< unaTabla.getArrayDeSegundos().size();i++){
 
-		double segundoActual=unaTabla.getArrayDeSegundos().get(i);
+			double segundoActual=unaTabla.getArrayDeSegundos().get(i);
 
-		ElementoDePartitura elementoActual=unaTabla.getTabla().get((segundoActual));
+			ElementoDePartitura elementoActual=unaTabla.getTabla().get((segundoActual));
 
-		if(!elementoActual.getFigura().esSilencio()){
+			if(!elementoActual.getFigura().esSilencio()){
 
-		if (elementoActual instanceof Nota){
-			int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-			ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-			contenedor.add(struct);
+				if (elementoActual instanceof Nota){
+					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
+					ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
+					elContenedor.add(struct);
+				}
+
+				if (elementoActual instanceof Acorde){
+
+					ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
+					for(int j=0;j<sonidosActuales.size();j++){
+						Sonido elSonidoActual = sonidosActuales.get(j);
+						int identificadorActual= elSonidoActual.getIdentificador();
+						ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
+						elContenedor.add(struct);
+
+					}
+				}
+			}
 		}
 
-		if (elementoActual instanceof Acorde){
-
-			ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-  		    for(int j=0;j<sonidosActuales.size();j++){
-  			   Sonido elSonidoActual = sonidosActuales.get(j);
-  			   int identificadorActual= elSonidoActual.getIdentificador();
-  			 ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-				   contenedor.add(struct);
-
-		}
-		}
-
-	}
-	}
-	return contenedor;
+	return elContenedor;
 }
 
 	public int asignarColumna(int tipoDeSonido,int indiceDeNivel){

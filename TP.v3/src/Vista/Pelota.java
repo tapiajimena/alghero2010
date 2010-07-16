@@ -17,7 +17,7 @@ public class Pelota implements ObjetoVivo, Posicionable {
 
 	public Pelota(int laColumna, ZonaDeJuego laMesa){
 		this.mesa = laMesa;
-		this.sentidoY = 1;
+		this.sentidoY = 2;
 		this.y = 0;
 		this.columna = laColumna;
 		this.x = (mesa.getAncho()/6) * columna;
