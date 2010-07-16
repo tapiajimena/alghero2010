@@ -209,6 +209,11 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		}
 
+		for(int i=0;i< juego.getNiveles().size();i++){
+			juego.getNiveles().get(i).modificarVelocidad();
+
+		}
+
 		this.elJuego=juego;
 
 	}
