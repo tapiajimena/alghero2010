@@ -209,10 +209,14 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		}
 
-		for(int i=0;i< juego.getNiveles().size();i++){
+		//juego.getNiveles().get(0).modificarVelocidad();
+		//juego.getNiveles().get(1).modificarVelocidad();
+		//juego.getNiveles().get(2).modificarVelocidad();
+
+		/*for(int i=0;i< juego.getNiveles().size();i++){
 			juego.getNiveles().get(i).modificarVelocidad();
 
-		}
+		}*/
 
 		this.elJuego=juego;
 
@@ -243,11 +247,11 @@ public class AlgoHero2010 implements ObjetoVivo{
         // Este if lo ponemos para no acceder a un elemento no existente de
         // contenedor.
 
-        if(posicionTabla < elJuego.getContenedor(0,0).size()){
+        if(posicionTabla < elJuego.getContenedor(2,0).size()){
 
-        	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * this.elJuego.getContenedor(0, 0).get(posicionTabla).getSegundo()){
+        	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * this.elJuego.getContenedor(2, 0).get(posicionTabla).getSegundo()){
 
-        		Pelota pelotaAux = new Pelota((int)this.elJuego.getContenedor(0, 0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
+        		Pelota pelotaAux = new Pelota((int)this.elJuego.getContenedor(2, 0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
         		VistaPelota vistaPelotaAux = new VistaPelota(pelotaAux.getColumna());
     			vistaPelotaAux.setPosicionable(pelotaAux);
     			controlador.agregarObjetoVivo(pelotaAux);
