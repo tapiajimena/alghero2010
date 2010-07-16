@@ -1,5 +1,6 @@
 package Vista;
 
+import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.Rectangle;
 
@@ -51,7 +52,8 @@ public class VentanaAplicacion extends JFrame{
 	private JMenuItem getJMenuItem() {
 		if (jMenuItem == null) {
 			jMenuItem = new JMenuItem();
-			jMenuItem.setText("Comenzar");
+			jMenuItem.setText(" START ");
+			jMenuItem.setBackground(Color.WHITE);
 			jMenuItem.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
@@ -84,7 +86,8 @@ public class VentanaAplicacion extends JFrame{
 	private JMenuItem getJMenuItem1() {
 		if (jMenuItem1 == null) {
 			jMenuItem1 = new JMenuItem();
-			jMenuItem1.setText("Detener");
+			jMenuItem1.setText(" DETENER ");
+			jMenuItem1.setBackground(Color.WHITE);
 			jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
@@ -120,18 +123,15 @@ public class VentanaAplicacion extends JFrame{
 			GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
 			gridBagConstraints1.gridx = 1;
 			gridBagConstraints1.gridy = 0;
-			jLabelChoques = new JLabel();
-			jLabelChoques.setText("0");
+			//jLabelChoques = new JLabel();
+			//jLabelChoques.setText("0");
 			GridBagConstraints gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.gridx = 0;
 			gridBagConstraints.gridy = 0;
-			jLabel = new JLabel();
-			jLabel.setText("# choques: ");
 			jPanelEstado = new JPanel();
 			jPanelEstado.setLayout(new GridBagLayout());
 			jPanelEstado.setBounds(new Rectangle(8, 41, 149, 194));
-			jPanelEstado.add(jLabel, gridBagConstraints);
-			jPanelEstado.add(jLabelChoques, gridBagConstraints1);
+			//jPanelEstado.add(jLabelChoques, gridBagConstraints1);
 		}
 		return jPanelEstado;
 	}
