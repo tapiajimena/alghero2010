@@ -19,12 +19,14 @@ public class ElementoDeContenedor {
 			return segundo;
 		}
 
-		public double getColumna(){
+		public int getColumna(){
 			return columna;
 		}
 
 
 	}
+
+
 
 
 

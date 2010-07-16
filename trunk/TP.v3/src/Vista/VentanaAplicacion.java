@@ -23,7 +23,7 @@ public class VentanaAplicacion extends JFrame{
 	private JMenuItem jMenuItem = null;
 	private JMenuItem jMenuItem1 = null;
 	private Panel panel = null;
-	private AlgoHero2010 ejemplo = null;
+	private AlgoHero2010 controladorJuego = null;
 	private JPanel jPanelEstado = null;
 	private JLabel jLabel = null;
 	private JLabel jLabelChoques = null;
@@ -68,12 +68,12 @@ public class VentanaAplicacion extends JFrame{
 
 	private void comenzar(){
 		System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-		this.ejemplo = new AlgoHero2010(getSuperficieDeDibujo());
-		this.ejemplo.comenzar();
+		this.controladorJuego = new AlgoHero2010(getSuperficieDeDibujo());
+		this.controladorJuego.comenzar();
 	}
 
 	private void detener() {
-		this.ejemplo.detener();
+		this.controladorJuego.detener();
 	}
 
 	/**

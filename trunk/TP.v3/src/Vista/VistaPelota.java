@@ -5,7 +5,7 @@ import java.awt.Color;
 public class VistaPelota extends Circulo {
 
 	public VistaPelota(int laColumna) {
-		super(30);
+		super(50);
 
 		switch(laColumna){
 
