@@ -34,7 +34,7 @@ public class NivelFacil extends Nivel{
 	@Override
 	public void modificarVelocidad() {
 		for (int i = 0; i < this.canciones.size(); i++){
-			double tiempo = (this.canciones.get(i).getTiempoDeNegra() * 1);
+			double tiempo = (this.canciones.get(i).getTiempoDeNegra()*1);
 			this.canciones.get(i).setTiempoDeNegra(tiempo);
 		}
 	}
