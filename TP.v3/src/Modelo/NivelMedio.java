@@ -20,6 +20,7 @@ public class NivelMedio  extends Nivel{
 		this.porcentajeMinimo = 0.75;
 		this.factorAumentoDificultad = 2;
 		this.nombre = "Medio";
+        this.elContenedor = new ArrayList<ElementoDeContenedor>();
 	}
 
 	@Override
