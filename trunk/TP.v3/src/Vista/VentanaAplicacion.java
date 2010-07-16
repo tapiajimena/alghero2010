@@ -27,7 +27,6 @@ public class VentanaAplicacion extends JFrame{
 	private AlgoHero2010 controladorJuego = null;
 	private JPanel jPanelEstado = null;
 	private JLabel jLabel = null;
-	private JLabel jLabelChoques = null;
 
 	/**
 	 * This method initializes jJToolBarBar
@@ -37,7 +36,7 @@ public class VentanaAplicacion extends JFrame{
 	private JToolBar getJJToolBarBar() {
 		if (jJToolBarBar == null) {
 			jJToolBarBar = new JToolBar();
-			jJToolBarBar.setBounds(new Rectangle(0, 0, 372, 33));
+			jJToolBarBar.setBounds(new Rectangle(0, 0, 200, 33));
 			jJToolBarBar.add(getJMenuItem());
 			jJToolBarBar.add(getJMenuItem1());
 		}
@@ -123,15 +122,12 @@ public class VentanaAplicacion extends JFrame{
 			GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
 			gridBagConstraints1.gridx = 1;
 			gridBagConstraints1.gridy = 0;
-			//jLabelChoques = new JLabel();
-			//jLabelChoques.setText("0");
 			GridBagConstraints gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.gridx = 0;
 			gridBagConstraints.gridy = 0;
 			jPanelEstado = new JPanel();
 			jPanelEstado.setLayout(new GridBagLayout());
 			jPanelEstado.setBounds(new Rectangle(8, 41, 149, 194));
-			//jPanelEstado.add(jLabelChoques, gridBagConstraints1);
 		}
 		return jPanelEstado;
 	}
@@ -189,11 +185,6 @@ public class VentanaAplicacion extends JFrame{
 			jContentPane.add(getJPanelEstado(), null);
 		}
 		return jContentPane;
-	}
-
-	//@Override
-	public void seActualizaronLosChoques(int puntosTotales) {
-		this.jLabelChoques.setText(String.valueOf(puntosTotales));
 	}
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"
