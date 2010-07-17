@@ -20,7 +20,7 @@ public class NivelFacil extends Nivel{
 		this.porcentajeMinimo = 0.55;
 		this.factorAumentoDificultad = 1;
 		this.nombre = "Fácil";
-        this.elContenedor = new ArrayList<ElementoDeContenedor>();
+
 	}
 
 

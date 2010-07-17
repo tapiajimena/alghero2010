@@ -20,8 +20,7 @@ public class NivelDificil extends Nivel{
 		this.porcentajeMinimo =	0.95;
 		this.factorAumentoDificultad = 3;
 		this.nombre = "Difícil";
-        this.elContenedor = new ArrayList<ElementoDeContenedor>();
-	}
+     }
 
 	@Override
 	public double getPorcentajeMinimo() {
