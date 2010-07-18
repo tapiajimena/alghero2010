@@ -17,9 +17,6 @@ public class Juego {
 
     private ArrayList<Nivel> niveles;
     private ArrayList<Letra> letras;//LAS LETRAS QUE INGRESA EL USUARIO
-    private ArrayList<ElementoDeContenedor> elContenedor;
-
-
 
 
     //Métodos:
@@ -27,65 +24,9 @@ public class Juego {
     public Juego(ArrayList<Nivel> losNiveles){
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
-        this.elContenedor = new ArrayList<ElementoDeContenedor>();
 
 
     }
-
-  //ARMA Y DEVUELVE EL CONTENEDOR ( SEGUNDO-COLUMNA)
-
-
-	public ArrayList<ElementoDeContenedor> getContenedor(int indiceDeNivel,int indiceDeCancion){
-
-
-		Cancion cancion=this.getNiveles().get(indiceDeNivel).getListaCanciones().get(indiceDeCancion);
-		TablaDeMapeo unaTabla=new TablaDeMapeo(cancion);
-		unaTabla.armarTabla();
-
-		for(int i=0; i< unaTabla.getArrayDeSegundos().size();i++){
-
-			double segundoActual=unaTabla.getArrayDeSegundos().get(i);
-
-			ElementoDePartitura elementoActual=unaTabla.getTabla().get((segundoActual));
-
-			if(!elementoActual.getFigura().esSilencio()){
-
-				if (elementoActual instanceof Nota){
-					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-					ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-					elContenedor.add(struct);
-				}
-
-				if (elementoActual instanceof Acorde){
-
-					ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-					for(int j=0;j<sonidosActuales.size();j++){
-						Sonido elSonidoActual = sonidosActuales.get(j);
-						int identificadorActual= elSonidoActual.getIdentificador();
-						ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual,indiceDeNivel));
-						elContenedor.add(struct);
-
-					}
-				}
-			}
-		}
-
-	return elContenedor;
-}
-
-	public int asignarColumna(int tipoDeSonido,int indiceDeNivel){
-
-		Map<Integer,Letra> tablaDeTeclas=this.getNiveles().get(indiceDeNivel).getTablaDeTeclas();
-		Letra letra=tablaDeTeclas.get(tipoDeSonido);
-
-		int columna=this.getNiveles().get(indiceDeNivel).getLetras().indexOf(letra);
-
-		return (columna+1);
-
-
-	}
-
-
 
 
     public ArrayList<Letra> getLetras(){

@@ -14,6 +14,7 @@ import javax.swing.Icon;
          protected ArrayList<Letra> letras;
          protected int cantidadTeclas;
          protected ArrayList<Cancion> canciones;
+         protected ArrayList<TablaDeMapeo> tablasDeMapeo;
          protected double factorAumentoDificultad;
          /*Guarda la relacion entre los sonidos (usando su identifcador) y
           * la letra que tiene asignada
@@ -38,13 +39,16 @@ import javax.swing.Icon;
          protected double contadorDeAciertos;
          protected double contadorDePerfectos;
 
-
+         // Los contenedores son tablas con un matcheo tiempo - columna, esto
+         // es, en que tiempo se debe lanzar una pelitita ubicada en una
+         // determinada columna. Desde luego, que la columna a caer es función
+         // de la nota a ejecutar y del nivel que se esta jugando, ya que los
+         // niveles pueden variar sus columnas a usar.
+         protected ArrayList<ArrayList<ElementoDeContenedor>> contenedores;
 
 
 
          //Métodos:
-
-         public abstract void modificarVelocidad();
 
          public abstract void distribuirTeclas();
 
@@ -73,18 +77,27 @@ import javax.swing.Icon;
 
          }
 
+         // Cuando cargamos una canción, tmb se crea la tabla de mapeo correspondiente, y la misma
+         // tiene un tiempo de negra distinto, por eso se implementa como método virtual.
+         public abstract void cargarCancion(Cancion unaCancion);
 
-         public void cargarCancion(Cancion unaCancion){
-                 this.canciones.add(unaCancion);
-         }
 
          public Cancion elegirCancion(int index){
                  return this.canciones.get(index);
          }
 
+         public ArrayList<TablaDeMapeo> getTablasDeMapeo(){
+             return this.tablasDeMapeo;
+         }
+
          public ArrayList<Cancion> getListaCanciones(){
                  return this.canciones;
          }
+
+         public ArrayList<ArrayList<ElementoDeContenedor>> getContenedores(){
+             return this.contenedores;
+     }
+
 
          public abstract double getPorcentajeMinimo();
 

@@ -10,6 +10,7 @@ import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
 import Modelo.Cancion;
 import Modelo.Compas;
+import Modelo.Corchea;
 import Modelo.Do;
 import Modelo.DoSostenido;
 import Modelo.ElementoDeContenedor;
@@ -44,11 +45,13 @@ public class AlgoHero2010 implements ObjetoVivo{
 	private Date fechaDeComienzo;
 	private boolean comenzoLaSimulacion;
 	private int posicionTabla;
+	private int indiceDeNivel;
 
 	public AlgoHero2010(SuperficieDeDibujo superficieDeDibujo){
 
 		comenzoLaSimulacion = false;
 		posicionTabla = 0;
+		indiceDeNivel = 1;
 
         this.laZonaDeJuego = new ZonaDeJuego(600, 600);
 
@@ -82,6 +85,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 	public void pruebaVista(){
 
 		Negra negra=new Negra(true);
+		Corchea corchea = new Corchea(true);
 		Negra otraNegra=new Negra(false);
 
 		ArmaduraDeClave unaArmadura=new ArmaduraDeClave(6,otraNegra);
@@ -127,9 +131,9 @@ public class AlgoHero2010 implements ObjetoVivo{
 		Nota notaUno=new Nota(otraNegra,unMi);
 		Nota notaDos=new Nota(otraNegra,unDo);
 		Nota notaTres=new Nota(otraNegra,unRe);
-		Nota notaCuatro=new Nota(otraNegra,unFa);
-		Nota notaCinco=new Nota(otraNegra,unDoSostenido);
-		Nota notaSeis=new Nota(otraNegra,unSol);
+		Nota notaCuatro=new Nota(corchea,unFa);
+		Nota notaCinco=new Nota(corchea,unDoSostenido);
+		Nota notaSeis=new Nota(corchea,unSol);
 
 		try {
 			segundoCompas.addElementoDePartitura(notaUno);
@@ -174,17 +178,20 @@ public class AlgoHero2010 implements ObjetoVivo{
 	    unaPartitura.getCompases().add(segundoCompas);
 
 	    Cancion cancion=new Cancion(unaPartitura,"hola","chau",2);
-	    NivelDificil nivelDificil = new NivelDificil();
-		nivelDificil.cargarCancion(cancion);
-	    NivelMedio nivelMedio = new NivelMedio();
-		nivelMedio.cargarCancion(cancion);
+
 	    NivelFacil nivelFacil = new NivelFacil();
-		nivelFacil.cargarCancion(cancion);
+
+		NivelMedio nivelMedio = new NivelMedio();
+
+	    NivelDificil nivelDificil = new NivelDificil();
+
+
 
 		ArrayList<Nivel> listaNiveles = new ArrayList<Nivel>();
-		listaNiveles.add(nivelDificil);
-		listaNiveles.add(nivelMedio);
+
 		listaNiveles.add(nivelFacil);
+		listaNiveles.add(nivelMedio);
+		listaNiveles.add(nivelDificil);
 
 		Juego juego = new Juego(listaNiveles);
 
@@ -209,14 +216,9 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		}
 
-		//juego.getNiveles().get(0).modificarVelocidad();
-		//juego.getNiveles().get(1).modificarVelocidad();
-		//juego.getNiveles().get(2).modificarVelocidad();
-
-		/*for(int i=0;i< juego.getNiveles().size();i++){
-			juego.getNiveles().get(i).modificarVelocidad();
-
-		}*/
+		juego.getNiveles().get(0).cargarCancion(cancion);
+		juego.getNiveles().get(1).cargarCancion(cancion);
+		juego.getNiveles().get(2).cargarCancion(cancion);
 
 		this.elJuego=juego;
 
@@ -226,7 +228,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 	public void vivir() {
 
 		// Con este método se arma un contenedor de notas ficticio.300*
-		pruebaVista();
+
 
 		// Ni bien empieza la simulación encendemos el cronometro.
 
@@ -235,6 +237,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 			comenzoLaSimulacion = true;
 			long time = System.currentTimeMillis();
 	        this.fechaDeComienzo = new Date(time);
+	        pruebaVista();
 
 		}
 
@@ -247,11 +250,11 @@ public class AlgoHero2010 implements ObjetoVivo{
         // Este if lo ponemos para no acceder a un elemento no existente de
         // contenedor.
 
-        if(posicionTabla < elJuego.getContenedor(2,0).size()){
+        if(posicionTabla < elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).size()){
 
-        	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * this.elJuego.getContenedor(2, 0).get(posicionTabla).getSegundo()){
+        	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getSegundo()){
 
-        		Pelota pelotaAux = new Pelota((int)this.elJuego.getContenedor(2, 0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
+        		Pelota pelotaAux = new Pelota((int)this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
         		VistaPelota vistaPelotaAux = new VistaPelota(pelotaAux.getColumna());
     			vistaPelotaAux.setPosicionable(pelotaAux);
     			controlador.agregarObjetoVivo(pelotaAux);
