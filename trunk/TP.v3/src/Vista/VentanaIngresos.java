@@ -2,26 +2,14 @@ package Vista;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
-import javax.swing.AbstractAction;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import javax.swing.Action;
 
-import Controlador.ControladorJuego;
-import Controlador.SuperficieDeDibujo;
 import Modelo.Letra;
 
 /*
@@ -62,9 +50,7 @@ public class VentanaIngresos extends JFrame {
 	Button letraY = new Button("Y");
 	Button letraZ = new Button("Z");
 
-	Button volverMenu = new Button(" volver Menu");
-
-	ImageIcon fondo = new ImageIcon("fondoLetras.jpg");
+	ImageIcon fondo = new ImageIcon("fondoLetras1.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
 	Letra unaLetra;
@@ -76,35 +62,110 @@ public class VentanaIngresos extends JFrame {
 		actual = 0;
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		//Se agrega la etiqueta que contiene la imagen al frame
-		etiqueta.setSize(1050,500);
 
 		letraA.setBounds(300, 140, 30, 30);
+		letraA.setForeground(Color.WHITE);
+		letraA.setBackground(Color.black);
+
 		letraB.setBounds(330, 140, 30, 30);
+		letraB.setForeground(Color.WHITE);
+		letraB.setBackground(Color.black);
+
 		letraC.setBounds(360, 140, 30, 30);
+		letraC.setForeground(Color.WHITE);
+		letraC.setBackground(Color.black);
+
 		letraD.setBounds(390, 140, 30, 30);
+		letraD.setForeground(Color.WHITE);
+		letraD.setBackground(Color.black);
+
 		letraE.setBounds(420, 140, 30, 30);
+		letraE.setForeground(Color.WHITE);
+		letraE.setBackground(Color.black);
+
 		letraF.setBounds(450, 140, 30, 30);
+		letraF.setForeground(Color.WHITE);
+		letraF.setBackground(Color.black);
+
 		letraG.setBounds(480, 140, 30, 30);
+		letraG.setForeground(Color.WHITE);
+		letraG.setBackground(Color.black);
+
 		letraH.setBounds(510, 140, 30, 30);
+		letraH.setForeground(Color.WHITE);
+		letraH.setBackground(Color.black);
+
 		letraI.setBounds(540, 140, 30, 30);
+		letraI.setForeground(Color.WHITE);
+		letraI.setBackground(Color.black);
+
 		letraJ.setBounds(570, 140, 30, 30);
+		letraJ.setForeground(Color.WHITE);
+		letraJ.setBackground(Color.black);
+
 		letraK.setBounds(600, 140, 30, 30);
+		letraK.setForeground(Color.WHITE);
+		letraK.setBackground(Color.black);
+
 		letraL.setBounds(330, 170, 30, 30);
+		letraL.setForeground(Color.WHITE);
+		letraL.setBackground(Color.black);
+
 		letraM.setBounds(360, 170, 30, 30);
+		letraM.setForeground(Color.WHITE);
+		letraM.setBackground(Color.black);
+
 		letraN.setBounds(390, 170, 30, 30);
+		letraN.setForeground(Color.WHITE);
+		letraN.setBackground(Color.black);
+
 		letraO.setBounds(420, 170, 30, 30);
+		letraO.setForeground(Color.WHITE);
+		letraO.setBackground(Color.black);
+
 		letraP.setBounds(450, 170, 30, 30);
+		letraP.setForeground(Color.WHITE);
+		letraP.setBackground(Color.black);
+
 		letraQ.setBounds(480, 170, 30, 30);
+		letraQ.setForeground(Color.WHITE);
+		letraQ.setBackground(Color.black);
+
 		letraR.setBounds(510, 170, 30, 30);
+		letraR.setForeground(Color.WHITE);
+		letraR.setBackground(Color.black);
+
 		letraS.setBounds(540, 170, 30, 30);
+		letraS.setForeground(Color.WHITE);
+		letraS.setBackground(Color.black);
+
 		letraT.setBounds(570, 170, 30, 30);
+		letraT.setForeground(Color.WHITE);
+		letraT.setBackground(Color.black);
+
 		letraU.setBounds(370, 200, 30, 30);
+		letraU.setForeground(Color.WHITE);
+		letraU.setBackground(Color.black);
+
 		letraV.setBounds(400, 200, 30, 30);
+		letraV.setForeground(Color.WHITE);
+		letraV.setBackground(Color.black);
+
 		letraW.setBounds(430, 200, 30, 30);
+		letraW.setForeground(Color.WHITE);
+		letraW.setBackground(Color.black);
+
 		letraX.setBounds(460, 200, 30, 30);
+		letraX.setForeground(Color.WHITE);
+		letraX.setBackground(Color.black);
+
 		letraY.setBounds(490, 200, 30, 30);
+		letraY.setForeground(Color.WHITE);
+		letraY.setBackground(Color.black);
+
 		letraZ.setBounds(520, 200, 30, 30);
+		letraZ.setForeground(Color.WHITE);
+		letraZ.setBackground(Color.black);
 
 		letraA.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -323,7 +384,6 @@ public class VentanaIngresos extends JFrame {
 		getContentPane().add(letraZ);
 
 		getContentPane().add(etiqueta);
-		this.setSize(1050, 500);
 		this.pack();
 		this.setVisible(true);
 
