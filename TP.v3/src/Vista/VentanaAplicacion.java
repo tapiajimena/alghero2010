@@ -17,6 +17,11 @@ import Controlador.AlgoHero2010;
 
 import java.awt.GridBagConstraints;
 
+
+/*
+ * Ventana para jugar
+ */
+
 public class VentanaAplicacion extends JFrame{
 
 	private static final long serialVersionUID = 1L;
