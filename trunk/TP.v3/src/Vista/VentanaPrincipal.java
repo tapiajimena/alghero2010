@@ -31,6 +31,10 @@ public class VentanaPrincipal extends JFrame {
 	private Timer timer;
 	private int numeroNivel;
 
+	Button nivelFacil = new Button();
+	Button nivelMedio = new Button();
+	Button nivelDificil = new Button();
+
 	ImageIcon fondo = new ImageIcon("niveles.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
@@ -39,6 +43,12 @@ public class VentanaPrincipal extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//Se agrega la etiqueta que contiene la imagen al frame
 		etiqueta.setSize(1050,500);
+		nivelFacil.setBounds(700, 150, 150, 80);
+		nivelMedio.setBounds(700, 280, 150, 80);
+		nivelDificil.setBounds(700, 410, 150, 80);
+		getContentPane().add(nivelFacil);
+		getContentPane().add(nivelMedio);
+		getContentPane().add(nivelDificil);
 		getContentPane().add(etiqueta);
 		this.setSize(1050, 500);
 		this.pack();
