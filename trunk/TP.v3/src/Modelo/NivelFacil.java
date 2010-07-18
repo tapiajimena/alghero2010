@@ -109,18 +109,18 @@ public class NivelFacil extends Nivel{
 
 
 
-		this.getTablaDeTeclas().put(1, (this.getLetras().get(0)));//do
-		this.getTablaDeTeclas().put(2, (this.getLetras().get(2)));//re
-		this.getTablaDeTeclas().put(3, (this.getLetras().get(1)));//mi
-		this.getTablaDeTeclas().put(4, (this.getLetras().get(2)));//fa
-		this.getTablaDeTeclas().put(5, (this.getLetras().get(1)));//sol
-		this.getTablaDeTeclas().put(6, (this.getLetras().get(0)));//la
-		this.getTablaDeTeclas().put(7, (this.getLetras().get(2)));//si
-		this.getTablaDeTeclas().put(8, (this.getLetras().get(1)));//dosostenido
-		this.getTablaDeTeclas().put(9, (this.getLetras().get(0)));//resostenido
-		this.getTablaDeTeclas().put(10, (this.getLetras().get(0)));//fasostenido
-		this.getTablaDeTeclas().put(11, (this.getLetras().get(2)));//solsostenido
-		this.getTablaDeTeclas().put(12, (this.getLetras().get(1)));//lasostenido
+		this.getTablaDeTeclas().put(60, (this.getLetras().get(0)));//do
+		this.getTablaDeTeclas().put(61, (this.getLetras().get(2)));//re
+		this.getTablaDeTeclas().put(62, (this.getLetras().get(1)));//mi
+		this.getTablaDeTeclas().put(63, (this.getLetras().get(2)));//fa
+		this.getTablaDeTeclas().put(64, (this.getLetras().get(1)));//sol
+		this.getTablaDeTeclas().put(65, (this.getLetras().get(0)));//la
+		this.getTablaDeTeclas().put(66, (this.getLetras().get(2)));//si
+		this.getTablaDeTeclas().put(67, (this.getLetras().get(1)));//dosostenido
+		this.getTablaDeTeclas().put(68, (this.getLetras().get(0)));//resostenido
+		this.getTablaDeTeclas().put(69, (this.getLetras().get(0)));//fasostenido
+		this.getTablaDeTeclas().put(70, (this.getLetras().get(2)));//solsostenido
+		this.getTablaDeTeclas().put(71, (this.getLetras().get(1)));//lasostenido
 
 
 
