@@ -79,32 +79,32 @@ public class VentanaIngresos extends JFrame {
 		//Se agrega la etiqueta que contiene la imagen al frame
 		etiqueta.setSize(1050,500);
 
-		letraA.setBounds(300, 140, 25, 25);
-		letraB.setBounds(325, 140, 25, 25);
-		letraC.setBounds(350, 140, 25, 25);
-		letraD.setBounds(375, 140, 25, 25);
-		letraE.setBounds(400, 140, 25, 25);
-		letraF.setBounds(425, 140, 25, 25);
-		letraG.setBounds(450, 140, 25, 25);
-		letraH.setBounds(475, 140, 25, 25);
-		letraI.setBounds(500, 140, 25, 25);
-		letraJ.setBounds(525, 140, 25, 25);
-		letraK.setBounds(550, 140, 25, 25);
-		letraL.setBounds(325, 165, 25, 25);
-		letraM.setBounds(350, 165, 25, 25);
-		letraN.setBounds(375, 165, 25, 25);
-		letraO.setBounds(400, 165, 25, 25);
-		letraP.setBounds(425, 165, 25, 25);
-		letraQ.setBounds(450, 165, 25, 25);
-		letraR.setBounds(475, 165, 25, 25);
-		letraS.setBounds(500, 165, 25, 25);
-		letraT.setBounds(525, 165, 25, 25);
-		letraU.setBounds(350, 190, 25, 25);
-		letraV.setBounds(375, 190, 25, 25);
-		letraW.setBounds(400, 190, 25, 25);
-		letraX.setBounds(425, 190, 25, 25);
-		letraY.setBounds(450, 190, 25, 25);
-		letraZ.setBounds(475, 190, 25, 25);
+		letraA.setBounds(300, 140, 30, 30);
+		letraB.setBounds(330, 140, 30, 30);
+		letraC.setBounds(360, 140, 30, 30);
+		letraD.setBounds(390, 140, 30, 30);
+		letraE.setBounds(420, 140, 30, 30);
+		letraF.setBounds(450, 140, 30, 30);
+		letraG.setBounds(480, 140, 30, 30);
+		letraH.setBounds(510, 140, 30, 30);
+		letraI.setBounds(540, 140, 30, 30);
+		letraJ.setBounds(570, 140, 30, 30);
+		letraK.setBounds(600, 140, 30, 30);
+		letraL.setBounds(330, 170, 30, 30);
+		letraM.setBounds(360, 170, 30, 30);
+		letraN.setBounds(390, 170, 30, 30);
+		letraO.setBounds(420, 170, 30, 30);
+		letraP.setBounds(450, 170, 30, 30);
+		letraQ.setBounds(480, 170, 30, 30);
+		letraR.setBounds(510, 170, 30, 30);
+		letraS.setBounds(540, 170, 30, 30);
+		letraT.setBounds(570, 170, 30, 30);
+		letraU.setBounds(370, 200, 30, 30);
+		letraV.setBounds(400, 200, 30, 30);
+		letraW.setBounds(430, 200, 30, 30);
+		letraX.setBounds(460, 200, 30, 30);
+		letraY.setBounds(490, 200, 30, 30);
+		letraZ.setBounds(520, 200, 30, 30);
 
 		letraA.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
