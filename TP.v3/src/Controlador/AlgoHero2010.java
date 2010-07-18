@@ -52,7 +52,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		comenzoLaSimulacion = false;
 		posicionTabla = 0;
-		indiceDeNivel = 1;
+		indiceDeNivel = 2;
 
         this.laZonaDeJuego = new ZonaDeJuego(600, 600);
 
