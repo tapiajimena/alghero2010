@@ -2,17 +2,14 @@ package Modelo;
 
 public class Letra {
 
-	private String simbolo;
+	private char simbolo;
 
-	public Letra(){
-	}
-
-	public String getSimbolo(){
-		return simbolo;
-	}
-
-	public void setSimbolo(String simbolo){
+	public Letra(char simbolo){
 		this.simbolo = simbolo;
+	}
+
+	public char getSimbolo(){
+		return simbolo;
 	}
 
 }
