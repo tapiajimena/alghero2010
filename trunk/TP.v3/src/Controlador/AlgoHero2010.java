@@ -52,7 +52,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		comenzoLaSimulacion = false;
 		posicionTabla = 0;
-		indiceDeNivel = 2;
+		indiceDeNivel = 1;
 
         this.laZonaDeJuego = new ZonaDeJuego(600, 600);
 
@@ -370,7 +370,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 	    unaPartitura.getCompases().add(tercerCompas);
 	    unaPartitura.getCompases().add(octavoCompas);
 
-	    Cancion cancion=new Cancion(unaPartitura,"hola","chau",2);
+	    Cancion cancion=new Cancion(unaPartitura,"Himno de la alegría","Beethoven",1);
 
 	    NivelFacil nivelFacil = new NivelFacil();
 
