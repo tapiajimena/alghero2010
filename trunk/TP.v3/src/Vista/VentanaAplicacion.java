@@ -109,7 +109,7 @@ public class VentanaAplicacion extends JFrame{
 	private Panel getSuperficieDeDibujo() {
 		if (panel == null) {
 			panel = new Panel(10,10);
-			panel.setBounds(new Rectangle(162, 38, 600, 600));
+			panel.setBounds(new Rectangle(100, 42, 600, 600));
 		}
 		return panel;
 	}
