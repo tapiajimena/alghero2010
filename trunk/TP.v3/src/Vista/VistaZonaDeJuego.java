@@ -6,7 +6,7 @@ public class VistaZonaDeJuego extends Cuadrado {
 
 	public VistaZonaDeJuego() {
 		super(600,600);
-		setColor(Color.WHITE);
+		setColor(Color.BLACK);
 	}
 
 }
