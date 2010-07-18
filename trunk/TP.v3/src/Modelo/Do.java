@@ -5,7 +5,7 @@ public class Do extends Sonido{
 	//Métodos:
 
 	public int getIdentificador(){
-		return(1);
+		return(60);
 
 	}
 

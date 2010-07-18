@@ -5,7 +5,7 @@ public class Fa extends Sonido{
 	//Métodos:
 
 	public int getIdentificador(){
-		return(4);
+		return(65);
 
 	}
 

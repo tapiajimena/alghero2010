@@ -5,7 +5,7 @@ public class Mi extends Sonido{
 	//Métodos:
 
 	public int getIdentificador(){
-		return(3);
+		return(64);
 
 	}
 
