@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import Audio.Elemento;
+import Audio.Reproductor;
 import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
@@ -52,7 +53,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		comenzoLaSimulacion = false;
 		posicionTabla = 0;
-		indiceDeNivel = 1;
+		indiceDeNivel = 2;
 
         this.laZonaDeJuego = new ZonaDeJuego(600, 600);
 
@@ -417,15 +418,6 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 
 
-
-
-
-
-
-
-
-
-
 	}
 
 
@@ -443,6 +435,8 @@ public class AlgoHero2010 implements ObjetoVivo{
 	        this.fechaDeComienzo = new Date(time);
 	        pruebaVista();
 
+
+
 		}
 
 
@@ -450,19 +444,30 @@ public class AlgoHero2010 implements ObjetoVivo{
 
         long timeAux = System.currentTimeMillis();
         Date fechaActual = new Date(timeAux);
+        long tiempoDeSimulacion = fechaActual.getTime() - fechaDeComienzo.getTime();
 
         // Este if lo ponemos para no acceder a un elemento no existente de
         // contenedor.
 
         if(posicionTabla < elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).size()){
 
-        	if((fechaActual.getTime() - fechaDeComienzo.getTime()) > 1000 * this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getSegundo()){
+        	if(tiempoDeSimulacion > 1000 * this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getSegundo()){
 
         		Pelota pelotaAux = new Pelota((int)this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
         		VistaPelota vistaPelotaAux = new VistaPelota(pelotaAux.getColumna());
     			vistaPelotaAux.setPosicionable(pelotaAux);
     			controlador.agregarObjetoVivo(pelotaAux);
-    			controlador.agregarDibujable(vistaPelotaAux);;
+    			controlador.agregarDibujable(vistaPelotaAux);
+    			double key = this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(0).getArrayDeSegundos().get(posicionTabla);
+    			Nota notaAux = (Nota) this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(0).getTabla().get(key);
+
+    			double tiempoDeNegra = this.elJuego.getNiveles().get(0).elegirCancion(0).getTiempoDeNegra();
+    			tiempoDeNegra = this.elJuego.getNiveles().get(1).elegirCancion(0).getTiempoDeNegra();
+    			tiempoDeNegra = this.elJuego.getNiveles().get(2).elegirCancion(0).getTiempoDeNegra();
+
+    			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(tiempoDeNegra));
+    			Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
+    			this.controlador.getReproductorDeAudio().reproducir(elementoAux);
             	posicionTabla++;
 
             }
@@ -473,5 +478,6 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 
 }
+
 
 
