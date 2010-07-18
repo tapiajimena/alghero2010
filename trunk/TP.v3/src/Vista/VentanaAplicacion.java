@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -27,6 +28,9 @@ public class VentanaAplicacion extends JFrame{
 	private AlgoHero2010 controladorJuego = null;
 	private JPanel jPanelEstado = null;
 	private JLabel jLabel = null;
+
+	ImageIcon fondo = new ImageIcon("fondoPelotitas.jpg");
+	JLabel etiqueta = new JLabel(fondo);
 
 	/**
 	 * This method initializes jJToolBarBar
@@ -105,31 +109,9 @@ public class VentanaAplicacion extends JFrame{
 	private Panel getSuperficieDeDibujo() {
 		if (panel == null) {
 			panel = new Panel(10,10);
-			panel.setLayout(new GridBagLayout());
-			//panel.setBounds(new Rectangle(10, 43, 267, 114));
 			panel.setBounds(new Rectangle(162, 38, 600, 600));
 		}
 		return panel;
-	}
-
-	/**
-	 * This method initializes jPanelEstado
-	 *
-	 * @return javax.swing.JPanel
-	 */
-	private JPanel getJPanelEstado() {
-		if (jPanelEstado == null) {
-			GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
-			gridBagConstraints1.gridx = 1;
-			gridBagConstraints1.gridy = 0;
-			GridBagConstraints gridBagConstraints = new GridBagConstraints();
-			gridBagConstraints.gridx = 0;
-			gridBagConstraints.gridy = 0;
-			jPanelEstado = new JPanel();
-			jPanelEstado.setLayout(new GridBagLayout());
-			jPanelEstado.setBounds(new Rectangle(8, 41, 149, 194));
-		}
-		return jPanelEstado;
 	}
 
 	/**
@@ -161,7 +143,10 @@ public class VentanaAplicacion extends JFrame{
 	 */
 	private void initialize() {
 		this.setSize(1024, 768);
-		this.setContentPane(getJContentPane());
+		this.getContentPane().setBackground(Color.WHITE);
+		this.getContentPane().add(getJContentPane());
+		this.getContentPane().add(getJJToolBarBar());
+		this.getContentPane().add(etiqueta);
 		this.setTitle("Algo Hero 2010");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
@@ -180,9 +165,7 @@ public class VentanaAplicacion extends JFrame{
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(null);
-			jContentPane.add(getJJToolBarBar(), null);
 			jContentPane.add(getSuperficieDeDibujo(), null);
-			jContentPane.add(getJPanelEstado(), null);
 		}
 		return jContentPane;
 	}
