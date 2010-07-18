@@ -90,12 +90,12 @@ public class NivelFacil extends Nivel{
 
 		int columna=this.letras.indexOf(letra);
 
-		return (columna+1);
+		return (columna);
 
 	}
 
 
-	private Cancion modificarVelocidad(Cancion unaCancion) {
+	public Cancion modificarVelocidad(Cancion unaCancion) {
 
 		double tiempo = unaCancion.getTiempoDeNegra() * 1;
 		unaCancion.setTiempoDeNegra(tiempo);

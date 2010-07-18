@@ -24,75 +24,12 @@ public class NivelMedio  extends Nivel{
 		this.nombre = "Medio";
    	}
 
-	public void cargarCancion(Cancion unaCancion){
-
-		// Al momento de cargar una canción, cargamos su tabla de mapeo
-		// correspondiente, que tiene los tiempos adecuados al nivel en
-		// que estamos y el contenedor apropiado..
-
-		unaCancion = modificarVelocidad(unaCancion);
-		this.canciones.add(unaCancion);
-		TablaDeMapeo unaTablaDeMapeo = new TablaDeMapeo(unaCancion);
-		unaTablaDeMapeo.armarTabla();
-		tablasDeMapeo.add(unaTablaDeMapeo);
-		this.contenedores.add(armarContenedor(unaTablaDeMapeo));
-
-	}
-
 
 	public double getPorcentajeMinimo() {
 		return 0.75;
 	}
 
-
-	private ArrayList<ElementoDeContenedor> armarContenedor(TablaDeMapeo unaTablaDeMapeo){
-
-		ArrayList<ElementoDeContenedor> elContenedor = new ArrayList<ElementoDeContenedor>();
-
-		for(int i=0; i< unaTablaDeMapeo.getArrayDeSegundos().size();i++){
-
-			double segundoActual=unaTablaDeMapeo.getArrayDeSegundos().get(i);
-
-			ElementoDePartitura elementoActual=unaTablaDeMapeo.getTabla().get((segundoActual));
-
-			if(!elementoActual.getFigura().esSilencio()){
-
-				if (elementoActual instanceof Nota){
-					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-					ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-					elContenedor.add(struct);
-				}
-
-				if (elementoActual instanceof Acorde){
-
-					ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-					for(int j=0;j<sonidosActuales.size();j++){
-						Sonido elSonidoActual = sonidosActuales.get(j);
-						int identificadorActual= elSonidoActual.getIdentificador();
-						ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-						elContenedor.add(struct);
-
-					}
-				}
-			}
-		}
-
-		return elContenedor;
-
-	}
-
-	private int asignarColumna(int tipoDeSonido){
-
-		Letra letra=tablaDeTeclas.get(tipoDeSonido);
-
-		int columna=this.letras.indexOf(letra);
-
-		return (columna+1);
-
-	}
-
-
-	private Cancion modificarVelocidad(Cancion unaCancion) {
+	public Cancion modificarVelocidad(Cancion unaCancion) {
 
 		double tiempo = unaCancion.getTiempoDeNegra() * 0.6;
 		unaCancion.setTiempoDeNegra(tiempo);
