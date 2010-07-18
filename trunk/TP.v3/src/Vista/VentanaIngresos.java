@@ -352,7 +352,7 @@ public class VentanaIngresos extends JFrame {
 				}
 		}
 		else{
-			JOptionPane.showMessageDialog(this, " Ya ingresó las 6 letras" , "Atencion!",
+			JOptionPane.showMessageDialog(this, " Ya ingresó las 6 letras con las que va a jugar" , "Atencion!",
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
