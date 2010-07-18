@@ -2,24 +2,13 @@ package Vista;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.Timer;
 import javax.swing.Action;
 
-import Controlador.ControladorJuego;
-import Controlador.SuperficieDeDibujo;
 import Modelo.Juego;
 
 /*
