@@ -24,7 +24,7 @@ public class VistaPresentacion extends JFrame {
 	*/
 
 	private static final long serialVersionUID = 1L;
-	ImageIcon imagen = new ImageIcon("Presentacion.jpg");
+	ImageIcon imagen = new ImageIcon("Presentación2.jpg");
 
 	/*	COMO LAS IMAGENES, SE DEBEN COLOCAR DENTRO DE COMPONENTES
 		(ETIQUETAS, BOTONES, ETC..), LO QUE HARÉ SERÁ UNA ETIQUETA (LABEL)
