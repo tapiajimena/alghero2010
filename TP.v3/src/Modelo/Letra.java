@@ -4,12 +4,15 @@ public class Letra {
 
 	private String simbolo;
 
-	public Letra(String letraIngresada){
-		this.simbolo = letraIngresada;
+	public Letra(){
 	}
 
 	public String getSimbolo(){
 		return simbolo;
+	}
+
+	public void setSimbolo(String simbolo){
+		this.simbolo = simbolo;
 	}
 
 }
