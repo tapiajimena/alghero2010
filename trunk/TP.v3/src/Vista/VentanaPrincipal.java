@@ -36,7 +36,7 @@ public class VentanaPrincipal extends JFrame {
 	Button nivelFacil = new Button("NIVEL  FACIL");
 	Button nivelMedio = new Button("NIVEL  MEDIO");
 	Button nivelDificil = new Button("NIVEL  DIFICIL");
-	Button volverMenu = new Button(" volver Menu");
+	Button volverMenu = new Button(" atrás ");
 
 	ImageIcon fondo = new ImageIcon("niveles.jpg");
 	JLabel etiqueta = new JLabel(fondo);
