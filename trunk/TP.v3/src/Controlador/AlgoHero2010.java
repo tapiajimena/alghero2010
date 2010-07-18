@@ -42,18 +42,20 @@ public class AlgoHero2010 implements ObjetoVivo{
 	private ControladorJuego controlador = null;
 	private ZonaDeJuego laZonaDeJuego;
 	private VistaZonaDeJuego laVistaZonaDeJuego;
-	private LinkedList<Pelota> pelotitas = new LinkedList<Pelota>();
 	private Juego elJuego;
 	private Date fechaDeComienzo;
 	private boolean comenzoLaSimulacion;
-	private int posicionTabla;
+	private int indiceDeContenedor;
 	private int indiceDeNivel;
+	private int indiceDeCancion;
 
 	public AlgoHero2010(SuperficieDeDibujo superficieDeDibujo){
 
-		comenzoLaSimulacion = false;
-		posicionTabla = 0;
-		indiceDeNivel = 2;
+		this.comenzoLaSimulacion = false;
+
+		this.indiceDeContenedor = 0;
+		this.indiceDeNivel = 0;
+		this.indiceDeCancion = 0;
 
         this.laZonaDeJuego = new ZonaDeJuego(600, 600);
 
@@ -72,9 +74,116 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 	}
 
-	public LinkedList<Pelota> getPelotitas(){
-		return pelotitas;
+	public ControladorJuego getControlador(){
+
+		return this.controlador;
+
 	}
+
+	public ZonaDeJuego getZonaDeJuego(){
+
+		return this.laZonaDeJuego;
+
+	}
+
+	public VistaZonaDeJuego getVistaZonaDeJuego(){
+
+		return this.laVistaZonaDeJuego;
+
+	}
+
+
+	public Juego getJuego(){
+
+		return this.elJuego;
+
+	}
+
+	public Date getFechaDeComienzo(){
+
+		return this.fechaDeComienzo;
+
+	}
+
+	public boolean getComenzoLaSimulacion(){
+
+		return this.comenzoLaSimulacion;
+
+	}
+
+	public int getIndiceContenedor(){
+
+		return this.indiceDeContenedor;
+
+	}
+
+	public int getIndiceDeNivel(){
+
+		return this.indiceDeNivel;
+
+	}
+
+	public int getIndiceDeCancion(){
+
+		return this.indiceDeCancion;
+
+	}
+
+	public void setControlador(ControladorJuego unControlador){
+
+		this.controlador = unControlador;
+
+	}
+
+	public void setZonaDeJuego(ZonaDeJuego unaZonaDeJuego){
+
+		this.laZonaDeJuego = unaZonaDeJuego;
+
+	}
+
+	public void setVistaZonaDeJuego(VistaZonaDeJuego unaVistaZonaDeJuego){
+
+		this.laVistaZonaDeJuego = unaVistaZonaDeJuego;
+
+	}
+
+
+	public void setJuego(Juego unJuego){
+
+		this.elJuego = unJuego;
+
+	}
+
+	public void setFechaDeComienzo(Date unaFecha){
+
+		this.fechaDeComienzo = unaFecha;
+
+	}
+
+	public void setComenzoLaSimulacion(boolean unComenzoLaSimulacion){
+
+		this.comenzoLaSimulacion = unComenzoLaSimulacion;
+
+	}
+
+	public void setIndiceContenedor(int unIndiceDeContenedor){
+
+		this.indiceDeContenedor = unIndiceDeContenedor;
+
+	}
+
+	public void setIndiceDeNivel(int unIndiceDeNivel){
+
+		this.indiceDeNivel = unIndiceDeNivel;
+
+	}
+
+	public void setIndiceDeCancion(int unIndiceDeCancion){
+
+		this.indiceDeCancion = unIndiceDeCancion;
+
+	}
+
 
 	public void comenzar(){
 		controlador.comenzarJuegoAsyn();
@@ -84,146 +193,72 @@ public class AlgoHero2010 implements ObjetoVivo{
 		controlador.detenerJuego();
 	}
 
+
+	public void vivir() {
+
+		// Con este método se arma un contenedor de notas ficticio.300*
+
+
+		// Ni bien empieza la simulación encendemos el cronometro.
+
+		if(this.comenzoLaSimulacion == false){
+
+			comenzoLaSimulacion = true;
+			long time = System.currentTimeMillis();
+	        this.fechaDeComienzo = new Date(time);
+	        pruebaVista();
+
+
+
+		}
+
+
+		// Nos fijamos si hay que agregar alguna pelotita mas.
+
+        long timeAux = System.currentTimeMillis();
+        Date fechaActual = new Date(timeAux);
+        long tiempoDeSimulacion = fechaActual.getTime() - fechaDeComienzo.getTime();
+
+        // Este if lo ponemos para no acceder a un elemento no existente de
+        // contenedor.
+
+        if(indiceDeContenedor < elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(indiceDeCancion).size()){
+
+        	// Si es momento de crear una pelota
+        	if(tiempoDeSimulacion > 1000 * this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(indiceDeCancion).get(indiceDeContenedor).getSegundo()){
+
+        		// Creamos la pelota y su vista y lo agregamos a la coleccion de objetos vivos y dibujables del controlador.
+        		Pelota pelotaAux = new Pelota((int)this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(indiceDeCancion).get(indiceDeContenedor).getColumna(),this.laZonaDeJuego);
+        		VistaPelota vistaPelotaAux = new VistaPelota(pelotaAux.getColumna());
+    			vistaPelotaAux.setPosicionable(pelotaAux);
+    			controlador.agregarObjetoVivo(pelotaAux);
+    			controlador.agregarDibujable(vistaPelotaAux);
+
+    			// Hacemos sonar en este momento la nota correspondiente a la pelota lanzada.
+    			double key = this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(indiceDeCancion).getArrayDeSegundos().get(indiceDeContenedor);
+    			Nota notaAux = (Nota) this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(indiceDeCancion).getTabla().get(key);
+
+    			double tiempoDeNegra = this.elJuego.getNiveles().get(0).elegirCancion(indiceDeCancion).getTiempoDeNegra();
+    			tiempoDeNegra = this.elJuego.getNiveles().get(1).elegirCancion(indiceDeCancion).getTiempoDeNegra();
+    			tiempoDeNegra = this.elJuego.getNiveles().get(2).elegirCancion(indiceDeCancion).getTiempoDeNegra();
+
+    			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(1));
+    			Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
+
+
+
+    			this.controlador.getReproductorDeAudio().reproducir(elementoAux);
+
+
+    			indiceDeContenedor++;
+
+            }
+        }
+
+
+	}
+
 	public void pruebaVista() {
-/*
-		Negra negra=new Negra(true);
-		Corchea corchea = new Corchea(true);
-		Negra otraNegra=new Negra(false);
-
-		ArmaduraDeClave unaArmadura=new ArmaduraDeClave(6,otraNegra);
-		Compas primerCompas= new Compas(unaArmadura);
-		Do unDo=new Do();
-		Mi unMi=new Mi();
-		Sol unSol=new Sol();
-		Re unRe=new Re();
-		Fa unFa=new Fa();
-		DoSostenido unDoSostenido=new DoSostenido();
-
-	    Nota unaNota=new Nota(negra,unDo);//
-	    Nota otraNota=new Nota(otraNegra,unMi);
-	    ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
-	    sonidos.add(unSol);
-	    sonidos.add(unRe);
-	    sonidos.add(unFa);
-	    sonidos.add(unDoSostenido);
-	    Acorde unAcorde=new Acorde(otraNegra,sonidos);
-
-	    try {
-			primerCompas.addElementoDePartitura(unaNota);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		try {
-			primerCompas.addElementoDePartitura(otraNota);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		try {
-			primerCompas.addElementoDePartitura(unAcorde);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		Compas segundoCompas= new Compas(unaArmadura);
-		Nota notaUno=new Nota(otraNegra,unMi);
-		Nota notaDos=new Nota(otraNegra,unDo);
-		Nota notaTres=new Nota(otraNegra,unRe);
-		Nota notaCuatro=new Nota(corchea,unFa);
-		Nota notaCinco=new Nota(corchea,unDoSostenido);
-		Nota notaSeis=new Nota(corchea,unSol);
-
-		try {
-			segundoCompas.addElementoDePartitura(notaUno);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			segundoCompas.addElementoDePartitura(notaDos);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			segundoCompas.addElementoDePartitura(notaTres);
-		} catch (CompasLlenoException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			segundoCompas.addElementoDePartitura(notaCuatro);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			segundoCompas.addElementoDePartitura(notaCinco);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			segundoCompas.addElementoDePartitura(notaSeis);
-		} catch (CompasLlenoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-	    Partitura unaPartitura=new Partitura();
-	    unaPartitura.getCompases().add(primerCompas);
-	    unaPartitura.getCompases().add(segundoCompas);
-
-	    Cancion cancion=new Cancion(unaPartitura,"hola","chau",2);
-
-	    NivelFacil nivelFacil = new NivelFacil();
-
-		NivelMedio nivelMedio = new NivelMedio();
-
-	    NivelDificil nivelDificil = new NivelDificil();
-
-
-
-		ArrayList<Nivel> listaNiveles = new ArrayList<Nivel>();
-
-		listaNiveles.add(nivelFacil);
-		listaNiveles.add(nivelMedio);
-		listaNiveles.add(nivelDificil);
-
-		Juego juego = new Juego(listaNiveles);
-
-        //Estas letras las ingresa el usuario
-		Letra a=new Letra('a');
-		Letra s=new Letra('s');
-		Letra d=new Letra('d');
-		Letra f=new Letra('f');
-		Letra g=new Letra('g');
-		Letra h=new Letra('h');
-
-		juego.getLetras().add(a);
-		juego.getLetras().add(s);
-		juego.getLetras().add(d);
-		juego.getLetras().add(f);
-		juego.getLetras().add(g);
-		juego.getLetras().add(h);
-
-		juego.asignarLetrasNivel();
-		for(int i=0;i< juego.getNiveles().size();i++){
-			juego.getNiveles().get(i).distribuirTeclas();
-
-		}
-
-		juego.getNiveles().get(0).cargarCancion(cancion);
-		juego.getNiveles().get(1).cargarCancion(cancion);
-		juego.getNiveles().get(2).cargarCancion(cancion);
-
-		this.elJuego=juego;
-*/
 
 		Negra negra=new Negra(false);
 		ArmaduraDeClave unaArmadura=new ArmaduraDeClave(4,negra);
@@ -414,64 +449,8 @@ public class AlgoHero2010 implements ObjetoVivo{
 		juego.getNiveles().get(1).cargarCancion(cancion);
 		juego.getNiveles().get(2).cargarCancion(cancion);
 
-		this.elJuego=juego;
+		this.elJuego = juego;
 
-
-
-	}
-
-
-	public void vivir() {
-
-		// Con este método se arma un contenedor de notas ficticio.300*
-
-
-		// Ni bien empieza la simulación encendemos el cronometro.
-
-		if(this.comenzoLaSimulacion == false){
-
-			comenzoLaSimulacion = true;
-			long time = System.currentTimeMillis();
-	        this.fechaDeComienzo = new Date(time);
-	        pruebaVista();
-
-
-
-		}
-
-
-		// Nos fijamos si hay que agregar alguna pelotita mas.
-
-        long timeAux = System.currentTimeMillis();
-        Date fechaActual = new Date(timeAux);
-        long tiempoDeSimulacion = fechaActual.getTime() - fechaDeComienzo.getTime();
-
-        // Este if lo ponemos para no acceder a un elemento no existente de
-        // contenedor.
-
-        if(posicionTabla < elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).size()){
-
-        	if(tiempoDeSimulacion > 1000 * this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getSegundo()){
-
-        		Pelota pelotaAux = new Pelota((int)this.elJuego.getNiveles().get(indiceDeNivel).getContenedores().get(0).get(posicionTabla).getColumna(),this.laZonaDeJuego);
-        		VistaPelota vistaPelotaAux = new VistaPelota(pelotaAux.getColumna());
-    			vistaPelotaAux.setPosicionable(pelotaAux);
-    			controlador.agregarObjetoVivo(pelotaAux);
-    			controlador.agregarDibujable(vistaPelotaAux);
-    			double key = this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(0).getArrayDeSegundos().get(posicionTabla);
-    			Nota notaAux = (Nota) this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(0).getTabla().get(key);
-
-    			double tiempoDeNegra = this.elJuego.getNiveles().get(0).elegirCancion(0).getTiempoDeNegra();
-    			tiempoDeNegra = this.elJuego.getNiveles().get(1).elegirCancion(0).getTiempoDeNegra();
-    			tiempoDeNegra = this.elJuego.getNiveles().get(2).elegirCancion(0).getTiempoDeNegra();
-
-    			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(tiempoDeNegra));
-    			Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
-    			this.controlador.getReproductorDeAudio().reproducir(elementoAux);
-            	posicionTabla++;
-
-            }
-        }
 
 
 	}
