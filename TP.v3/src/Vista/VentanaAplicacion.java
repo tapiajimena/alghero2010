@@ -56,7 +56,7 @@ public class VentanaAplicacion extends JFrame{
 		if (jMenuItem == null) {
 			jMenuItem = new JMenuItem();
 			jMenuItem.setText(" START ");
-			jMenuItem.setBackground(Color.WHITE);
+			jMenuItem.setBackground(Color.orange);
 			jMenuItem.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
@@ -90,7 +90,7 @@ public class VentanaAplicacion extends JFrame{
 		if (jMenuItem1 == null) {
 			jMenuItem1 = new JMenuItem();
 			jMenuItem1.setText(" DETENER ");
-			jMenuItem1.setBackground(Color.WHITE);
+			jMenuItem1.setBackground(Color.orange);
 			jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
