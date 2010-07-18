@@ -77,6 +77,11 @@ import javax.swing.Icon;
 
          }
 
+         // Cuando cargamos una canción, tmb se crea la tabla de mapeo correspondiente, y la misma
+         // tiene un tiempo de negra distinto, por eso se implementa como método virtual.
+         public abstract void cargarCancion(Cancion unaCancion);
+
+
          public Cancion elegirCancion(int index){
                  return this.canciones.get(index);
          }
@@ -146,73 +151,6 @@ import javax.swing.Icon;
 		public String getNombre() {
 			return this.nombre;
 		}
-
-		public abstract Cancion modificarVelocidad(Cancion unaCancion);
-
-
-		public void cargarCancion(Cancion unaCancion){
-
-			// Al momento de cargar una canción, cargamos su tabla de mapeo
-			// correspondiente, que tiene los tiempos adecuados al nivel en
-			// que estamos y el contenedor apropiado..
-
-			unaCancion = modificarVelocidad(unaCancion);
-			this.canciones.add(unaCancion);
-			TablaDeMapeo unaTablaDeMapeo = new TablaDeMapeo(unaCancion);
-			unaTablaDeMapeo.armarTabla();
-			tablasDeMapeo.add(unaTablaDeMapeo);
-			this.contenedores.add(armarContenedor(unaTablaDeMapeo));
-
-		}
-
-
-		private ArrayList<ElementoDeContenedor> armarContenedor(TablaDeMapeo unaTablaDeMapeo){
-
-			ArrayList<ElementoDeContenedor> elContenedor = new ArrayList<ElementoDeContenedor>();
-
-			for(int i=0; i< unaTablaDeMapeo.getArrayDeSegundos().size();i++){
-
-				double segundoActual=unaTablaDeMapeo.getArrayDeSegundos().get(i);
-
-				ElementoDePartitura elementoActual=unaTablaDeMapeo.getTabla().get((segundoActual));
-
-				if(!elementoActual.getFigura().esSilencio()){
-
-					if (elementoActual instanceof Nota){
-						int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-						ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-						elContenedor.add(struct);
-					}
-
-					if (elementoActual instanceof Acorde){
-
-						ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-						for(int j=0;j<sonidosActuales.size();j++){
-							Sonido elSonidoActual = sonidosActuales.get(j);
-							int identificadorActual= elSonidoActual.getIdentificador();
-							ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-							elContenedor.add(struct);
-
-						}
-					}
-				}
-			}
-
-			return elContenedor;
-
-		}
-
-		private int asignarColumna(int tipoDeSonido){
-
-			Letra letra=tablaDeTeclas.get(tipoDeSonido);
-
-			int columna=this.letras.indexOf(letra);
-
-			return (columna);
-
-		}
-
-
  }
 
 
