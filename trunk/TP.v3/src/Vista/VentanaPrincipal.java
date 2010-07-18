@@ -1,16 +1,23 @@
 package Vista;
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Action;
+import javax.swing.JProgressBar;
 
-import Modelo.Juego;
-import Modelo.Nivel;
+import javax.swing.Timer;
+import javax.swing.plaf.basic.BasicButtonListener;
+
+import com.sun.media.sound.Toolkit;
+
 
 /*
  * Ventana que muestra los tres niveles y da la opcion de elegir.
@@ -27,7 +34,8 @@ public class VentanaPrincipal extends JFrame {
 	ImageIcon fondo = new ImageIcon("niveles.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
-	private Juego juego;
+	private JProgressBar progressBar;
+	private Timer timer;
 
 	public VentanaPrincipal() {
 		super("AlgoHero 2010");
@@ -91,6 +99,31 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().remove(nivelFacil);
 		getContentPane().remove(nivelMedio);
 		getContentPane().remove(nivelDificil);
+
+		final Button botonStart = new Button("Load");
+		botonStart.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt) {
+            	timer.start();
+        }});
+
+		botonStart.setBounds(430, 650, 100, 30);
+		botonStart.setBackground(Color.BLACK);
+		botonStart.setForeground(Color.white);
+
+		progressBar = new JProgressBar(0,10);
+		progressBar.setValue(0);
+		progressBar.setStringPainted(true);
+
+		timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	for (int i=0; i<1000; i++){
+            		progressBar.setValue(i);
+            	}
+            }
+        });
+
+		getContentPane().add(progressBar, BorderLayout.PAGE_END);
+		getContentPane().add(botonStart);
 
 		if(numeroNivel == 0) {
 			ImageIcon fondo = new ImageIcon("fondoNivelF.jpg");
