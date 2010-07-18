@@ -2,6 +2,7 @@ package Vista;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -80,15 +81,32 @@ public class VentanaPrincipal extends JFrame {
 		this.setVisible(true);
 	}
 
+
+	/*
+	 * Se encarga de cargar la vista dependiendo del nivel
+	 */
 	public void cargarNivel(int numeroNivel) {
+
 		getContentPane().remove(etiqueta);
 		getContentPane().remove(nivelFacil);
 		getContentPane().remove(nivelMedio);
 		getContentPane().remove(nivelDificil);
 
-		ImageIcon fondo = new ImageIcon("Presentación2.jpg");
-		JLabel etiqueta = new JLabel(fondo);
-		getContentPane().add(etiqueta);
+		if(numeroNivel == 0) {
+			ImageIcon fondo = new ImageIcon("fondoNivelF.jpg");
+			JLabel etiqueta2 = new JLabel(fondo);
+			getContentPane().add(etiqueta2);
+		}
+		if(numeroNivel == 1) {
+			ImageIcon fondo = new ImageIcon("fondoNivelM.jpg");
+			JLabel etiqueta2 = new JLabel(fondo);
+			getContentPane().add(etiqueta2);
+		}
+		if(numeroNivel == 2) {
+			ImageIcon fondo = new ImageIcon("fondoNivelD.jpg");
+			JLabel etiqueta2 = new JLabel(fondo);
+			getContentPane().add(etiqueta2);
+		}
 
 		this.pack();
 		this.setVisible(true);

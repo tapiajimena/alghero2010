@@ -209,9 +209,9 @@ public class Prueba {
 		}
 
 
-		ArrayList<ElementoDeContenedor> contenedorDificil=juego.getContenedor(0, 0);
-		ArrayList<ElementoDeContenedor> contenedorMedio=juego.getContenedor(1, 0);
-		ArrayList<ElementoDeContenedor> contenedorFacil=juego.getContenedor(2, 0);
+		ArrayList<ElementoDeContenedor> contenedorDificil=juego.getContenedores(0, 0);
+		ArrayList<ElementoDeContenedor> contenedorMedio=juego.getContenedores(1, 0);
+		ArrayList<ElementoDeContenedor> contenedorFacil=juego.getContenedores(2, 0);
 
 	    for(int i=0;i< contenedorDificil.size();i++){
 	    	System.out.println(contenedorDificil.get(i).getSegundo());
