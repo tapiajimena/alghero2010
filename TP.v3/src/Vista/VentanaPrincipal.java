@@ -2,44 +2,47 @@ package Vista;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.AbstractAction;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.Timer;
+import javax.swing.Action;
+
 import Controlador.ControladorJuego;
 import Controlador.SuperficieDeDibujo;
+import Modelo.Juego;
 
 
-public class VentanaPrincipal extends Frame {
 
-	public VentanaPrincipal(ControladorJuego unControladorJuego) {
-		this.controladorJuego = unControladorJuego;
-		this.setTitle("Pelotas");
-		this.setSize(400, 400);
-		this.setResizable(false);
-		panel = new Panel(222,242,controladorJuego);
-		this.add(panel);
+public class VentanaPrincipal extends JFrame {
 
-		Button boton = new Button();
-		boton.setLabel("Boton");
-		this.add(boton);
-
-		this.setBackground(Color.green);
-		panel.setBackground(Color.gray);
-
-		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				dispose();
-				System.exit(0);
-			}
-		});
-	}
-
-	private ControladorJuego controladorJuego;
 	private static final long serialVersionUID = 1L;
-	private Panel panel;
+	private Juego unJuego;
+	private Timer timer;
+	private int numeroNivel;
 
-	public SuperficieDeDibujo getSuperficieDeDibujo() {
-		return this.panel;
+	ImageIcon fondo = new ImageIcon("niveles.jpg");
+	JLabel etiqueta = new JLabel(fondo);
+
+	public VentanaPrincipal() {
+		super("AlgoHero 2010");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		//Se agrega la etiqueta que contiene la imagen al frame
+		etiqueta.setSize(1050,500);
+		getContentPane().add(etiqueta);
+		this.setSize(1050, 500);
+		this.pack();
+		this.setVisible(true);
 	}
+
 }
