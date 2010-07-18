@@ -143,7 +143,7 @@ public class VentanaAplicacion extends JFrame{
 	 */
 	private void initialize() {
 		this.setSize(1024, 768);
-		this.getContentPane().setBackground(Color.WHITE);
+		this.getContentPane().setBackground(Color.BLACK);
 		this.getContentPane().add(getJContentPane());
 		this.getContentPane().add(getJJToolBarBar());
 		this.getContentPane().add(etiqueta);
