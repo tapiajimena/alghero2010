@@ -337,7 +337,7 @@ public class VentanaIngresos extends JFrame {
 	 */
 	public void ingresarLetra(Letra unaLetra){
 		boolean distinto = true;
-		if(actual<6){
+		if(actual<cantidadMaxima){
 		if (actual > 0){
 				for (int i=0; i<letrasIngresadas.size(); i++){
 					if (letrasIngresadas.get(i).getSimbolo()== unaLetra.getSimbolo()) distinto = false;
