@@ -5,7 +5,7 @@ public class ReSostenido extends Sonido{
 	//Métodos:
 
 	public int getIdentificador(){
-		return(9);
+		return(63);
 
 	}
 

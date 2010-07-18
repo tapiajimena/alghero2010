@@ -5,7 +5,7 @@ public class LaSostenido extends Sonido {
 	//Métodos:
 
 	public int getIdentificador(){
-		return(12);
+		return(70);
 
 	}
 

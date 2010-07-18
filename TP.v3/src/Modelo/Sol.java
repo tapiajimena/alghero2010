@@ -5,7 +5,7 @@ public class Sol extends Sonido{
 	//Métodos:
 
 	public int getIdentificador(){
-		return(5);
+		return(67);
 
 	}
 
