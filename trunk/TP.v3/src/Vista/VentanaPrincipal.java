@@ -22,7 +22,9 @@ import Controlador.ControladorJuego;
 import Controlador.SuperficieDeDibujo;
 import Modelo.Juego;
 
-
+/*
+ * Ventana que muestra los tres niveles y da la opcion de elegir.
+ */
 
 public class VentanaPrincipal extends JFrame {
 
