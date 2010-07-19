@@ -51,24 +51,24 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 	public AlgoHero2010(SuperficieDeDibujo superficieDeDibujo){
 
+		this.controlador = new ControladorJuego(true);
+        this.controlador.setSuperficieDeDibujo(superficieDeDibujo);
+
+        this.laZonaDeJuego = new ZonaDeJuego(600, 600);
+        this.laVistaZonaDeJuego = new VistaZonaDeJuego();
+        this.laVistaZonaDeJuego.setPosicionable(laZonaDeJuego);
+
+        this.fechaDeComienzo = new Date();
+
 		this.comenzoLaSimulacion = false;
 
 		this.indiceDeContenedor = 0;
-		this.indiceDeNivel = 0;
+		this.indiceDeNivel = 2;
 		this.indiceDeCancion = 0;
-
-        this.laZonaDeJuego = new ZonaDeJuego(600, 600);
-
-        this.controlador = new ControladorJuego(true);
-        this.controlador.setSuperficieDeDibujo(superficieDeDibujo);
-
-        this.laVistaZonaDeJuego = new VistaZonaDeJuego();
-        this.laVistaZonaDeJuego.setPosicionable(laZonaDeJuego);
 
         this.controlador.agregarObjetoVivo(this);
 
         this.controlador.agregarDibujable(laVistaZonaDeJuego);
-
 
         this.controlador.setIntervaloSimulacion(10);
 
@@ -238,11 +238,9 @@ public class AlgoHero2010 implements ObjetoVivo{
     			double key = this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(indiceDeCancion).getArrayDeSegundos().get(indiceDeContenedor);
     			Nota notaAux = (Nota) this.elJuego.getNiveles().get(indiceDeNivel).getTablasDeMapeo().get(indiceDeCancion).getTabla().get(key);
 
-    			double tiempoDeNegra = this.elJuego.getNiveles().get(0).elegirCancion(indiceDeCancion).getTiempoDeNegra();
-    			tiempoDeNegra = this.elJuego.getNiveles().get(1).elegirCancion(indiceDeCancion).getTiempoDeNegra();
-    			tiempoDeNegra = this.elJuego.getNiveles().get(2).elegirCancion(indiceDeCancion).getTiempoDeNegra();
 
-    			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(1));
+    			double tiempoDeNegra = this.elJuego.getNiveles().get(indiceDeNivel).elegirCancion(indiceDeCancion).getTiempoDeNegra();
+    			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(tiempoDeNegra));
     			Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
 
 
@@ -422,7 +420,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 		listaNiveles.add(nivelMedio);
 		listaNiveles.add(nivelDificil);
 
-		Juego juego = new Juego(listaNiveles);
+		this.elJuego = new Juego(listaNiveles);
 
         //Estas letras las ingresa el usuario
 		Letra a=new Letra('a');
@@ -432,29 +430,26 @@ public class AlgoHero2010 implements ObjetoVivo{
 		Letra g=new Letra('g');
 		Letra h=new Letra('h');
 
-		juego.getLetras().add(a);
-		juego.getLetras().add(s);
-		juego.getLetras().add(d);
-		juego.getLetras().add(f);
-		juego.getLetras().add(g);
-		juego.getLetras().add(h);
+		this.elJuego.getLetras().add(a);
+		this.elJuego.getLetras().add(s);
+		this.elJuego.getLetras().add(d);
+		this.elJuego.getLetras().add(f);
+		this.elJuego.getLetras().add(g);
+		this.elJuego.getLetras().add(h);
 
-		juego.asignarLetrasNivel();
-		for(int i=0;i< juego.getNiveles().size();i++){
-			juego.getNiveles().get(i).distribuirTeclas();
+		this.elJuego.asignarLetrasNivel();
+		for(int i=0;i< this.elJuego.getNiveles().size();i++){
+			this.elJuego.getNiveles().get(i).distribuirTeclas();
 
 		}
 
-		juego.getNiveles().get(0).cargarCancion(cancion);
-		juego.getNiveles().get(1).cargarCancion(cancion);
-		juego.getNiveles().get(2).cargarCancion(cancion);
-
-		this.elJuego = juego;
+		this.elJuego.getNiveles().get(0).cargarCancion(cancion);
+		this.elJuego.getNiveles().get(1).cargarCancion(cancion);
+		this.elJuego.getNiveles().get(2).cargarCancion(cancion);
 
 
 
 	}
-
 
 }
 
