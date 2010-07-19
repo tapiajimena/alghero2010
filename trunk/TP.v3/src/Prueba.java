@@ -71,12 +71,12 @@ import Modelo.Sonido;
  * 16-2
  *
  */
-
+/*
 public class Prueba {
 
 	/**
 	 * @param args
-	 */
+
 	public static void main(String[] args) {
 
 
@@ -244,4 +244,4 @@ public class Prueba {
 }
 
 
-
+*/

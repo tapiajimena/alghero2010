@@ -30,11 +30,11 @@ public class Juego {
 
 
     public ArrayList<Letra> getLetras(){
-        return letras;
+        return this.letras;
     }
 
     public ArrayList<Nivel> getNiveles(){
-        return niveles;
+        return this.niveles;
     }
 
 

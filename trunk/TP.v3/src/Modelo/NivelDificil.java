@@ -30,9 +30,10 @@ public class NivelDificil extends Nivel{
 		// correspondiente, que tiene los tiempos adecuados al nivel en
 		// que estamos y el contenedor apropiado..
 
-		unaCancion = modificarVelocidad(unaCancion);
-		this.canciones.add(unaCancion);
-		TablaDeMapeo unaTablaDeMapeo = new TablaDeMapeo(unaCancion);
+		Cancion cancionAux = new Cancion(unaCancion);
+		cancionAux = modificarVelocidad(cancionAux);
+		this.canciones.add(cancionAux);
+		TablaDeMapeo unaTablaDeMapeo = new TablaDeMapeo(cancionAux);
 		unaTablaDeMapeo.armarTabla();
 		this.tablasDeMapeo.add(unaTablaDeMapeo);
 		this.contenedores.add(armarContenedor(unaTablaDeMapeo));

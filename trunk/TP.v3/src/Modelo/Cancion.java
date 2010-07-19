@@ -47,6 +47,16 @@ public class Cancion {
 		this.puntajeIdeal = (this.obtenerCantidadDeNotas()*5);
 	}
 
+	public Cancion(Cancion unaCancion){
+
+		this.partitura = unaCancion.partitura;
+		this.tiempoDeNegra = unaCancion.tiempoDeNegra;
+		this.nombre = unaCancion.nombre;
+		this.artista = unaCancion.artista;
+		this.puntajeIdeal = unaCancion.puntajeIdeal;
+
+	}
+
 	public Partitura getPartitura(){
 		return(this.partitura);
 	}
@@ -91,6 +101,7 @@ public class Cancion {
 
 	}
 }
+
 
 
 
