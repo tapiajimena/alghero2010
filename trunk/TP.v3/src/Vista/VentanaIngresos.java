@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 import Modelo.Letra;
 
@@ -22,6 +23,8 @@ public class VentanaIngresos extends JFrame {
 	private ArrayList<Letra> letrasIngresadas;
 	private int cantidadMaxima = 6;
 	private int actual;
+
+	Button continua = new Button ("NEXT");
 
 	Button letraA = new Button("A");
 	Button letraB = new Button("B");
@@ -63,107 +66,118 @@ public class VentanaIngresos extends JFrame {
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-		letraA.setBounds(300, 140, 30, 30);
+		continua.setBounds(800, 650, 100, 40);
+		continua.setBackground(Color.black);
+		continua.setForeground(Color.orange);
+
+		continua.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				System.out.println("se apretó NEXT");
+				cargarSiguiente();
+			}
+		});
+
+		letraA.setBounds(300, 190, 50, 50);
 		letraA.setForeground(Color.WHITE);
 		letraA.setBackground(Color.black);
 
-		letraB.setBounds(330, 140, 30, 30);
+		letraB.setBounds(350, 190, 50, 50);
 		letraB.setForeground(Color.WHITE);
 		letraB.setBackground(Color.black);
 
-		letraC.setBounds(360, 140, 30, 30);
+		letraC.setBounds(400, 190, 50, 50);
 		letraC.setForeground(Color.WHITE);
 		letraC.setBackground(Color.black);
 
-		letraD.setBounds(390, 140, 30, 30);
+		letraD.setBounds(450, 190, 50, 50);
 		letraD.setForeground(Color.WHITE);
 		letraD.setBackground(Color.black);
 
-		letraE.setBounds(420, 140, 30, 30);
+		letraE.setBounds(500, 190, 50, 50);
 		letraE.setForeground(Color.WHITE);
 		letraE.setBackground(Color.black);
 
-		letraF.setBounds(450, 140, 30, 30);
+		letraF.setBounds(550, 190, 50, 50);
 		letraF.setForeground(Color.WHITE);
 		letraF.setBackground(Color.black);
 
-		letraG.setBounds(480, 140, 30, 30);
+		letraG.setBounds(600, 190, 50, 50);
 		letraG.setForeground(Color.WHITE);
 		letraG.setBackground(Color.black);
 
-		letraH.setBounds(510, 140, 30, 30);
+		letraH.setBounds(300, 240, 50, 50);
 		letraH.setForeground(Color.WHITE);
 		letraH.setBackground(Color.black);
 
-		letraI.setBounds(540, 140, 30, 30);
+		letraI.setBounds(350, 240, 50, 50);
 		letraI.setForeground(Color.WHITE);
 		letraI.setBackground(Color.black);
 
-		letraJ.setBounds(570, 140, 30, 30);
+		letraJ.setBounds(400, 240, 50, 50);
 		letraJ.setForeground(Color.WHITE);
 		letraJ.setBackground(Color.black);
 
-		letraK.setBounds(600, 140, 30, 30);
+		letraK.setBounds(450, 240, 50, 50);
 		letraK.setForeground(Color.WHITE);
 		letraK.setBackground(Color.black);
 
-		letraL.setBounds(330, 170, 30, 30);
+		letraL.setBounds(500, 240, 50, 50);
 		letraL.setForeground(Color.WHITE);
 		letraL.setBackground(Color.black);
 
-		letraM.setBounds(360, 170, 30, 30);
+		letraM.setBounds(550, 240, 50, 50);
 		letraM.setForeground(Color.WHITE);
 		letraM.setBackground(Color.black);
 
-		letraN.setBounds(390, 170, 30, 30);
+		letraN.setBounds(600, 240, 50, 50);
 		letraN.setForeground(Color.WHITE);
 		letraN.setBackground(Color.black);
 
-		letraO.setBounds(420, 170, 30, 30);
+		letraO.setBounds(300, 290, 50, 50);
 		letraO.setForeground(Color.WHITE);
 		letraO.setBackground(Color.black);
 
-		letraP.setBounds(450, 170, 30, 30);
+		letraP.setBounds(350, 290, 50, 50);
 		letraP.setForeground(Color.WHITE);
 		letraP.setBackground(Color.black);
 
-		letraQ.setBounds(480, 170, 30, 30);
+		letraQ.setBounds(400, 290, 50, 50);
 		letraQ.setForeground(Color.WHITE);
 		letraQ.setBackground(Color.black);
 
-		letraR.setBounds(510, 170, 30, 30);
+		letraR.setBounds(450, 290, 50, 50);
 		letraR.setForeground(Color.WHITE);
 		letraR.setBackground(Color.black);
 
-		letraS.setBounds(540, 170, 30, 30);
+		letraS.setBounds(500, 290, 50, 50);
 		letraS.setForeground(Color.WHITE);
 		letraS.setBackground(Color.black);
 
-		letraT.setBounds(570, 170, 30, 30);
+		letraT.setBounds(550, 290, 50, 50);
 		letraT.setForeground(Color.WHITE);
 		letraT.setBackground(Color.black);
 
-		letraU.setBounds(370, 200, 30, 30);
+		letraU.setBounds(600, 290, 50, 50);
 		letraU.setForeground(Color.WHITE);
 		letraU.setBackground(Color.black);
 
-		letraV.setBounds(400, 200, 30, 30);
+		letraV.setBounds(350, 340, 50, 50);
 		letraV.setForeground(Color.WHITE);
 		letraV.setBackground(Color.black);
 
-		letraW.setBounds(430, 200, 30, 30);
+		letraW.setBounds(400, 340, 50, 50);
 		letraW.setForeground(Color.WHITE);
 		letraW.setBackground(Color.black);
 
-		letraX.setBounds(460, 200, 30, 30);
+		letraX.setBounds(450, 340, 50, 50);
 		letraX.setForeground(Color.WHITE);
 		letraX.setBackground(Color.black);
 
-		letraY.setBounds(490, 200, 30, 30);
+		letraY.setBounds(500, 340, 50, 50);
 		letraY.setForeground(Color.WHITE);
 		letraY.setBackground(Color.black);
 
-		letraZ.setBounds(520, 200, 30, 30);
+		letraZ.setBounds(550, 340, 50, 50);
 		letraZ.setForeground(Color.WHITE);
 		letraZ.setBackground(Color.black);
 
@@ -355,6 +369,7 @@ public class VentanaIngresos extends JFrame {
 		});
 
 
+		getContentPane().add(continua);
 
 		getContentPane().add(letraA);
 		getContentPane().add(letraB);
@@ -389,6 +404,15 @@ public class VentanaIngresos extends JFrame {
 
 
 		}
+
+
+	protected void cargarSiguiente() {
+
+		this.hide();
+
+		VentanaPrincipal siguiente = new VentanaPrincipal();
+
+	}
 
 
 	/*
