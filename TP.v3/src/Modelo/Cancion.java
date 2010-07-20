@@ -1,10 +1,12 @@
 package Modelo;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
@@ -22,19 +24,51 @@ public class Cancion {
 
 	//Métodos:
 
-/*
-	 public static Cancion recuperar(String archivo) throws IOException{
+	/*   public static Cancion recuperar(String archivo) throws IOException{
 	       Cancion cancion = new Cancion();
 	       SAXReader reader = new SAXReader();
 	       try{
 		        Document document = reader.read(archivo);
-		        Element elemAnotador = document.getRootElement();
-		        cancion = recuperar(elemAnotador);
+		        Element elemCancion = document.getRootElement();
+		        cancion = recuperar(elemCancion);
 	       }catch(DocumentException ex){
 	           throw new IOException();
 	       }
 	       return cancion;
 	   }
+	   public static Cancion recuperar(Element elemCancion) {
+
+	       String nombre = elemCancion.attributeValue("Nombre");
+	       String artista = elemCancion.attributeValue("Artista");
+	       String tiempoDeNegra = elemCancion.attributeValue("Tiempo de negra");
+	       Paritura laPartitura= elemCancion.
+
+	       anotador.addNota(Nota.recuperar(elemNota));
+
+	       Cancion cancion = new Cancion(nombre,artista,,tiempoDeNegra);
+	       return cancion;
+	   }*/
+
+	   public void guardar(String archivo) throws IOException{
+	       Document doc = DocumentHelper.createDocument();
+	       doc.add(this.guardar());
+	       FileWriter writer = new FileWriter(archivo);
+	       doc.write( writer);
+	       writer.close();
+	   }
+
+
+   public Element guardar() {
+       Element elemCancion = DocumentHelper.createElement("Cancion");
+       elemCancion.addAttribute("Nombre", this.getNombre());
+       elemCancion.addAttribute("Artista", this.getArtista());
+       elemCancion.addAttribute("Tiempo de negra", String.valueOf(this.getTiempoDeNegra()));
+       elemCancion.add(this.getPartitura().guardar());
+
+       return elemCancion;
+   }
+
+
 
 
 

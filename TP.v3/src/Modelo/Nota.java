@@ -1,11 +1,27 @@
 package Modelo;
 
+import java.util.Iterator;
+
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 public class Nota extends ElementoDePartitura{
 
 	//Atributos:
 	private Sonido tipo;
 
 	//Métodos:
+
+	public Element guardar() {
+	       Element elemNota = DocumentHelper.createElement("Nota");
+	       elemNota.add(this.getSonido().guardar());
+	       elemNota.add(this.getFigura().guardar());
+
+	       return elemNota;
+	   }
+
+
+
 	public Nota(Figura laDuracion, Sonido elTipo){
 		this.duracion = laDuracion;
 		this.tipo = elTipo;

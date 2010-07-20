@@ -1,5 +1,9 @@
 package Modelo;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import Excepciones.CompasLlenoException;
 
@@ -11,6 +15,18 @@ public class Compas {
 
 	//Métodos:
 
+	 public Element guardar() {
+	       Element elemCompas = DocumentHelper.createElement("Compas");
+	       elemCompas.add(this.getArmaduraDeClave().guardar());
+	       Iterator it = elementosDePartitura.iterator();
+	       while(it.hasNext()){
+	           ElementoDePartitura elemento = (ElementoDePartitura)it.next();
+	           elemCompas.add(elemento.guardar());
+	       }
+
+
+	       return elemCompas;
+	   }
 	/* Solamente se crea el arreglo elementosDeParitura. Luego para
 	 * agregar notas o acordes se usa el método addElementosDePartitura,
 	 * ya que de esta forma se puede chequear que no se carguen mas
@@ -62,6 +78,11 @@ public class Compas {
 			else{
 				throw new CompasLlenoException("No puede agregarse mas elementos De Partitura");
 			}
+	}
+
+	public ArmaduraDeClave getArmaduraDeClave(){
+
+		return this.armaduraDeClave;
 	}
 
 }
