@@ -1,4 +1,6 @@
 package Vista;
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -41,9 +43,9 @@ public class VistaPresentacion extends JFrame {
 		super("Bienvenidos");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//Se agrega la etiqueta que contiene la imagen al frame
-		etiqueta2.setSize(1050,500);
+		etiqueta2.setSize(1024, 768);
 		getContentPane().add(etiqueta2);
-		this.setSize(1050, 500);
+		getContentPane().setBackground(Color.black);
 		this.pack();
 		this.setVisible(true);
 	}
