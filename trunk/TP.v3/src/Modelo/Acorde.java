@@ -1,5 +1,9 @@
 package Modelo;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 public class Acorde extends ElementoDePartitura {
 
@@ -7,6 +11,19 @@ public class Acorde extends ElementoDePartitura {
 	private ArrayList<Sonido> sonidos;
 
 	//Métodos:
+
+	public Element guardar() {
+	       Element elemAcorde = DocumentHelper.createElement("Acorde");
+	       elemAcorde.add(this.getFigura().guardar());
+	       Iterator it = sonidos.iterator();
+	       while(it.hasNext()){
+	           Sonido sonido = (Sonido)it.next();
+	           elemAcorde.add(sonido.guardar());
+	       }
+
+	       return elemAcorde;
+	   }
+
 	public Acorde(Figura laDuracion, ArrayList<Sonido> losSonidos){
 		this.duracion = laDuracion;
 		this.sonidos = losSonidos;

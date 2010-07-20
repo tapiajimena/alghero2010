@@ -1,4 +1,7 @@
 package Modelo;
+
+import org.dom4j.Element;
+
 public abstract class ElementoDePartitura {
 
 	//Atributos:
@@ -8,6 +11,7 @@ public abstract class ElementoDePartitura {
 	//Métodos:
 	public abstract int obtenerCantidadDeElementos();
 	public abstract int obtenerCantidadDeSonidos();
+	public abstract Element guardar();
 	public Figura getFigura(){
 		return(duracion);
 
