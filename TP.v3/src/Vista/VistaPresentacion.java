@@ -1,4 +1,6 @@
 package Vista;
+import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
@@ -36,17 +38,36 @@ public class VistaPresentacion extends JFrame {
 		EL OBJETO QUE CONTIENE LA IMAGEN.
 	*/
 
+	Button play = new Button("PLAY");
 	JLabel etiqueta2 = new JLabel(imagen);
 
 	public VistaPresentacion()
 	{
 		super("Bienvenidos");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		//Se agrega la etiqueta que contiene la imagen al frame
-		etiqueta2.setSize(1024, 768);
+
+		play.setBackground(Color.black);
+		play.setForeground(Color.orange);
+
+		play.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				System.out.println("se apretó el botón de play");
+				cargarSiguiente();
+			}
+		});
+
+		getContentPane().add(play,BorderLayout.PAGE_END);
 		getContentPane().add(etiqueta2);
+
 		getContentPane().setBackground(Color.black);
+
 		this.pack();
 		this.setVisible(true);
+	}
+
+	protected void cargarSiguiente(){
+
+		this.hide();
+		VentanaIngresos siguiente = new VentanaIngresos();
 	}
 }

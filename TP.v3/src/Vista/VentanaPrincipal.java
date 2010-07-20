@@ -104,6 +104,7 @@ public class VentanaPrincipal extends JFrame {
 		botonStart.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent evt) {
             	timer.start();
+            	cargarsiguiente();
         }});
 
 		botonStart.setBounds(430, 650, 100, 30);
@@ -143,6 +144,14 @@ public class VentanaPrincipal extends JFrame {
 
 		this.pack();
 		this.setVisible(true);
+	}
+
+
+	protected void cargarsiguiente() {
+
+		this.hide();
+
+		VentanaCanciones siguiente = new VentanaCanciones();
 	}
 
 }
