@@ -17,6 +17,13 @@ public class Juego {
 
     private ArrayList<Nivel> niveles;
     private ArrayList<Letra> letras;//LAS LETRAS QUE INGRESA EL USUARIO
+    private Date fechaDeComienzo;
+    private int indiceDeCancion;
+    private int indiceDeNivel;
+    boolean hacerSonarPelota;
+    int indiceDePelotaASonar;
+
+
 
 
     //Métodos:
@@ -24,7 +31,11 @@ public class Juego {
     public Juego(ArrayList<Nivel> losNiveles){
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
-
+        this.fechaDeComienzo = new Date();
+        this.indiceDeNivel = 0;
+		this.indiceDeCancion = 0;
+		hacerSonarPelota = false;
+		indiceDePelotaASonar = 0;
 
     }
 
@@ -71,11 +82,87 @@ public class Juego {
 
 
 
+	public TablaDeMapeo getTablaDeMapeoIndexada(){
 
+		return this.niveles.get(indiceDeNivel).getTablasDeMapeo().get(indiceDeCancion);
+
+	}
+
+	public ArrayList<ElementoDeContenedor> getContenedorIndexado(){
+
+		return this.niveles.get(indiceDeNivel).getContenedores().get(indiceDeCancion);
+
+	}
+
+	public Cancion getCancionIndexada(){
+
+
+		return this.niveles.get(indiceDeNivel).elegirCancion(indiceDeCancion);
+
+	}
+
+	public Date getFechaDeComienzo(){
+
+		return this.fechaDeComienzo;
+
+	}
+
+	public int getIndiceDeCancion(){
+
+		return this.indiceDeCancion;
+
+	}
+
+	public int getIndiceNivel(){
+
+		return this.indiceDeNivel;
+
+	}
+
+	public boolean getHacerSonarPelota(){
+
+		return this.hacerSonarPelota;
+
+	}
+
+	public int getIndiceDePelotaASonar(){
+
+		return this.indiceDePelotaASonar;
+
+	}
+
+	public void setFechaDeComienzo(Date unaFechaDeComienzo){
+
+		this.fechaDeComienzo = unaFechaDeComienzo;
+
+	}
+
+
+	public void setIndiceCancion(int unIndiceDeCancion){
+
+		this.indiceDeCancion = unIndiceDeCancion;
+
+	}
+
+	public void setIndiceNivel(int unIndiceDeNivel){
+
+		this.indiceDeNivel = unIndiceDeNivel;
+
+	}
+
+	public void setHacerSonarPelota(boolean unHacerSonarPelota){
+
+		this.hacerSonarPelota = unHacerSonarPelota;
+
+	}
+
+	public void setIndiceDePelotaASonar(int unIndiceDePelotaASonar){
+
+		this.indiceDePelotaASonar = unIndiceDePelotaASonar;
+
+	}
 
 }
-
-
 
     /* Método por el cual se ingresan las 6 letras a utilizar durante todo
 	 * el juego.
@@ -193,4 +280,3 @@ public void Jugar(int indiceDeNivel,int indiceDeCancion){
 
    }
    */
-

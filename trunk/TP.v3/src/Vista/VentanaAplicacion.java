@@ -37,11 +37,6 @@ public class VentanaAplicacion extends JFrame{
 	ImageIcon fondo = new ImageIcon("fondoPelotitas.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
-	/**
-	 * This method initializes jJToolBarBar
-	 *
-	 * @return javax.swing.JToolBar
-	 */
 	private JToolBar getJJToolBarBar() {
 		if (jJToolBarBar == null) {
 			jJToolBarBar = new JToolBar();
@@ -52,11 +47,7 @@ public class VentanaAplicacion extends JFrame{
 		return jJToolBarBar;
 	}
 
-	/**
-	 * This method initializes jMenuItem
-	 *
-	 * @return javax.swing.JMenuItem
-	 */
+
 	private JMenuItem getJMenuItem() {
 		if (jMenuItem == null) {
 			jMenuItem = new JMenuItem();
@@ -84,13 +75,9 @@ public class VentanaAplicacion extends JFrame{
 
 	private void detener() {
 		this.controladorJuego.detener();
+
 	}
 
-	/**
-	 * This method initializes jMenuItem1
-	 *
-	 * @return javax.swing.JMenuItem
-	 */
 	private JMenuItem getJMenuItem1() {
 		if (jMenuItem1 == null) {
 			jMenuItem1 = new JMenuItem();
@@ -106,11 +93,6 @@ public class VentanaAplicacion extends JFrame{
 		return jMenuItem1;
 	}
 
-	/**
-	 * This method initializes jPanel
-	 *
-	 * @return javax.swing.JPanel
-	 */
 	private Panel getSuperficieDeDibujo() {
 		if (panel == null) {
 			panel = new Panel(10,10);
@@ -119,33 +101,13 @@ public class VentanaAplicacion extends JFrame{
 		return panel;
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VentanaAplicacion thisClass = new VentanaAplicacion();
-				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				thisClass.setVisible(true);
-			}
-		});
-	}
 
-	/**
-	 * This is the default constructor
-	 */
 	public VentanaAplicacion() {
 		super();
 		initialize();
 	}
 
-	/**
-	 * This method initializes this
-	 *
-	 * @return void
-	 */
+
 	private void initialize() {
 		this.setSize(1024, 768);
 		this.getContentPane().setBackground(Color.BLACK);
@@ -161,11 +123,6 @@ public class VentanaAplicacion extends JFrame{
 		});
 	}
 
-	/**
-	 * This method initializes jContentPane
-	 *
-	 * @return javax.swing.JPanel
-	 */
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
@@ -173,6 +130,17 @@ public class VentanaAplicacion extends JFrame{
 			jContentPane.add(getSuperficieDeDibujo(), null);
 		}
 		return jContentPane;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				VentanaAplicacion thisClass = new VentanaAplicacion();
+				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				thisClass.setVisible(true);
+			}
+		});
 	}
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

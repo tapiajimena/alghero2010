@@ -78,4 +78,13 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 		});
 	}
 
+	public void agregarKeyListener(ControladorJuego unControladorJuego) {
+
+
+
+	}
+
+
+
+
 }
