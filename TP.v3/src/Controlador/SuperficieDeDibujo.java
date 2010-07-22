@@ -8,4 +8,6 @@ public interface SuperficieDeDibujo {
 	public void limpiar();
 	public void actualizar();
 	public Object getBuffer();
+	public void agregarKeyListener(ControladorJuego unControladorJuego);
+
 }
