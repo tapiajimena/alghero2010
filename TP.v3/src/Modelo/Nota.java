@@ -12,6 +12,17 @@ public class Nota extends ElementoDePartitura{
 
 	//Métodos:
 
+    public  Nota recuperar(Element elemDeNota) {
+
+    	    Sonido sonido=Sonido.recuperar(elemDeNota);
+    	    Figura figura=Figura.recuperar(elemDeNota);
+    	    Nota nota=new Nota(figura,sonido);
+
+
+
+        return nota;
+    }
+
 	public Element guardar() {
 	       Element elemNota = DocumentHelper.createElement("Nota");
 	       elemNota.add(this.getSonido().guardar());

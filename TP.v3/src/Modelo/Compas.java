@@ -5,6 +5,9 @@ import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import persistenciaNoOficial.Anotador;
+import persistenciaNoOficial.Nota;
+
 import Excepciones.CompasLlenoException;
 
 public class Compas {
@@ -14,6 +17,28 @@ public class Compas {
 	private ArmaduraDeClave armaduraDeClave;
 
 	//Métodos:
+
+	  public static Compas recuperar(Element elemCompas) {
+
+		  ArmaduraDeClave armadura=null;
+          Element elementoDeArmadura=elemCompas.element("Armadura De Clave");
+          armadura = ArmaduraDeClave.recuperar(elementoDeArmadura);
+		  Compas compas=new Compas(armadura);
+	       Iterator it = elemCompas.elementIterator();
+	       while(it.hasNext()){
+	           Element elemDePartitura = (Element)it.next();
+	           ElementoDePartitura elemento=null;
+
+				try {
+					compas.addElementoDePartitura(elemento.recuperar(elemDePartitura));
+				} catch (CompasLlenoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+	       }
+	       return compas;
+	   }
 
 	 public Element guardar() {
 	       Element elemCompas = DocumentHelper.createElement("Compas");
@@ -27,6 +52,9 @@ public class Compas {
 
 	       return elemCompas;
 	   }
+
+
+
 	/* Solamente se crea el arreglo elementosDeParitura. Luego para
 	 * agregar notas o acordes se usa el método addElementosDePartitura,
 	 * ya que de esta forma se puede chequear que no se carguen mas

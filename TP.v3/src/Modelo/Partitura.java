@@ -5,6 +5,7 @@ import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import persistenciaNoOficial.Anotador;
 import persistenciaNoOficial.Nota;
 
 public class Partitura {
@@ -14,6 +15,16 @@ public class Partitura {
 	private ArrayList<Compas> compases;
 
 	//Métodos:
+
+	   public static Partitura recuperar(Element elemPartitura) {
+	       Partitura partitura = new Partitura();
+	       Iterator it = elemPartitura.elementIterator();
+	       while(it.hasNext()){
+	           Element elemCompas = (Element)it.next();
+	           partitura.addCompas(Compas.recuperar(elemCompas));
+	       }
+	       return partitura;
+	   }
 
 	public Element guardar() {
 	       Element elemPartitura = DocumentHelper.createElement("Partitura");

@@ -12,6 +12,22 @@ public class Acorde extends ElementoDePartitura {
 
 	//Métodos:
 
+	  public  Acorde recuperar(Element elemAcorde) {
+
+		  Element elementoDeFigura=elemAcorde.element("Figura");
+	      Figura unaFigura = Figura.recuperar(elementoDeFigura);
+
+		  ArrayList<Sonido> sonidos=new ArrayList<Sonido>();
+
+	       Iterator it = elemAcorde.elementIterator();
+	       while(it.hasNext()){
+	           Element elemActual = (Element)it.next();
+	           sonidos.add(Sonido.recuperar(elemActual));
+	       }
+	       Acorde acorde=new Acorde(unaFigura,sonidos);
+	       return acorde;
+	   }
+
 	public Element guardar() {
 	       Element elemAcorde = DocumentHelper.createElement("Acorde");
 	       elemAcorde.add(this.getFigura().guardar());

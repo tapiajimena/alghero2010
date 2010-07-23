@@ -186,12 +186,31 @@ public class Principal {
     unaPartitura.getCompases().add(tercerCompas);
     unaPartitura.getCompases().add(octavoCompas);
 
-    Cancion cancion=new Cancion(unaPartitura,"Himno de la alegría","Beethoven",1);
-    try {
-		cancion.guardar("superPrueba!.xml");
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+    Cancion unaCancion=new Cancion(unaPartitura,"Himno de la alegría","Beethoven",1);
+    Cancion otraCancion=null;
 
+
+   try{
+        unaCancion.guardar("himnoDeLaAlegria.xml");
+        }catch(IOException ex){
+           System.out.println("Problemas" + ex);
+        }
+
+
+        try{
+         otraCancion = Cancion.recuperar("superPrueba!.xml");
+
+        }catch(IOException ex){
+            System.out.println("no lo cargaaaaa");
+        }
+
+     /*   try{
+            unaCancion.guardar("posta.xml");
+            }catch(IOException ex){
+               System.out.println("Problemas" + ex);
+            }*/
+
+
+
+        System.out.println(unaCancion.getNombre());
 }}
