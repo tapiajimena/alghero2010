@@ -12,6 +12,39 @@ public abstract class Figura {
 
 	//Métodos:
 
+	public static Figura recuperar(Element elemDeFigura) {
+
+        Object figura=null;
+		String identificadorEnString = elemDeFigura.attributeValue("Identificador");
+		String esSilencioEnString = elemDeFigura.attributeValue("Es Silencio");
+	    double identificador=Double.valueOf(identificadorEnString).doubleValue();
+	    boolean esSilencio=Boolean.valueOf(identificadorEnString).booleanValue();
+
+	    if(identificador==1){
+        	figura=new Negra(esSilencio);
+
+        }
+        if(identificador==2){
+        	figura=new Blanca(esSilencio);
+
+        }
+        if(identificador==4){
+        	figura=new Redonda(esSilencio);
+
+        }
+
+
+        if(identificador==0.5){
+        	figura=new Corchea(esSilencio);
+
+        }
+        if(identificador==0.25){
+        	figura=new SemiCorchea(esSilencio);
+
+        }
+        return (Figura)figura;
+	}
+
 	public Element guardar() {
 	       Element elemFigura = DocumentHelper.createElement("Figura");
 	       elemFigura.addAttribute("Es Silencio", String.valueOf(this.esSilencio()));

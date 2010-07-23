@@ -2,6 +2,7 @@ package Modelo;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dom4j.Document;
@@ -24,8 +25,8 @@ public class Cancion {
 
 	//Métodos:
 
-	/*   public static Cancion recuperar(String archivo) throws IOException{
-	       Cancion cancion = new Cancion();
+	public static Cancion recuperar(String archivo) throws IOException{
+	       Cancion cancion = null;
 	       SAXReader reader = new SAXReader();
 	       try{
 		        Document document = reader.read(archivo);
@@ -36,18 +37,24 @@ public class Cancion {
 	       }
 	       return cancion;
 	   }
-	   public static Cancion recuperar(Element elemCancion) {
 
-	       String nombre = elemCancion.attributeValue("Nombre");
-	       String artista = elemCancion.attributeValue("Artista");
-	       String tiempoDeNegra = elemCancion.attributeValue("Tiempo de negra");
-	       Paritura laPartitura= elemCancion.
 
-	       anotador.addNota(Nota.recuperar(elemNota));
 
-	       Cancion cancion = new Cancion(nombre,artista,,tiempoDeNegra);
-	       return cancion;
-	   }*/
+
+	    public static Cancion recuperar(Element elemCancion) {
+
+	            String nombre = elemCancion.attributeValue("Nombre");
+	            String artista = elemCancion.attributeValue("Artista");
+	            String tiempoEnString=elemCancion.attributeValue("Tiempo de negra");
+	            double tiempoDeNegra=Double.valueOf(tiempoEnString).doubleValue();
+	            Element elementoDePartitura=elemCancion.element("Partitura");
+
+	            Partitura unaPartitura = Partitura.recuperar(elementoDePartitura);
+	            Cancion cancion=new Cancion(unaPartitura,nombre,artista,tiempoDeNegra);
+
+
+	        return cancion;
+	    }
 
 	   public void guardar(String archivo) throws IOException{
 	       Document doc = DocumentHelper.createDocument();
