@@ -7,7 +7,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import Controlador.AlgoHero2010;
+
 public class VistaPresentacion extends JFrame {
+
+	private AlgoHero2010 elAlgoHero;
 
 	/*	SE CREA UN OBJETO QUE PUEDA CONTENER LA IMAGEN. ESTA IMAGEN
 		PUEDE SER UN ARCHIVO .GIF O .JPG. PARA ESTO UTILIZAMOS LA CLASE
@@ -41,9 +45,11 @@ public class VistaPresentacion extends JFrame {
 	Button play = new Button("PLAY");
 	JLabel etiqueta2 = new JLabel(imagen);
 
-	public VistaPresentacion()
+	public VistaPresentacion(AlgoHero2010 algoHeroActual)
 	{
 		super("Bienvenidos");
+
+		this.elAlgoHero = algoHeroActual;
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		play.setBackground(Color.black);
@@ -66,9 +72,13 @@ public class VistaPresentacion extends JFrame {
 		this.setVisible(true);
 	}
 
+
+	/* Se muestra la proxima pantalla en este caso, en la que se ingresan las letras
+	 * con las que se va a jugar.
+	 */
 	protected void cargarSiguiente(){
 
 		this.hide();
-		VentanaIngresos siguiente = new VentanaIngresos();
+		VentanaIngresos siguiente = new VentanaIngresos(elAlgoHero);
 	}
 }
