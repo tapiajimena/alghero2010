@@ -16,6 +16,8 @@ import javax.swing.JProgressBar;
 import javax.swing.Timer;
 import javax.swing.plaf.basic.BasicButtonListener;
 
+import Controlador.AlgoHero2010;
+
 import com.sun.media.sound.Toolkit;
 
 
@@ -36,10 +38,12 @@ public class VentanaPrincipal extends JFrame {
 
 	private JProgressBar progressBar;
 	private Timer timer;
+	private AlgoHero2010 elAlgoHero;
 
-	public VentanaPrincipal() {
+	public VentanaPrincipal(AlgoHero2010 algoHeroActual) {
 		super("AlgoHero 2010");
 
+		this.elAlgoHero = algoHeroActual;
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//Se agrega la etiqueta que contiene la imagen al frame
@@ -62,6 +66,7 @@ public class VentanaPrincipal extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				System.out.println("se eligio el Nivel Fácil");
 				cargarNivel(0);
+				elAlgoHero.elegirNivel(0);
 			}
 		});
 
@@ -69,6 +74,7 @@ public class VentanaPrincipal extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				System.out.println("se eligio el Nivel Medio");
 				cargarNivel(1);
+				elAlgoHero.elegirNivel(1);
 			}
 		});
 
@@ -76,6 +82,7 @@ public class VentanaPrincipal extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				System.out.println("se eligio el Nivel Difícil");
 				cargarNivel(2);
+				elAlgoHero.elegirNivel(2);
 			}
 		});
 

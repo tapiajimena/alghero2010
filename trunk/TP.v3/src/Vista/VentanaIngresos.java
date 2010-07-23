@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import Controlador.AlgoHero2010;
 import Modelo.Letra;
 
 /*
@@ -23,6 +24,7 @@ public class VentanaIngresos extends JFrame {
 	private ArrayList<Letra> letrasIngresadas;
 	private int cantidadMaxima = 6;
 	private int actual;
+	private AlgoHero2010 elAlgoHero;
 
 	Button continua = new Button ("NEXT");
 
@@ -58,8 +60,10 @@ public class VentanaIngresos extends JFrame {
 
 	Letra unaLetra;
 
-	public VentanaIngresos() {
+	public VentanaIngresos(AlgoHero2010 algoHeroActual) {
 		super("AlgoHero 2010");
+
+		this.elAlgoHero = algoHeroActual;
 
 		this.letrasIngresadas = new ArrayList<Letra>();
 		actual = 0;
@@ -410,7 +414,7 @@ public class VentanaIngresos extends JFrame {
 
 		this.hide();
 
-		VentanaPrincipal siguiente = new VentanaPrincipal();
+		VentanaPrincipal siguiente = new VentanaPrincipal(elAlgoHero);
 
 	}
 
@@ -428,10 +432,12 @@ public class VentanaIngresos extends JFrame {
 				}
 				if (distinto){
 					letrasIngresadas.add(actual, unaLetra);
+					this.elAlgoHero.getJuego().getLetras().add(actual, unaLetra);
 					actual++;
 				}
 			}else {
 				letrasIngresadas.add(0, unaLetra);
+				this.elAlgoHero.getJuego().getLetras().add(actual, unaLetra);
 				actual++;
 				}
 		}
