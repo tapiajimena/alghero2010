@@ -53,6 +53,7 @@ public class VistaPresentacion extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				System.out.println("se apretó el botón de play");
 				cargarSiguiente();
+				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			}
 		});
 
