@@ -43,10 +43,10 @@ public class Marcha {
 		Nota notaFa=new Nota(negra,unFa);
 		Nota notaSol=new Nota(negra,unSol);
 
-		ArmaduraDeClave unaArmadura=new ArmaduraDeClave(7,negra);
-		Compas primerCompas= new Compas(unaArmadura);
+		ArmaduraDeClave armaduraDos=new ArmaduraDeClave(4,negra);
+		Compas primerCompas= new Compas(armaduraDos);
 		try {
-			primerCompas.addElementoDePartitura(notaDoSil);
+			primerCompas.addElementoDePartitura(notaReSil);
 		} catch (CompasLlenoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class Marcha {
 
 	    Acorde unAcorde=new Acorde(redonda,sonidos);
 
-	    ArmaduraDeClave armaduraDos=new ArmaduraDeClave(4,negra);
+
 	    Compas segundoCompas= new Compas(armaduraDos);
 	    try {
 			segundoCompas.addElementoDePartitura(unAcorde);
