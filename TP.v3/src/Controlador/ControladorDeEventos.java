@@ -10,13 +10,13 @@ import Modelo.Nota;
 
 public class ControladorDeEventos implements KeyPressedObservador{
 
+	//Atributos:
 
 	private Juego elJuego;
 	boolean yaProceseElEvento;
 
 
-
-
+	//Métodos:
 
 	public ControladorDeEventos(Juego unJuego){
 
@@ -123,15 +123,30 @@ public class ControladorDeEventos implements KeyPressedObservador{
 						Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
 						this.elJuego.getReferenciaAlReproductor().reproducir(elementoAux);
 
+						//Se aumentan la cantidad de aciertos y el respectivo puntaje
+						this.elJuego.getNiveles().get(0).aumetarContadorDeAciertos();
+						this.elJuego.getNiveles().get(0).incrementarPuntajeActual();
+						System.out.println("aciertos:" + this.elJuego.getNiveles().get(0).getPuntajeActual());
+
 					}else{
 
 						System.out.println("MAL");
+
+						//Se aumentan la cantidad de errores y no debe haber cambios en el puntaje actual
+						this.elJuego.getNiveles().get(0).aumetarContadorDeErroress();
+						System.out.println("puntaje con errores:" + this.elJuego.getNiveles().get(0).getPuntajeActual());
+
 
 					}
 
 				}else{
 
 					System.out.println("MAL");
+
+					//Se aumentan la cantidad de errores y no debe haber cambios en el puntaje actual
+					this.elJuego.getNiveles().get(0).aumetarContadorDeErroress();
+					System.out.println("puntaje con errores:" + this.elJuego.getNiveles().get(0).getPuntajeActual());
+
 
 				}
 
