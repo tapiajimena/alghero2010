@@ -114,7 +114,7 @@ public class VentanaAplicacion extends JFrame{
 		this.getContentPane().add(getJContentPane());
 		this.getContentPane().add(getJJToolBarBar());
 		this.getContentPane().add(etiqueta);
-		this.setTitle("Algo Hero 2010");
+		this.setTitle("AlgoHero 2010");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				System.out.println("windowClosing()"); // TODO Auto-generated Event stub windowClosing()
@@ -132,7 +132,7 @@ public class VentanaAplicacion extends JFrame{
 		return jContentPane;
 	}
 
-	public static void main(String[] args) {
+	public void principal() {
 		// TODO Auto-generated method stub
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
