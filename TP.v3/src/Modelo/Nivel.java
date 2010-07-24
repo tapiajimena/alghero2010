@@ -3,10 +3,7 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.Map;
 
-import javax.swing.Icon;
-//
-
- public abstract class Nivel {
+public abstract class Nivel {
 
          //Atributos:
 
@@ -37,7 +34,6 @@ import javax.swing.Icon;
          /* Llevan el conteo de lo que sucede con la apreciacion de las notas */
          protected double contadorDeErrores;
          protected double contadorDeAciertos;
-         protected double contadorDePerfectos;
 
          // Los contenedores son tablas con un matcheo tiempo - columna, esto
          // es, en que tiempo se debe lanzar una pelitita ubicada en una
@@ -60,9 +56,6 @@ import javax.swing.Icon;
         	 this.contadorDeErrores++;
          }
 
-         public void aumetarContadorDePerfectos(){
-        	 this.contadorDePerfectos++;
-         }
 
          public Map<Integer,Letra> getTablaDeTeclas(){
         	 return tablaDeTeclas;
@@ -102,8 +95,8 @@ import javax.swing.Icon;
          public abstract double getPorcentajeMinimo();
 
          /* Este metodo debe ser modificado luego de establecer la verificacion de aciertos*/
-         public void incrementarPuntajeActual(double valor){
-                 this.puntajeActual = (this.puntajeActual + valor);
+         public void incrementarPuntajeActual(){
+                 this.puntajeActual = (this.puntajeActual + 5);
          }
 
          public double getPuntajeActual(){
