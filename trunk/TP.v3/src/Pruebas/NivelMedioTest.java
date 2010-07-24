@@ -229,7 +229,13 @@ public class NivelMedioTest extends TestCase {
 
 		nivel.setPuntajeIdeal();
 		nivel.setPuntajeMinimo();
-		nivel.incrementarPuntajeActual(16);
+
+		/* Supongo acertadas las 4 notas */
+		nivel.incrementarPuntajeActual();
+		nivel.incrementarPuntajeActual();
+		nivel.incrementarPuntajeActual();
+		nivel.incrementarPuntajeActual();
+
 
 		/* Comprueba que se pase el nivel habiendo hecho 16 puntos. */
 		assertTrue(nivel.esSuficiente()== true);
