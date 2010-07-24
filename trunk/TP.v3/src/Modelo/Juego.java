@@ -31,7 +31,7 @@ public class Juego {
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
         this.fechaDeComienzo = new Date();
-        this.indiceDeNivel = 2;
+        this.indiceDeNivel = 0;
 		this.indiceDeCancion = 0;
 		referenciaAlReproductor = null;
 
@@ -65,18 +65,7 @@ public class Juego {
     }
 
 
-    /*
-     * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
-     */
-    public boolean ganoJuego(){
-        boolean superado = false;
-        for (int i=0; i< niveles.size(); i++){
-            if (this.niveles.get(i).esSuficiente()){
-                superado = true;
-            }
-        }
-        return superado;
-    }
+
 
 
 
@@ -149,6 +138,20 @@ public class Juego {
 
 	}
 
+
+
+/*
+ * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
+*/
+public boolean ganoJuego(){
+    boolean superado = false;
+    for (int i=0; i< niveles.size(); i++){
+        if (this.niveles.get(i).esSuficiente()){
+            superado = true;
+        }
+    }
+    return superado;
+}
 }
 
     /* Método por el cual se ingresan las 6 letras a utilizar durante todo
