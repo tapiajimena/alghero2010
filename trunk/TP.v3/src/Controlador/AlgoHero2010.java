@@ -74,6 +74,9 @@ public class AlgoHero2010 implements ObjetoVivo{
 		superficieDeDibujo.agregarKeyListener(controlador);
 		controlador.agregarKeyPressObservador(controladorDeEventos);
 
+		// Referenciamos en el objeto juego el reproductor de audio.
+		this.elJuego.setReferenciaAlReproductor(this.controlador.getReproductorDeAudio());
+
 	}
 
 	public ControladorJuego getControlador(){
@@ -382,23 +385,6 @@ public class AlgoHero2010 implements ObjetoVivo{
 			long time = System.currentTimeMillis();
 			Date unaFechaDeComienzo = new Date(time);
 			this.elJuego.setFechaDeComienzo(unaFechaDeComienzo);
-
-		}
-
-		// Si tenemos que hacer sonar una pelota.
-		if(this.elJuego.getHacerSonarPelota() == true){
-
-
-			double key = this.elJuego.getTablaDeMapeoIndexada().getArrayDeSegundos().get(elJuego.getIndiceDePelotaASonar());
-			Nota notaAux = (Nota) this.elJuego.getTablaDeMapeoIndexada().getTabla().get(key);
-
-
-			double tiempoDeNegra = this.elJuego.getCancionIndexada().getTiempoDeNegra();
-			int duracionAux = (int) (1000 * notaAux.getFigura().duracion(tiempoDeNegra));
-			Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
-			this.controlador.getReproductorDeAudio().reproducir(elementoAux);
-
-			this.elJuego.setHacerSonarPelota(false);
 
 		}
 

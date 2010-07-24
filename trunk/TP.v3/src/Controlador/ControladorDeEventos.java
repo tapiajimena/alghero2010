@@ -3,12 +3,27 @@ package Controlador;
 import java.awt.event.KeyEvent;
 import java.util.Date;
 
+import Audio.Elemento;
 import Modelo.Juego;
+import Modelo.Letra;
+import Modelo.Nota;
 
 public class ControladorDeEventos implements KeyPressedObservador{
 
 
 	private Juego elJuego;
+	boolean yaProceseElEvento;
+
+
+
+
+
+	public ControladorDeEventos(Juego unJuego){
+
+		this.elJuego = unJuego;
+		yaProceseElEvento = false;
+
+	}
 
 
 	private int obtenerIndiceDeTablaDeMapeoMasCercano(double unTiempoDeSimulacion){
@@ -48,60 +63,90 @@ public class ControladorDeEventos implements KeyPressedObservador{
 
 	}
 
+	private boolean huboAciertoDeTecla(KeyEvent unArgumento, int unIndiceDeTablaDeMapeo){
 
-	public ControladorDeEventos(Juego unJuego){
+		// Este método se fija si la tecla ingresada fue correcta
 
-		this.elJuego = unJuego;
+		Letra letraIngresada = new Letra(unArgumento.getKeyChar());
+		Letra letraCorrecta = new Letra(elJuego.getLetras().get(elJuego.getContenedorIndexado().get(unIndiceDeTablaDeMapeo).getColumna()).getSimbolo());
+
+		if(letraIngresada.getSimbolo() == letraCorrecta.getSimbolo())
+			return true;
+
+		return false;
 
 	}
 
-
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent argumento) {
 
 		// En este método se debe resolver el tema de la interacción con
 		// el usuario.
 
-		// Obtenemos el tiempo de simulación actual en segundos contemplando el tiempo
-		// que tarda en caer una pelotita (que es 3seg).
-		long timeAux = System.currentTimeMillis();
-		Date fechaActual = new Date(timeAux);
-		double tiempoDeSimulacion = (double)(fechaActual.getTime() - this.elJuego.getFechaDeComienzo().getTime())/1000 - 3;
 
-		// Si el tiempo dio negativo, es decir, que el usuario apreto una tecla antes de que
-		// termine de caer la primer pelotita, forzamos a cero el tiempo de Simulacion.
-		if(tiempoDeSimulacion < 0)
-			tiempoDeSimulacion = 0;
+		if(this.yaProceseElEvento == false){
 
-		// Me fijo si la diferencia entre segundo mas cercano de la tabla al segundo ingresado es
-		// es menor a la tolerancia permitida para considerarla como un acierto.
+			// Obtenemos el tiempo de simulación actual en segundos contemplando el tiempo
+			// que tarda en caer una pelotita (que es 3seg).
+			long timeAux = System.currentTimeMillis();
+			Date fechaActual = new Date(timeAux);
+			double tiempoDeSimulacion = (double)(fechaActual.getTime() - this.elJuego.getFechaDeComienzo().getTime())/1000 - 3;
 
-		double segundoDeTabla = elJuego.getTablaDeMapeoIndexada().getArrayDeSegundos().get(obtenerIndiceDeTablaDeMapeoMasCercano(tiempoDeSimulacion));
+			// Solo acepto entradas que ocurran dsp de caer la primer pelotita.
+			if(tiempoDeSimulacion >= 0){
 
-		double diferenciaEntreIngresoYSegundoDeTabla = segundoDeTabla - tiempoDeSimulacion;
 
-		// Si hubo un acierto temporal
-		if(diferenciaEntreIngresoYSegundoDeTabla <= 0.15 && diferenciaEntreIngresoYSegundoDeTabla >= -0.15){
+				// Me fijo si la diferencia entre segundo mas cercano de la tabla al segundo ingresado es
+				// es menor a la tolerancia permitida para considerarla como un acierto.
 
-			System.out.println("BIEN");
+				int indiceDeTablaDeMapeo = obtenerIndiceDeTablaDeMapeoMasCercano(tiempoDeSimulacion);
+				double segundoDeTabla = elJuego.getTablaDeMapeoIndexada().getArrayDeSegundos().get(indiceDeTablaDeMapeo);
 
-			// Nos fijamos si hubo un acierto de tecla
+				double diferenciaEntreIngresoYSegundoDeTabla = segundoDeTabla - tiempoDeSimulacion;
 
-			elJuego.setHacerSonarPelota(true);
-			elJuego.setIndiceDePelotaASonar(obtenerIndiceDeTablaDeMapeoMasCercano(tiempoDeSimulacion));
+				// Si hubo un acierto temporal
+				if(diferenciaEntreIngresoYSegundoDeTabla <= 0.15 && diferenciaEntreIngresoYSegundoDeTabla >= -0.15){
 
+
+					//Ahora detectamos si hubo o no un acierto de tecla.
+
+					if(huboAciertoDeTecla(argumento,indiceDeTablaDeMapeo) == true){
+
+						System.out.println("BIEN");
+
+
+						double key = this.elJuego.getTablaDeMapeoIndexada().getArrayDeSegundos().get(indiceDeTablaDeMapeo);
+						Nota notaAux = (Nota) this.elJuego.getTablaDeMapeoIndexada().getTabla().get(key);
+
+
+						double tiempoDeNegra = this.elJuego.getCancionIndexada().getTiempoDeNegra();
+						int duracionAux = (int) (1000 * notaAux.getFigura().duracion(tiempoDeNegra));
+						Elemento elementoAux = new Elemento(notaAux.getSonido().getIdentificador(),duracionAux);
+						this.elJuego.getReferenciaAlReproductor().reproducir(elementoAux);
+
+					}else{
+
+						System.out.println("MAL");
+
+					}
+
+				}else{
+
+					System.out.println("MAL");
+
+				}
+
+			}
+
+
+			this.yaProceseElEvento = true;
 
 		}else{
 
-
-			System.out.println("MAL");
+			this.yaProceseElEvento = false;
 
 		}
 
-
-
-
-
 	}
-
-
 }
+
+

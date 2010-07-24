@@ -9,8 +9,4 @@ public class DoSostenido extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(277.183);
-	}
-
 }

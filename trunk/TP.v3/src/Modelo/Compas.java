@@ -2,11 +2,10 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
+
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
-import persistenciaNoOficial.Anotador;
-import persistenciaNoOficial.Nota;
 
 import Excepciones.CompasLlenoException;
 
@@ -21,24 +20,37 @@ public class Compas {
 	  public static Compas recuperar(Element elemCompas) {
 
 		  ArmaduraDeClave armadura=null;
-          Element elementoDeArmadura=elemCompas.element("Armadura De Clave");
+          Element elementoDeArmadura=elemCompas.element("ArmaduraDeClave");
           armadura = ArmaduraDeClave.recuperar(elementoDeArmadura);
 		  Compas compas=new Compas(armadura);
-	       Iterator it = elemCompas.elementIterator();
+	      Iterator it = elemCompas.elementIterator();
 	       while(it.hasNext()){
 	           Element elemDePartitura = (Element)it.next();
-	           ElementoDePartitura elemento=null;
 
-				try {
-					compas.addElementoDePartitura(elemento.recuperar(elemDePartitura));
-				} catch (CompasLlenoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+	           if(elemDePartitura.getName()=="Nota"){
+	        	   try {
+						compas.addElementoDePartitura(Nota.recuperar(elemDePartitura));
+					} catch (CompasLlenoException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+
+	           }
+					if(elemDePartitura.getName()=="Acorde"){
+			        	   try {
+								compas.addElementoDePartitura(Acorde.recuperar(elemDePartitura));
+							} catch (CompasLlenoException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+
+			           }
+
 
 	       }
-	       return compas;
+
 	   }
+	       }
+	       return compas;
+	  }
 
 	 public Element guardar() {
 	       Element elemCompas = DocumentHelper.createElement("Compas");

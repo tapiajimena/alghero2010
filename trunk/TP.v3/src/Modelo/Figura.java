@@ -8,7 +8,7 @@ public abstract class Figura {
 	//Atributos:
 
 	protected boolean silencio;
-
+	protected int identificador;
 
 	//Métodos:
 
@@ -16,7 +16,7 @@ public abstract class Figura {
 
         Object figura=null;
 		String identificadorEnString = elemDeFigura.attributeValue("Identificador");
-		String esSilencioEnString = elemDeFigura.attributeValue("Es Silencio");
+		String esSilencioEnString = elemDeFigura.attributeValue("EsSilencio");
 	    double identificador=Double.valueOf(identificadorEnString).doubleValue();
 	    boolean esSilencio=Boolean.valueOf(identificadorEnString).booleanValue();
 
@@ -47,7 +47,7 @@ public abstract class Figura {
 
 	public Element guardar() {
 	       Element elemFigura = DocumentHelper.createElement("Figura");
-	       elemFigura.addAttribute("Es Silencio", String.valueOf(this.esSilencio()));
+	       elemFigura.addAttribute("EsSilencio", String.valueOf(this.esSilencio()));
 	       elemFigura.addAttribute("Identificador", String.valueOf(this.getIdentificador()));
 
 

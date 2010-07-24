@@ -5,8 +5,6 @@ import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import persistenciaNoOficial.Anotador;
-import persistenciaNoOficial.Nota;
 
 public class Partitura {
 

@@ -2,9 +2,6 @@ package Modelo;
 
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
-import persistenciaNoOficial.Nota;
-
 public class ArmaduraDeClave {
 
 	//Atributos:
@@ -17,10 +14,11 @@ public class ArmaduraDeClave {
     public static ArmaduraDeClave recuperar(Element elemDeArmadura) {
 
 
-    	String numeradorEnString = elemDeArmadura.attributeValue("Numerador");
-        double numerador=Double.valueOf(numeradorEnString).doubleValue();
+
         Element elementoDeFigura=elemDeArmadura.element("Figura");
         Figura unaFigura = Figura.recuperar(elementoDeFigura);
+        String numeradorEnString = elemDeArmadura.attributeValue("Numerador");
+        double numerador=Double.valueOf(numeradorEnString).doubleValue();
 
 
         ArmaduraDeClave armadura=new ArmaduraDeClave((int)numerador,unaFigura);
@@ -28,7 +26,7 @@ public class ArmaduraDeClave {
     }
 
     public Element guardar() {
-        Element elemArmadura = DocumentHelper.createElement("Armadura De Clave");
+        Element elemArmadura = DocumentHelper.createElement("ArmaduraDeClave");
         elemArmadura.addAttribute("Numerador", String.valueOf(this.getNumerador()));
         elemArmadura.add(this.getDenominador().guardar());
 
