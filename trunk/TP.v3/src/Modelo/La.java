@@ -9,8 +9,5 @@ public class La extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(440);
-	}
 
 }

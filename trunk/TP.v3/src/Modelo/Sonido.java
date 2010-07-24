@@ -75,6 +75,6 @@ public abstract class Sonido {
 
 	public abstract int getIdentificador();
 
-	public abstract double getFrecuenciaFundamental();
+
 
 }

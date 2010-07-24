@@ -9,8 +9,5 @@ public class Sol extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(391.995);
-	}
 
 }
