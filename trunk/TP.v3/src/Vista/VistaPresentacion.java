@@ -50,6 +50,7 @@ public class VistaPresentacion extends JFrame {
 		super("Bienvenidos");
 
 		this.elAlgoHero = algoHeroActual;
+
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		play.setBackground(Color.black);
@@ -59,7 +60,6 @@ public class VistaPresentacion extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				System.out.println("se apretó el botón de play");
 				cargarSiguiente();
-				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			}
 		});
 
@@ -72,13 +72,11 @@ public class VistaPresentacion extends JFrame {
 		this.setVisible(true);
 	}
 
-
-	/* Se muestra la proxima pantalla en este caso, en la que se ingresan las letras
-	 * con las que se va a jugar.
-	 */
 	protected void cargarSiguiente(){
 
 		this.hide();
 		VentanaIngresos siguiente = new VentanaIngresos(elAlgoHero);
+
+
 	}
 }

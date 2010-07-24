@@ -158,7 +158,7 @@ public class VentanaPrincipal extends JFrame {
 
 		this.hide();
 
-		VentanaCanciones siguiente = new VentanaCanciones();
+		VentanaCanciones siguiente = new VentanaCanciones(elAlgoHero);
 	}
 
 }
