@@ -1,6 +1,8 @@
 package Vista;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,24 +24,25 @@ public class VentanaCanciones {
     JFrame frame = new JFrame("AlgoHero 2010");
     List botonSeleccion = new List();
 
+    Button comenzarJuego = new Button(" Start Playing ");
+
 	ImageIcon imagen = new ImageIcon("menuCanciones.jpg");
 	JLabel aLabel = new JLabel(imagen);
-
-    private class EscuchaSeleccion implements ActionListener {
-    	private List opciones;
-
-    	public EscuchaSeleccion(List opciones){
-    		this.opciones = opciones;
-    	}
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("Cancion elegida "+ this.opciones.getSelectedItem());
-			elAlgoHero.elegirCancion(this.opciones.getSelectedIndex());
-		}
-	}
 
 	public VentanaCanciones(AlgoHero2010 algoHeroActual) {
 
 		this.elAlgoHero = algoHeroActual;
+
+        comenzarJuego.setBounds(800, 650, 100, 40);
+        comenzarJuego.setBackground(Color.black);
+        comenzarJuego.setForeground(Color.orange);
+
+        comenzarJuego.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                        System.out.println("se apretó Start Playing");
+                        cargarSiguiente();
+                }
+        });
 
 		botonSeleccion.add( "cancion 1" );
         botonSeleccion.add( "cancion 2" );
@@ -49,7 +52,20 @@ public class VentanaCanciones {
 
         botonSeleccion.setBounds(550, 270, 280, 40);
 
+        class EscuchaSeleccion implements ActionListener {
+        	private List opciones;
+
+        	public EscuchaSeleccion(List opciones){
+        		this.opciones = opciones;
+        	}
+    		public void actionPerformed(ActionEvent e) {
+    			System.out.println("Cancion elegida "+ this.opciones.getSelectedItem());
+    			elAlgoHero.elegirCancion(this.opciones.getSelectedIndex());
+    		}
+    	}
+
         botonSeleccion.addActionListener(new EscuchaSeleccion(botonSeleccion));
+
 
         WindowListener l = new WindowAdapter() {
 	        public void windowClosing(WindowEvent e) {
@@ -63,10 +79,17 @@ public class VentanaCanciones {
 	     * Todavia no se como hacer para que se superpongan
 	     */
 	    frame.getContentPane().add(botonSeleccion);
+	    frame.getContentPane().add(comenzarJuego);
 	    frame.getContentPane().add(aLabel, BorderLayout.CENTER);
 
 	    frame.pack();
 	    frame.setVisible(true);
+	}
+
+	protected void cargarSiguiente() {
+		frame.hide();
+
+		VentanaAplicacion juego = new VentanaAplicacion();
 	}
 
 }
