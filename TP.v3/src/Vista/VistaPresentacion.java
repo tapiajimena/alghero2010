@@ -63,7 +63,7 @@ public class VistaPresentacion extends JFrame {
 			}
 		});
 
-		getContentPane().add(play,BorderLayout.PAGE_END);
+		getContentPane().add(play,BorderLayout.PAGE_START);
 		getContentPane().add(etiqueta2);
 
 		getContentPane().setBackground(Color.black);
