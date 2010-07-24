@@ -9,8 +9,4 @@ public class ReSostenido extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(311.127);
-	}
-
 }

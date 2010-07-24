@@ -9,8 +9,5 @@ public class Mi extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(329.628);
-	}
 
 }

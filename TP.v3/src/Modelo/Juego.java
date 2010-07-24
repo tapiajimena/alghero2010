@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.swing.Timer;
 
+import Audio.Reproductor;
 import Modelo.Letra;
 import Modelo.Nivel;
 //
@@ -20,9 +21,7 @@ public class Juego {
     private Date fechaDeComienzo;
     private int indiceDeCancion;
     private int indiceDeNivel;
-    boolean hacerSonarPelota;
-    int indiceDePelotaASonar;
-
+    Reproductor referenciaAlReproductor;
 
 
 
@@ -32,10 +31,9 @@ public class Juego {
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
         this.fechaDeComienzo = new Date();
-        this.indiceDeNivel = 0;
+        this.indiceDeNivel = 2;
 		this.indiceDeCancion = 0;
-		hacerSonarPelota = false;
-		indiceDePelotaASonar = 0;
+		referenciaAlReproductor = null;
 
     }
 
@@ -119,15 +117,10 @@ public class Juego {
 
 	}
 
-	public boolean getHacerSonarPelota(){
 
-		return this.hacerSonarPelota;
+	public Reproductor getReferenciaAlReproductor(){
 
-	}
-
-	public int getIndiceDePelotaASonar(){
-
-		return this.indiceDePelotaASonar;
+		return this.referenciaAlReproductor;
 
 	}
 
@@ -150,15 +143,9 @@ public class Juego {
 
 	}
 
-	public void setHacerSonarPelota(boolean unHacerSonarPelota){
+	public void setReferenciaAlReproductor(Reproductor elReproductor){
 
-		this.hacerSonarPelota = unHacerSonarPelota;
-
-	}
-
-	public void setIndiceDePelotaASonar(int unIndiceDePelotaASonar){
-
-		this.indiceDePelotaASonar = unIndiceDePelotaASonar;
+		this.referenciaAlReproductor = elReproductor;
 
 	}
 

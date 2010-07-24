@@ -10,8 +10,5 @@ public class SolSostenido extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(415.305);
-	}
 
 }

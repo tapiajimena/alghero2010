@@ -8,7 +8,7 @@ public abstract class Figura {
 	//Atributos:
 
 	protected boolean silencio;
-	protected int identificador;
+
 
 	//Métodos:
 
