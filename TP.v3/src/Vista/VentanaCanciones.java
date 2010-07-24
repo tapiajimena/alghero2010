@@ -88,7 +88,8 @@ public class VentanaCanciones {
 
 	protected void cargarSiguiente() {
 		frame.hide();
-		this.elAlgoHero.comenzar();
+		VentanaAplicacion juego = new VentanaAplicacion();
+		juego.principal();
 	}
 
 }
