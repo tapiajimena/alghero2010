@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
-import Audio.Elemento;
-import Audio.Reproductor;
 import Excepciones.CompasLlenoException;
 import Modelo.Acorde;
 import Modelo.ArmaduraDeClave;
@@ -30,12 +28,7 @@ import Modelo.Partitura;
 import Modelo.Re;
 import Modelo.Sol;
 import Modelo.Sonido;
-import Vista.VentanaAplicacion;
-import Vista.VentanaPrincipal;
-import Vista.ZonaDeJuego;
-import Vista.Pelota;
-import Vista.VistaZonaDeJuego;
-import Vista.VistaPelota;
+
 
 public class Principal {
 	public static void main(String[] args) {
@@ -186,31 +179,37 @@ public class Principal {
     unaPartitura.getCompases().add(tercerCompas);
     unaPartitura.getCompases().add(octavoCompas);
 
-    Cancion unaCancion=new Cancion(unaPartitura,"Himno de la alegría","Beethoven",1);
+    Cancion unaCancion=new Cancion(unaPartitura,"Himnodelaalegría","Beethoven",1);
     Cancion otraCancion=null;
 
 
    try{
         unaCancion.guardar("himnoDeLaAlegria.xml");
+        System.out.println(unaCancion.getNombre());
         }catch(IOException ex){
            System.out.println("Problemas" + ex);
         }
 
 
         try{
-         otraCancion = Cancion.recuperar("superPrueba!.xml");
+         otraCancion = Cancion.recuperar("himnoDeLaAlegria.xml");
+         System.out.println(otraCancion.getNombre());
 
         }catch(IOException ex){
-            System.out.println("no lo cargaaaaa");
+            System.out.println("NO RECUPERA EL ARCHIVO");
         }
 
-     /*   try{
-            unaCancion.guardar("posta.xml");
-            }catch(IOException ex){
-               System.out.println("Problemas" + ex);
-            }*/
+        try{
+            otraCancion.guardar("final.xml");
+            System.out.println("anda");
+
+           }catch(IOException ex){
+               System.out.println("NO RECUPERA EL ARCHIVO");
+           }
 
 
 
-        System.out.println(unaCancion.getNombre());
+
+
+
 }}

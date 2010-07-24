@@ -12,7 +12,6 @@ public abstract class ElementoDePartitura {
 	public abstract int obtenerCantidadDeElementos();
 	public abstract int obtenerCantidadDeSonidos();
 	public abstract Element guardar();
-	public abstract ElementoDePartitura recuperar(Element elemDeParitura);
 	public Figura getFigura(){
 		return(duracion);
 

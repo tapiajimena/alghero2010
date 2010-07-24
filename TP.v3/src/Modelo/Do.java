@@ -9,9 +9,5 @@ public class Do extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(261.626);
-
-	}
 
 }

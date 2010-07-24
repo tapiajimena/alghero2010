@@ -9,8 +9,4 @@ public class Fa extends Sonido{
 
 	}
 
-	public double getFrecuenciaFundamental(){
-		return(349.228);
-	}
-
 }

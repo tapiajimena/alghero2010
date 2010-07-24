@@ -12,10 +12,13 @@ public class Nota extends ElementoDePartitura{
 
 	//Métodos:
 
-    public  Nota recuperar(Element elemDeNota) {
+    public static Nota recuperar(Element elemDeNota) {
 
-    	    Sonido sonido=Sonido.recuperar(elemDeNota);
-    	    Figura figura=Figura.recuperar(elemDeNota);
+    	Element elementoDeSonido=elemDeNota.element("Sonido");
+    	Element elementoDeFigura=elemDeNota.element("Figura");
+
+    	    Sonido sonido=Sonido.recuperar(elementoDeSonido);
+    	    Figura figura=Figura.recuperar(elementoDeFigura);
     	    Nota nota=new Nota(figura,sonido);
 
 
@@ -71,3 +74,4 @@ public class Nota extends ElementoDePartitura{
 
 
 }
+

@@ -10,7 +10,7 @@ public abstract class Sonido {
 
         Object sonido=null;
 		String identificadorEnString = elemDeSonido.attributeValue("Identificador");
-	    double identificador=Double.valueOf(identificadorEnString).doubleValue();
+		int identificador = Integer.parseInt(identificadorEnString);
 
 	    if((int)identificador==60){
 	    	sonido=new Do();

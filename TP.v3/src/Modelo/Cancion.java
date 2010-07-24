@@ -11,8 +11,6 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import persistenciaNoOficial.Anotador;
-import persistenciaNoOficial.Nota;
 
 public class Cancion {
 
@@ -43,14 +41,14 @@ public class Cancion {
 
 	    public static Cancion recuperar(Element elemCancion) {
 
-	            String nombre = elemCancion.attributeValue("Nombre");
+	         /*   String nombre = elemCancion.attributeValue("Nombre");
 	            String artista = elemCancion.attributeValue("Artista");
 	            String tiempoEnString=elemCancion.attributeValue("Tiempo de negra");
-	            double tiempoDeNegra=Double.valueOf(tiempoEnString).doubleValue();
+	            double tiempoDeNegra=Double.valueOf(tiempoEnString).doubleValue();*/
 	            Element elementoDePartitura=elemCancion.element("Partitura");
 
 	            Partitura unaPartitura = Partitura.recuperar(elementoDePartitura);
-	            Cancion cancion=new Cancion(unaPartitura,nombre,artista,tiempoDeNegra);
+	            Cancion cancion=new Cancion(unaPartitura,"nombre","artista",2);
 
 
 	        return cancion;
@@ -66,18 +64,22 @@ public class Cancion {
 
 
    public Element guardar() {
-       Element elemCancion = DocumentHelper.createElement("Cancion");
-       elemCancion.addAttribute("Nombre", this.getNombre());
-       elemCancion.addAttribute("Artista", this.getArtista());
-       elemCancion.addAttribute("Tiempo de negra", String.valueOf(this.getTiempoDeNegra()));
-       elemCancion.add(this.getPartitura().guardar());
 
+       Element elemCancion = DocumentHelper.createElement("Cancion");
+       elemCancion.add(this.getPartitura().guardar());
+     /*  PRIMER OPCION AGREGAR NOMBRE COMO ELEMENTO
+       Element elemNombre = DocumentHelper.createElement("Nombre");
+       elemNombre.setText(this.getNombre());
+       elemCancion.add(elemNombre);
+*/
+
+    /*   SEGUNDA OPCION AGREGAR NOMBRE COMO ATRIBUTO
+     * elemCancion.addAttribute("Nombre", this.getNombre());
+       elemCancion.addAttribute("Artista", this.getArtista());
+       elemCancion.addAttribute("TiempoDeNegra", String.valueOf(this.getTiempoDeNegra()));
+*/
        return elemCancion;
    }
-
-
-
-
 
 	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
@@ -142,7 +144,6 @@ public class Cancion {
 
 	}
 }
-
 
 
 
