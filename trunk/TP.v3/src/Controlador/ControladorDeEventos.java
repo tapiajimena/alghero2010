@@ -92,7 +92,7 @@ public class ControladorDeEventos implements KeyPressedObservador{
 			double tiempoDeSimulacion = (double)(fechaActual.getTime() - this.elJuego.getFechaDeComienzo().getTime())/1000 - 3;
 
 			// Solo acepto entradas que ocurran dsp de caer la primer pelotita.
-			if(tiempoDeSimulacion >= 0){
+			if(tiempoDeSimulacion >= -0.125){
 
 
 				// Me fijo si la diferencia entre segundo mas cercano de la tabla al segundo ingresado es
@@ -104,7 +104,7 @@ public class ControladorDeEventos implements KeyPressedObservador{
 				double diferenciaEntreIngresoYSegundoDeTabla = segundoDeTabla - tiempoDeSimulacion;
 
 				// Si hubo un acierto temporal
-				if(diferenciaEntreIngresoYSegundoDeTabla <= 0.15 && diferenciaEntreIngresoYSegundoDeTabla >= -0.15){
+				if(diferenciaEntreIngresoYSegundoDeTabla <= 0.125 && diferenciaEntreIngresoYSegundoDeTabla >= -0.125){
 
 
 					//Ahora detectamos si hubo o no un acierto de tecla.
@@ -163,5 +163,7 @@ public class ControladorDeEventos implements KeyPressedObservador{
 
 	}
 }
+
+
 
 
