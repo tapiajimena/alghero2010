@@ -26,7 +26,7 @@ public class VentanaCanciones {
 
     Button comenzarJuego = new Button(" Start Playing ");
 
-	ImageIcon imagen = new ImageIcon("menuCanciones.jpg");
+	ImageIcon imagen = new ImageIcon("menuCanciones1.jpg");
 	JLabel aLabel = new JLabel(imagen);
 
 	public VentanaCanciones(AlgoHero2010 algoHeroActual) {
