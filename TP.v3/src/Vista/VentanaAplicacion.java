@@ -34,8 +34,6 @@ public class VentanaAplicacion extends JFrame{
 	private JPanel jPanelEstado = null;
 	private JLabel jLabel = null;
 
-	private AlgoHero2010 elAlgoHero;
-
 	ImageIcon fondo = new ImageIcon("fondoPelotitas.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
@@ -106,18 +104,21 @@ public class VentanaAplicacion extends JFrame{
 
 	public VentanaAplicacion(AlgoHero2010 algoHeroActual) {
 		super();
-		this.elAlgoHero = algoHeroActual;
-		initialize();
+		this.controladorJuego = algoHeroActual;
+		initialize(algoHeroActual);
 	}
 
 
-	private void initialize() {
+	private void initialize(AlgoHero2010 algoHeroActual) {
 		this.setSize(1024, 768);
 		this.getContentPane().setBackground(Color.BLACK);
 		this.getContentPane().add(getJContentPane());
 		this.getContentPane().add(getJJToolBarBar());
 		this.getContentPane().add(etiqueta);
 		this.setTitle("AlgoHero 2010");
+
+		this.controladorJuego = algoHeroActual;
+
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				System.out.println("windowClosing()"); // TODO Auto-generated Event stub windowClosing()
@@ -135,15 +136,5 @@ public class VentanaAplicacion extends JFrame{
 		return jContentPane;
 	}
 
-	public void principal() {
-		// TODO Auto-generated method stub
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VentanaAplicacion thisClass = new VentanaAplicacion(elAlgoHero);
-				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				thisClass.setVisible(true);
-			}
-		});
-	}
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"
