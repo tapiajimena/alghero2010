@@ -59,7 +59,7 @@ public class NivelFacil extends Nivel{
 
 			ElementoDePartitura elementoActual=unaTablaDeMapeo.getTabla().get((segundoActual));
 
-			if(!elementoActual.getFigura().esSilencio()){
+		//	if(!elementoActual.getFigura().esSilencio()){
 
 				if (elementoActual instanceof Nota){
 					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
@@ -79,7 +79,7 @@ public class NivelFacil extends Nivel{
 					}
 				}
 			}
-		}
+		//}
 
 		return elContenedor;
 
