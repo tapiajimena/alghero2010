@@ -39,47 +39,56 @@ public class Cancion {
 
 
 
-	    public static Cancion recuperar(Element elemCancion) {
 
-	         /*   String nombre = elemCancion.attributeValue("Nombre");
-	            String artista = elemCancion.attributeValue("Artista");
-	            String tiempoEnString=elemCancion.attributeValue("Tiempo de negra");
-	            double tiempoDeNegra=Double.valueOf(tiempoEnString).doubleValue();*/
-	            Element elementoDePartitura=elemCancion.element("Partitura");
+ public static Cancion recuperar(Element elemCancion) {
 
-	            Partitura unaPartitura = Partitura.recuperar(elementoDePartitura);
-	            Cancion cancion=new Cancion(unaPartitura,"nombre","artista",2);
+        Element elementoDeTiempo=elemCancion.element("TiempoDeNegra");
+        Element elementoDePartitura=elemCancion.element("Partitura");
+        Element elementoDeArtista=elemCancion.element("Artista");
+        Element elementoDeNombre=elemCancion.element("Nombre");
+
+        String tiempoDeNegraEnString=elementoDeTiempo.getText();
+        double tiempoDeNegra=new Double(tiempoDeNegraEnString).doubleValue();
+        Partitura unaPartitura = Partitura.recuperar(elementoDePartitura);
+        String artista=elementoDeArtista.getText();
+        String nombre=elementoDeNombre.getText();
 
 
-	        return cancion;
-	    }
+        Cancion cancion=new Cancion(unaPartitura,nombre,artista,tiempoDeNegra);
 
-	   public void guardar(String archivo) throws IOException{
-	       Document doc = DocumentHelper.createDocument();
-	       doc.add(this.guardar());
-	       FileWriter writer = new FileWriter(archivo);
-	       doc.write( writer);
-	       writer.close();
+
+    return cancion;
+}
+
+		   public void guardar(String archivo) throws IOException{
+		       Document doc = DocumentHelper.createDocument();
+		       doc.add(this.guardar());
+		       FileWriter writer = new FileWriter(archivo);
+		       doc.write( writer);
+		       writer.close();
+		   }
+
+
+	   public Element guardar() {
+
+	       Element elemCancion = DocumentHelper.createElement("Cancion");
+	       elemCancion.add(this.getPartitura().guardar());
+
+	       Element elemNombre = DocumentHelper.createElement("Nombre");
+	       elemNombre.setText((this.getNombre()));
+	       elemCancion.add(elemNombre);
+
+	      	       Element elemArtista = DocumentHelper.createElement("Artista");
+	       elemArtista.setText(this.getArtista());
+	       elemCancion.add(elemArtista);
+
+	       	       Element elemTiempo = DocumentHelper.createElement("TiempoDeNegra");
+	       elemTiempo.setText(String.valueOf(this.getTiempoDeNegra()));
+	       elemCancion.add(elemTiempo);
+
+
+	       return elemCancion;
 	   }
-
-
-   public Element guardar() {
-
-       Element elemCancion = DocumentHelper.createElement("Cancion");
-       elemCancion.add(this.getPartitura().guardar());
-     /*  PRIMER OPCION AGREGAR NOMBRE COMO ELEMENTO
-       Element elemNombre = DocumentHelper.createElement("Nombre");
-       elemNombre.setText(this.getNombre());
-       elemCancion.add(elemNombre);
-*/
-
-    /*   SEGUNDA OPCION AGREGAR NOMBRE COMO ATRIBUTO
-     * elemCancion.addAttribute("Nombre", this.getNombre());
-       elemCancion.addAttribute("Artista", this.getArtista());
-       elemCancion.addAttribute("TiempoDeNegra", String.valueOf(this.getTiempoDeNegra()));
-*/
-       return elemCancion;
-   }
 
 	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
