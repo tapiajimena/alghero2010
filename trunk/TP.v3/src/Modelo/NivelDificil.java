@@ -45,7 +45,7 @@ public class NivelDificil extends Nivel{
 		return 0.95;
 	}
 
-
+/*
 	private ArrayList<ElementoDeContenedor> armarContenedor(TablaDeMapeo unaTablaDeMapeo){
 
 		ArrayList<ElementoDeContenedor> elContenedor = new ArrayList<ElementoDeContenedor>();
@@ -56,7 +56,7 @@ public class NivelDificil extends Nivel{
 
 			ElementoDePartitura elementoActual=unaTablaDeMapeo.getTabla().get((segundoActual));
 
-		//	if(!elementoActual.getFigura().esSilencio()){
+			if(!elementoActual.getFigura().esSilencio()){
 
 				if (elementoActual instanceof Nota){
 					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
@@ -74,15 +74,23 @@ public class NivelDificil extends Nivel{
 						elContenedor.add(struct);
 
 					}
+
 				}
+
+			}else{
+
+				ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,-1);
+				elContenedor.add(struct);
+
 			}
-		//}
+
+		}
 
 		return elContenedor;
 
 	}
-
-	private int asignarColumna(int tipoDeSonido){
+*/
+	public int asignarColumna(int tipoDeSonido){
 
 		Letra letra=tablaDeTeclas.get(tipoDeSonido);
 
