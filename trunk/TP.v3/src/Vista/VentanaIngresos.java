@@ -55,7 +55,7 @@ package Vista;
          Button letraY = new Button("Y");
          Button letraZ = new Button("Z");
 
-         ImageIcon fondo = new ImageIcon("fondoLetras1.jpg");
+         ImageIcon fondo = new ImageIcon("fondoLetras3.jpg");
          JLabel etiqueta = new JLabel(fondo);
 
          Letra unaLetra;
