@@ -240,7 +240,7 @@ public class MarchaSinAcordes {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+        Nota notaReBlanca=new Nota(blanca,unRe);
 	    Compas quinceCompas= new Compas(armaduraDos);
 	    try {
 			quinceCompas.addElementoDePartitura(otraNotaDo);
@@ -249,7 +249,7 @@ public class MarchaSinAcordes {
 			e.printStackTrace();
 		}
 	    try {
-			quinceCompas.addElementoDePartitura(otraNotaMi);
+			quinceCompas.addElementoDePartitura(notaReBlanca);
 		} catch (CompasLlenoException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
