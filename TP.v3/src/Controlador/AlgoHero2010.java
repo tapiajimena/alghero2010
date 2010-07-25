@@ -1,5 +1,6 @@
 package Controlador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -180,7 +181,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 	public void CargarCanciones() {
 
-		Negra negraS=new Negra(true);
+	/*	Negra negraS=new Negra(true);
 		Negra negra=new Negra(false);
 		Redonda redondaS=new Redonda(true);
 		Redonda redonda=new Redonda(false);
@@ -445,6 +446,15 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 
 	    Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",1);
+*/
+		Cancion cancion=null;
+		try{
+	         cancion = Cancion.recuperar("HimnoDeLaAlegria.xml");
+
+
+	        }catch(IOException ex){
+	            System.out.println("NO RECUPERA EL ARCHIVO");
+	        }
 
 	    NivelFacil nivelFacil = new NivelFacil();
 
