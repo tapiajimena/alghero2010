@@ -50,7 +50,7 @@ public class VentanaCanciones {
 
         System.out.println("Cantidad de opciones " + botonSeleccion.getItemCount());
 
-        botonSeleccion.setBounds(550, 270, 280, 40);
+        botonSeleccion.setBounds(560, 200, 280, 40);
 
         class EscuchaSeleccion implements ActionListener {
         	private List opciones;
