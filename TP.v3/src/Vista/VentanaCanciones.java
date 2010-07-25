@@ -14,6 +14,7 @@ import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 import Controlador.AlgoHero2010;
 
@@ -88,8 +89,13 @@ public class VentanaCanciones {
 
 	protected void cargarSiguiente() {
 		frame.hide();
-		VentanaAplicacion juego = new VentanaAplicacion(elAlgoHero);
-		juego.principal();
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				VentanaAplicacion thisClass = new VentanaAplicacion(elAlgoHero);
+				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				thisClass.setVisible(true);
+			}
+		});
 	}
 
 }
