@@ -259,10 +259,10 @@ public class Marcha {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		Nota notaReBlanca=new Nota(blanca,unRe);
 	    Compas quinceCompas= new Compas(armaduraDos);
 	    try {
-			quinceCompas.addElementoDePartitura(otraNotaDo);
+			quinceCompas.addElementoDePartitura(notaReBlanca);
 		} catch (CompasLlenoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
