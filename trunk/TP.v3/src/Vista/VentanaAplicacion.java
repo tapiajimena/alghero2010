@@ -34,6 +34,8 @@ public class VentanaAplicacion extends JFrame{
 	private JPanel jPanelEstado = null;
 	private JLabel jLabel = null;
 
+	private AlgoHero2010 elAlgoHero;
+
 	ImageIcon fondo = new ImageIcon("fondoPelotitas.jpg");
 	JLabel etiqueta = new JLabel(fondo);
 
@@ -102,8 +104,9 @@ public class VentanaAplicacion extends JFrame{
 	}
 
 
-	public VentanaAplicacion() {
+	public VentanaAplicacion(AlgoHero2010 algoHeroActual) {
 		super();
+		this.elAlgoHero = algoHeroActual;
 		initialize();
 	}
 
@@ -136,7 +139,7 @@ public class VentanaAplicacion extends JFrame{
 		// TODO Auto-generated method stub
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				VentanaAplicacion thisClass = new VentanaAplicacion();
+				VentanaAplicacion thisClass = new VentanaAplicacion(elAlgoHero);
 				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				thisClass.setVisible(true);
 			}
