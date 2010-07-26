@@ -18,7 +18,7 @@ public abstract class Figura {
 		String identificadorEnString = elemDeFigura.attributeValue("Identificador");
 		String esSilencioEnString = elemDeFigura.attributeValue("EsSilencio");
 	    double identificador=Double.valueOf(identificadorEnString).doubleValue();
-	    boolean esSilencio=Boolean.valueOf(identificadorEnString).booleanValue();
+	    boolean esSilencio=Boolean.valueOf(esSilencioEnString).booleanValue();
 
 	    if(identificador==1){
         	figura=new Negra(esSilencio);
