@@ -17,6 +17,10 @@ public class Compas {
 
 	//Métodos:
 
+
+	/*Recupera el compas a partir de un elemento de xml
+	 *
+	 */
 	  public static Compas recuperar(Element elemCompas) {
 
 		  ArmaduraDeClave armadura=null;
@@ -51,6 +55,11 @@ public class Compas {
 	       }
 	       return compas;
 	  }
+
+	  /*Guarda el compas en un elemento de xml
+	   *
+	   *
+	   */
 
 	 public Element guardar() {
 	       Element elemCompas = DocumentHelper.createElement("Compas");
@@ -89,12 +98,13 @@ public class Compas {
 
 	}
 
+	/* Verifica si se puede agregar un elemento de partitura al compas.
+	 * Se chequea si la suma de la duración hasta el momento y la que se quiere agregar supera a
+	 * la impuesta por la armadura de clave, para luego enviar un true o false según corresponda.
+	 */
+
+
 	public boolean sePuedeAgregarElementoDePartitura(ElementoDePartitura unElementoDePartitura){
-
-
-		/* Se chequea si la suma de la duración hasta el momento y la que se quiere agregar supera a
-		 * la impuesta por la armadura de clave, para luego enviar un true o false según corresponda.
-		 */
 
 
 		boolean sePuede;

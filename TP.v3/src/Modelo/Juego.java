@@ -135,9 +135,9 @@ public class Juego {
 
 
 
-/*
- * Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
-*/
+
+ // Indica si se gano el juego dependiendo de haber superado o no todos los niveles.
+
 public boolean ganoJuego(){
     boolean superado = false;
     for (int i=0; i< niveles.size(); i++){

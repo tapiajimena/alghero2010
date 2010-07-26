@@ -6,6 +6,10 @@ import org.dom4j.Element;
 public abstract class Sonido {
 
 	//Métodos:
+
+	/*
+	 * Recupera el sonido a partir de un elemento de xml.
+	 */
 	public static Sonido recuperar(Element elemDeSonido) {
 
         Object sonido=null;
@@ -62,7 +66,9 @@ public abstract class Sonido {
 	    }
 	    return (Sonido)sonido;
 	}
-
+	/*
+	 * Guarda el sonido en un elemento de xml.
+	 */
 
 	public Element guardar() {
 	       Element elemSonido = DocumentHelper.createElement("Sonido");

@@ -12,6 +12,10 @@ public class Nota extends ElementoDePartitura{
 
 	//Métodos:
 
+	/*
+	 * Recupera la nota a partir de un elemento de xml.
+	 */
+
     public static Nota recuperar(Element elemDeNota) {
 
     	Element elementoDeSonido=elemDeNota.element("Sonido");
@@ -25,6 +29,10 @@ public class Nota extends ElementoDePartitura{
 
         return nota;
     }
+
+	/*
+	 * Guarda la nota en un elemento de xml.
+	 */
 
 	public Element guardar() {
 	       Element elemNota = DocumentHelper.createElement("Nota");

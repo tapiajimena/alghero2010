@@ -23,6 +23,10 @@ public class Cancion {
 
 	//Métodos:
 
+	/*
+	 * Recupera la cancion desde un archivo.
+	 */
+
 	public static Cancion recuperar(String archivo) throws IOException{
 	       Cancion cancion = null;
 	       SAXReader reader = new SAXReader();
@@ -36,7 +40,9 @@ public class Cancion {
 	       return cancion;
 	   }
 
-
+/*
+ * Recupera la cancion a partir de un elemento de xml
+ */
 
 
 
@@ -59,6 +65,9 @@ public class Cancion {
 
     return cancion;
 }
+ /*
+  * Guarda la cancion en un archivo
+  */
 
 		   public void guardar(String archivo) throws IOException{
 		       Document doc = DocumentHelper.createDocument();
@@ -67,6 +76,11 @@ public class Cancion {
 		       doc.write( writer);
 		       writer.close();
 		   }
+
+	  /*Guarda la cancion en un elemento de xml
+	   *
+	   *
+	   */
 
 
 	   public Element guardar() {
@@ -90,7 +104,7 @@ public class Cancion {
 	       return elemCancion;
 	   }
 
-	/* Obtencion de datos desde el  xml, por el momento se usa como un costructor comun */
+
 	public Cancion(Partitura unaPartitura, String unNombre, String unArtista, double unTiempoDeNegra){
 		this.partitura = unaPartitura;
 		this.tiempoDeNegra = unTiempoDeNegra;
@@ -132,7 +146,9 @@ public class Cancion {
 	public void setTiempoDeNegra(double tiempo){
 		this.tiempoDeNegra = tiempo;
 	}
-
+/*
+ * Devuelve la cantidad de notas de la cacion
+ */
 	public int obtenerCantidadDeNotas(){
 		int cantidadTotal=0;
 		int cantidadDeCompases=this.getPartitura().getCompases().size();

@@ -14,6 +14,10 @@ public class Partitura {
 
 	//Métodos:
 
+	/*
+	 * Recupera la partitura a partir de un elemento de xml.
+	 */
+
 	   public static Partitura recuperar(Element elemPartitura) {
 	       Partitura partitura = new Partitura();
 	       Iterator it = elemPartitura.elementIterator();
@@ -23,6 +27,10 @@ public class Partitura {
 	       }
 	       return partitura;
 	   }
+
+		/*
+		 * Guarda la partitura en un elemento de xml.
+		 */
 
 	public Element guardar() {
 	       Element elemPartitura = DocumentHelper.createElement("Partitura");

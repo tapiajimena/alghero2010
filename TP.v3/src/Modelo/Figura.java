@@ -12,6 +12,10 @@ public abstract class Figura {
 
 	//Métodos:
 
+	/*
+	 * Recupera la figura a partir de un elemento de xml.
+	 */
+
 	public static Figura recuperar(Element elemDeFigura) {
 
         Object figura=null;
@@ -44,6 +48,10 @@ public abstract class Figura {
         }
         return (Figura)figura;
 	}
+
+	/*
+	 * Guarda la figura en un elemento de xml.
+	 */
 
 	public Element guardar() {
 	       Element elemFigura = DocumentHelper.createElement("Figura");

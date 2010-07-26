@@ -11,9 +11,12 @@ public class ArmaduraDeClave {
 
     //Métodos:
 
+	/*Recupera la armadura de clave a partir de un elemento de xml.
+	 *
+	 */
+
+
     public static ArmaduraDeClave recuperar(Element elemDeArmadura) {
-
-
 
         Element elementoDeFigura=elemDeArmadura.element("Figura");
         Figura unaFigura = Figura.recuperar(elementoDeFigura);
@@ -24,6 +27,11 @@ public class ArmaduraDeClave {
         ArmaduraDeClave armadura=new ArmaduraDeClave((int)numerador,unaFigura);
         return armadura;
     }
+
+	  /*Guarda la armadura de clave en un elemento de xml
+	   *
+	   *
+	   */
 
     public Element guardar() {
         Element elemArmadura = DocumentHelper.createElement("ArmaduraDeClave");
