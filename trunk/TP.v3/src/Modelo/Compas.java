@@ -105,22 +105,7 @@ public class Compas {
 
 		return sePuede;
 	}
-/*
-	public boolean sePuedeAgregarElementoDePartitura(ElementoDePartitura unElementoDePartitura){
 
-
-		/* Se chequea si la suma de la duración hasta el momento y la que se quiere agregar supera a
-		 * la impuesta por la armadura de clave, para luego enviar un true o false según corresponda.
-
-
-		boolean sePuede;
-		double tiemposDelElemento;
-		tiemposDelElemento= (unElementoDePartitura.obtenerCantidadDeElementos())* (unElementoDePartitura.getFigura().getIdentificador());
-
-		sePuede=((tiemposDelElemento+this.obtenerDuracionHastaElMomento()) <= ((armaduraDeClave.getDenominador().getIdentificador())* (armaduraDeClave.getNumerador())));
-
-		return sePuede;
-	}*/
 
 
 	public ArrayList<ElementoDePartitura> getElementosDePartitura(){
