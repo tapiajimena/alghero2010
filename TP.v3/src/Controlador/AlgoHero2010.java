@@ -447,14 +447,35 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 	    Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",1);
 */
-		Cancion cancion=null;
+		Cancion cancionUno=null;
+		Cancion cancionDos=null;
+		Cancion cancionTres=null;
+
 		try{
-	         cancion = Cancion.recuperar("HimnoDeLaAlegria.xml");
+	         cancionUno = Cancion.recuperar("HimnoDeLaAlegria.xml");
 
 
 	        }catch(IOException ex){
 	            System.out.println("NO RECUPERA EL ARCHIVO");
 	        }
+
+
+
+	        try{
+		         cancionDos = Cancion.recuperar("MarchaDeLosSantosSinAcordes.xml");
+
+
+		        }catch(IOException ex){
+		            System.out.println("NO RECUPERA EL ARCHIVO");
+		        }
+
+		        try{
+			         cancionTres = Cancion.recuperar("MarchaDeLosSantosConAcordes.xml");
+
+
+			        }catch(IOException ex){
+			            System.out.println("NO RECUPERA EL ARCHIVO");
+			        }
 
 	    NivelFacil nivelFacil = new NivelFacil();
 
@@ -493,9 +514,15 @@ public class AlgoHero2010 implements ObjetoVivo{
 
 		}
 
-		this.elJuego.getNiveles().get(0).cargarCancion(cancion);
-		this.elJuego.getNiveles().get(1).cargarCancion(cancion);
-		this.elJuego.getNiveles().get(2).cargarCancion(cancion);
+		this.elJuego.getNiveles().get(0).cargarCancion(cancionUno);
+		this.elJuego.getNiveles().get(1).cargarCancion(cancionUno);
+		this.elJuego.getNiveles().get(2).cargarCancion(cancionUno);
+		this.elJuego.getNiveles().get(0).cargarCancion(cancionDos);
+		this.elJuego.getNiveles().get(1).cargarCancion(cancionDos);
+		this.elJuego.getNiveles().get(2).cargarCancion(cancionDos);
+		this.elJuego.getNiveles().get(0).cargarCancion(cancionTres);
+		this.elJuego.getNiveles().get(1).cargarCancion(cancionTres);
+		this.elJuego.getNiveles().get(2).cargarCancion(cancionTres);
 
 
 

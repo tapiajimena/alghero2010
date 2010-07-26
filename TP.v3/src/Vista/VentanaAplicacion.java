@@ -13,6 +13,7 @@ import javax.swing.SwingUtilities;
 
 import javax.swing.JLabel;
 
+
 import Controlador.AlgoHero2010;
 
 import java.awt.GridBagConstraints;
@@ -102,14 +103,13 @@ public class VentanaAplicacion extends JFrame{
 	}
 
 
-	public VentanaAplicacion(AlgoHero2010 algoHeroActual) {
+	public VentanaAplicacion() {
 		super();
-		this.controladorJuego = algoHeroActual;
-		initialize(algoHeroActual);
+		initialize();
 	}
 
 
-	private void initialize(AlgoHero2010 algoHeroActual) {
+	private void initialize() {
 		this.setSize(1024, 768);
 		this.getContentPane().setBackground(Color.BLACK);
 		this.getContentPane().add(getJContentPane());
@@ -117,7 +117,6 @@ public class VentanaAplicacion extends JFrame{
 		this.getContentPane().add(etiqueta);
 		this.setTitle("AlgoHero 2010");
 
-		this.controladorJuego = algoHeroActual;
 
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
@@ -136,5 +135,17 @@ public class VentanaAplicacion extends JFrame{
 		return jContentPane;
 	}
 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				VentanaAplicacion thisClass = new VentanaAplicacion();
+				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				thisClass.setVisible(true);
+			}
+		});
+	}
+
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"
+

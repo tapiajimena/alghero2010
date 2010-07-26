@@ -26,7 +26,7 @@ public class Juego {
         this.letras= new ArrayList<Letra>();
         this.niveles = losNiveles;
         this.fechaDeComienzo = new Date();
-        this.indiceDeNivel = 0;
+        this.indiceDeNivel = 2;
 		this.indiceDeCancion = 0;
 		referenciaAlReproductor = null;
 
