@@ -43,55 +43,15 @@ public class NivelFacil extends Nivel{
 
 	}
 
-
+	/*
+	 * Devuelve el porcentaje minimo de aciertos que requiere el nivel
+	 *
+	 */
 
 	public double getPorcentajeMinimo() {
 		return 0.55;
 	}
-/*
-	private ArrayList<ElementoDeContenedor> armarContenedor(TablaDeMapeo unaTablaDeMapeo){
 
-		ArrayList<ElementoDeContenedor> elContenedor = new ArrayList<ElementoDeContenedor>();
-
-		for(int i=0; i< unaTablaDeMapeo.getArrayDeSegundos().size();i++){
-
-			double segundoActual=unaTablaDeMapeo.getArrayDeSegundos().get(i);
-
-			ElementoDePartitura elementoActual=unaTablaDeMapeo.getTabla().get((segundoActual));
-
-			if(!elementoActual.getFigura().esSilencio()){
-
-				if (elementoActual instanceof Nota){
-					int identificadorActual=((Nota)elementoActual).getSonido().getIdentificador();
-					ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-					elContenedor.add(struct);
-				}
-
-				if (elementoActual instanceof Acorde){
-
-					ArrayList<Sonido> sonidosActuales = ((Acorde)elementoActual).getSonidos();
-					for(int j=0;j<sonidosActuales.size();j++){
-						Sonido elSonidoActual = sonidosActuales.get(j);
-						int identificadorActual= elSonidoActual.getIdentificador();
-						ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,asignarColumna(identificadorActual));
-						elContenedor.add(struct);
-
-					}
-
-				}
-
-			}else{
-
-				ElementoDeContenedor struct=new ElementoDeContenedor(segundoActual,-1);
-				elContenedor.add(struct);
-
-			}
-
-		}
-
-		return elContenedor;
-	}
-*/
 public int asignarColumna(int tipoDeSonido){
 
 		Letra letra=tablaDeTeclas.get(tipoDeSonido);
@@ -102,7 +62,9 @@ public int asignarColumna(int tipoDeSonido){
 
 	}
 
-
+/*
+ * Modifica la velocidad de la cancion
+ */
 	private Cancion modificarVelocidad(Cancion unaCancion) {
 
 		double tiempo = unaCancion.getTiempoDeNegra() * 1;

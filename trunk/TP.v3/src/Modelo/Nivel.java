@@ -36,7 +36,7 @@ public abstract class Nivel {
          protected double contadorDeAciertos;
 
          // Los contenedores son tablas con un matcheo tiempo - columna, esto
-         // es, en que tiempo se debe lanzar una pelitita ubicada en una
+         // es, en que tiempo se debe lanzar una pelotita ubicada en una
          // determinada columna. Desde luego, que la columna a caer es función
          // de la nota a ejecutar y del nivel que se esta jugando, ya que los
          // niveles pueden variar sus columnas a usar.
@@ -45,6 +45,10 @@ public abstract class Nivel {
 
 
          //Métodos:
+
+         /*
+          * Distribuye los 12 sonidos en las 6 teclas del nivel
+          */
 
          public abstract void distribuirTeclas();
 
@@ -70,7 +74,7 @@ public abstract class Nivel {
 
          }
 
-         // Cuando cargamos una canción, tmb se crea la tabla de mapeo correspondiente, y la misma
+         // Cuando cargamos una canción, tambien se crea la tabla de mapeo correspondiente, y la misma
          // tiene un tiempo de negra distinto, por eso se implementa como método virtual.
          public abstract void cargarCancion(Cancion unaCancion);
 
@@ -145,6 +149,11 @@ public abstract class Nivel {
 			return this.nombre;
 		}
 
+		/*
+		 * Arma y devuelve el contenedor (Segundo-Columna) a partir
+		 * de una tabla de mapeo
+		 */
+
 		public ArrayList<ElementoDeContenedor> armarContenedor(TablaDeMapeo unaTablaDeMapeo){
 
 			ArrayList<ElementoDeContenedor> elContenedor = new ArrayList<ElementoDeContenedor>();
@@ -189,8 +198,11 @@ public abstract class Nivel {
 
 		}
 
-
-public abstract int asignarColumna(int numero);
+/*
+ * Devuelve la columna asignada al identificador de sonido
+ * pasado por parametro
+ */
+public abstract int asignarColumna(int identificaDorDeSonido);
 }
 
 

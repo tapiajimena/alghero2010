@@ -2,6 +2,11 @@ package Modelo;
 
 import org.dom4j.Element;
 
+/*
+ * Los elementos de partitura son aquellos que se almacenan en los
+ * compases de la partitura. Pueden ser notas o acordes.
+ */
+
 public abstract class ElementoDePartitura {
 
 	//Atributos:

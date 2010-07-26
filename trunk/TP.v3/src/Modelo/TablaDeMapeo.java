@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+ * La funcion de esta clase es armar un map a partir de una cancion.
+ * Este map es de la forma: Segundo-Elemento de partitura
+ */
 public class TablaDeMapeo {
 
 	//Atributos:
@@ -12,6 +15,8 @@ public class TablaDeMapeo {
 	private Map<Double,ElementoDePartitura> tabla;
 	private Cancion cancion;
 	private double cantidadDeSegundosDeLaCancion;
+	//El array de segundos guarda los segundos en los que hay
+	//elementos de paritura.
 	private ArrayList<Double> arrayDeSegundos;
 
 	// Métodos:
@@ -40,6 +45,10 @@ public class TablaDeMapeo {
 	public double getCantidadDeSegundosDeLaCancion(){
 		return (this.cantidadDeSegundosDeLaCancion);
 	}
+
+	/*
+	 * Arma la tabla de mapeo a partir de la cancion.
+	 */
 
 	public void armarTabla(){
 

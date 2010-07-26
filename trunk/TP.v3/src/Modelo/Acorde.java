@@ -12,6 +12,11 @@ public class Acorde extends ElementoDePartitura {
 
 	//Métodos:
 
+	/*Recupera el acorde a partir de un elemento de xml
+	 *
+	 */
+
+
 	  public static Acorde recuperar(Element elemAcorde) {
 
 		  Element elementoDeFigura=elemAcorde.element("Figura");
@@ -27,6 +32,12 @@ public class Acorde extends ElementoDePartitura {
 	       Acorde acorde=new Acorde(unaFigura,sonidos);
 	       return acorde;
 	   }
+
+
+	  /*Guarda el acorde en un elemento de xml
+	   *
+	   *
+	   */
 
 	public Element guardar() {
 	       Element elemAcorde = DocumentHelper.createElement("Acorde");
