@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.List;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,22 +14,12 @@ import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
 
 import Controlador.AlgoHero2010;
 
 public class VentanaCanciones {
 
 	private AlgoHero2010 elAlgoHero;
-	private JPanel jContentPane = null;
-	private JToolBar jJToolBarBar = null;
-	private JMenuItem jMenuItem = null;
-	private JMenuItem jMenuItem1 = null;
-	private Panel panel = null;
-	private AlgoHero2010 controladorJuego = null;
 
     JFrame frame = new JFrame("AlgoHero 2010");
     List botonSeleccion = new List();
