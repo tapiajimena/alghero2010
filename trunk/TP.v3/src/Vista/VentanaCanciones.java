@@ -98,99 +98,12 @@ public class VentanaCanciones {
 	}
 
 
-	private JMenuItem getJMenuItem1() {
-		if (jMenuItem1 == null) {
-			jMenuItem1 = new JMenuItem();
-			jMenuItem1.setText(" STOP ");
-			jMenuItem1.setBackground(Color.orange);
-			jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-					detener();
-				}
-			});
-		}
-		return jMenuItem1;
-	}
-
-
-	private JMenuItem getJMenuItem() {
-		if (jMenuItem == null) {
-			jMenuItem = new JMenuItem();
-			jMenuItem.setText(" START ");
-			jMenuItem.setBackground(Color.orange);
-			jMenuItem.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-				}
-			});
-			jMenuItem.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					comenzar();
-				}
-			});
-		}
-		return jMenuItem;
-	}
-
-
-	private JToolBar getJJToolBarBar() {
-		if (jJToolBarBar == null) {
-			jJToolBarBar = new JToolBar();
-			jJToolBarBar.setBounds(new Rectangle(0, 0, 200, 33));
-			jJToolBarBar.add(getJMenuItem());
-			jJToolBarBar.add(getJMenuItem1());
-		}
-		return jJToolBarBar;
-	}
-
-
-	private void comenzar(){
-		System.out.println("entro en el comenzar()" +
-				""); // TODO Auto-generated Event stub actionPerformed()
-		this.controladorJuego = elAlgoHero;
-		this.controladorJuego.setZonaDeJuego(elAlgoHero.getZonaDeJuego());
-		this.controladorJuego.comenzar();
-	}
-
-	private void detener() {
-		this.controladorJuego.detener();
-
-	}
-
-	private Panel getSuperficieDeDibujo() {
-		if (panel == null) {
-			panel = new Panel(10,10);
-			panel.setBounds(new Rectangle(100, 42, 600, 600));
-		}
-		return panel;
-	}
-
-	private JPanel getJContentPane() {
-		if (jContentPane == null) {
-			jContentPane = new JPanel();
-			jContentPane.setLayout(null);
-			jContentPane.add(getSuperficieDeDibujo(), null);
-		}
-		return jContentPane;
-	}
-
-
 	protected void cargarSiguiente() {
-		frame.getContentPane().remove(botonSeleccion);
-		frame.getContentPane().remove(comenzarJuego);
-		frame.getContentPane().remove(aLabel);
 
-		ImageIcon fondo = new ImageIcon("fondoPelotitas.jpg");
-		JLabel etiqueta = new JLabel(fondo);
+		frame.hide();
 
-		frame.getContentPane().add(getJJToolBarBar());
-		frame.getContentPane().add(getJContentPane());
-		frame.getContentPane().add(etiqueta);
+		VentanaAplicacion siguiente = new VentanaAplicacion(elAlgoHero);
 
-
-	    frame.pack();
-	    frame.setVisible(true);
 
 	}
 
