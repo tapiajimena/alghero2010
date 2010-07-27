@@ -70,7 +70,7 @@ public class VentanaAplicacion extends JFrame{
 
 	private void comenzar(){
 		System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-		this.controladorJuego = new AlgoHero2010(getSuperficieDeDibujo());
+		this.controladorJuego.getControlador().setSuperficieDeDibujo(getSuperficieDeDibujo());
 		this.controladorJuego.comenzar();
 	}
 
@@ -103,9 +103,12 @@ public class VentanaAplicacion extends JFrame{
 	}
 
 
-	public VentanaAplicacion() {
+	public VentanaAplicacion(AlgoHero2010 unAlgoHero) {
+
 		super();
 		initialize();
+		this.controladorJuego = unAlgoHero;
+
 	}
 
 
@@ -137,9 +140,15 @@ public class VentanaAplicacion extends JFrame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
+		Panel panel = new Panel(10,10);
+		panel.setBounds(new Rectangle(100, 42, 600, 600));
+
+		final AlgoHero2010 elAlgoHero = new AlgoHero2010(panel);
+
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				VentanaAplicacion thisClass = new VentanaAplicacion();
+				VentanaAplicacion thisClass = new VentanaAplicacion(elAlgoHero);
 				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				thisClass.setVisible(true);
 			}
