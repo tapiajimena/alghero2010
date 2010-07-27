@@ -146,14 +146,33 @@ public class VentanaCanciones {
 
 
 	private void comenzar(){
-		System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-		this.controladorJuego = this.elAlgoHero;
+		System.out.println("entro en el comenzar()" +
+				""); // TODO Auto-generated Event stub actionPerformed()
+		this.controladorJuego = elAlgoHero;
+		this.controladorJuego.setZonaDeJuego(elAlgoHero.getZonaDeJuego());
 		this.controladorJuego.comenzar();
 	}
 
 	private void detener() {
 		this.controladorJuego.detener();
 
+	}
+
+	private Panel getSuperficieDeDibujo() {
+		if (panel == null) {
+			panel = new Panel(10,10);
+			panel.setBounds(new Rectangle(100, 42, 600, 600));
+		}
+		return panel;
+	}
+
+	private JPanel getJContentPane() {
+		if (jContentPane == null) {
+			jContentPane = new JPanel();
+			jContentPane.setLayout(null);
+			jContentPane.add(getSuperficieDeDibujo(), null);
+		}
+		return jContentPane;
 	}
 
 
@@ -166,7 +185,9 @@ public class VentanaCanciones {
 		JLabel etiqueta = new JLabel(fondo);
 
 		frame.getContentPane().add(getJJToolBarBar());
+		frame.getContentPane().add(getJContentPane());
 		frame.getContentPane().add(etiqueta);
+
 
 	    frame.pack();
 	    frame.setVisible(true);
