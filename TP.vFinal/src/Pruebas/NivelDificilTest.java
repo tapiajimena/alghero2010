@@ -266,18 +266,18 @@ public class NivelDificilTest extends TestCase {
 
 
 
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(1)==a);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(2)==d);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(3)==g);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(4)==h);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(5)==s);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(6)==f);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(7)==h);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(8)==s);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(9)==f);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(10)==a);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(11)==d);
-		assertTrue(unNivelDificil.getTablaDeTeclas().get(12)==g);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(60)==a);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(61)==d);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(62)==g);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(63)==h);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(64)==s);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(65)==f);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(66)==h);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(67)==s);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(68)==f);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(69)==a);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(70)==d);
+		assertTrue(unNivelDificil.getTablaDeTeclas().get(71)==g);
 
 
 
