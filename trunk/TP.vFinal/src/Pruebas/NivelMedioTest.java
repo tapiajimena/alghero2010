@@ -265,18 +265,18 @@ public class NivelMedioTest extends TestCase {
 
 
 
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(1)==a);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(2)==d);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(3)==a);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(4)==s);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(5)==f);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(6)==s);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(7)==f);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(8)==s);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(9)==f);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(10)==d);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(11)==a);
-		assertTrue(unNivelMedio.getTablaDeTeclas().get(12)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(60)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(61)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(62)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(63)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(64)==f);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(65)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(66)==f);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(67)==s);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(68)==f);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(69)==d);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(70)==a);
+		assertTrue(unNivelMedio.getTablaDeTeclas().get(71)==d);
 
 
 
