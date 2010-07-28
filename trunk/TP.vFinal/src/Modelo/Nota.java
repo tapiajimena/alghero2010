@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.Iterator;
-
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
