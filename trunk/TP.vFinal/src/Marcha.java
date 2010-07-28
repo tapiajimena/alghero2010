@@ -37,10 +37,12 @@ public class Marcha {
 
 		Nota notaFaSil=new Nota(blancaS,unFa);
 		Nota notaReSil=new Nota(negraS,unRe);
+		@SuppressWarnings("unused")
 		Nota notaDoSil=new Nota(redondaS,unDo);
 		Nota notaDo=new Nota(negra,unDo);
 		Nota notaMi=new Nota(negra,unMi);
 		Nota notaFa=new Nota(negra,unFa);
+		@SuppressWarnings("unused")
 		Nota notaSol=new Nota(negra,unSol);
 
 		ArmaduraDeClave armaduraDos=new ArmaduraDeClave(4,negra);
@@ -305,7 +307,8 @@ public class Marcha {
 
 
 
-	    Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",2);
+	    @SuppressWarnings("unused")
+		Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",2);
 
 
 	}

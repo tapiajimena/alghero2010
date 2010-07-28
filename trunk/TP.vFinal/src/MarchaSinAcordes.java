@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-
 import Excepciones.CompasLlenoException;
-import Modelo.Acorde;
+
 import Modelo.ArmaduraDeClave;
 import Modelo.Blanca;
 import Modelo.Cancion;
@@ -15,7 +13,7 @@ import Modelo.Partitura;
 import Modelo.Re;
 import Modelo.Redonda;
 import Modelo.Sol;
-import Modelo.Sonido;
+
 
 
 public class MarchaSinAcordes {
@@ -37,6 +35,7 @@ public class MarchaSinAcordes {
 
 		Nota notaFaSil=new Nota(blancaS,unFa);
 		Nota notaReSil=new Nota(negraS,unRe);
+		@SuppressWarnings("unused")
 		Nota notaDoSil=new Nota(redondaS,unDo);
 		Nota notaDo=new Nota(negra,unDo);
 		Nota notaMi=new Nota(negra,unMi);
@@ -286,7 +285,8 @@ public class MarchaSinAcordes {
 
 
 
-	    Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",2);
+	    @SuppressWarnings("unused")
+		Cancion cancion=new Cancion(unaPartitura,"Marcha de los santos","nose",2);
 
 
 	}
