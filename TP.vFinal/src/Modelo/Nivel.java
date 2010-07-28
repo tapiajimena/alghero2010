@@ -134,15 +134,11 @@ public abstract class Nivel {
                  return this.puntajeMinimo;
          }
          /*
-          * Se establece el puntaje minimo del nivel, que se remite a la suma de puntajes
-          * minimos de cada canción que compone al nivel.
+          * Se establece el puntaje minimo de la cancion.
           */
-         public void setPuntajeMinimo(){
-                 int j = this.canciones.size();
+         public void setPuntajeMinimo(int indiceCancion){
                  double valor = 0;
-                 for (int i=0; i<j; i++){
-                         valor = valor + this.elegirCancion(i).getPuntajeIdeal()* this.getPorcentajeMinimo();
-                 }
+                 valor = valor + this.elegirCancion(indiceCancion).getPuntajeIdeal()* this.getPorcentajeMinimo();
                  this.puntajeMinimo = valor;
          }
 
