@@ -11,6 +11,7 @@ public class LetraTest extends TestCase {
 
 	char simbolo='a';
 
+	@SuppressWarnings("unused")
 	Letra letra= new Letra(simbolo);
 	assertEquals(simbolo,'a');
 
