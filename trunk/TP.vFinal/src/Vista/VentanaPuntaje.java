@@ -49,7 +49,7 @@ public class VentanaPuntaje extends JFrame{
 		 * del jugador.
 		 */
 		this.elAlgoHero.getJuego().getNiveles().get(indiceNivel).setPuntajeIdeal();
-		this.elAlgoHero.getJuego().getNiveles().get(indiceNivel).setPuntajeMinimo();
+		this.elAlgoHero.getJuego().getNiveles().get(indiceNivel).setPuntajeMinimo(this.elAlgoHero.getJuego().getIndiceDeCancion());
 
 		if (this.elAlgoHero.getJuego().getNiveles().get(indiceNivel).esSuficiente() == true){
 			this.nivelSuperado = ("Superó el Nivel");
