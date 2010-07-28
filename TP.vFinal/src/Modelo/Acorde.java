@@ -1,7 +1,6 @@
 package Modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
@@ -17,7 +16,8 @@ public class Acorde extends ElementoDePartitura {
 	 */
 
 
-	  public static Acorde recuperar(Element elemAcorde) {
+	  @SuppressWarnings("unchecked")
+	public static Acorde recuperar(Element elemAcorde) {
 
 		  Element elementoDeFigura=elemAcorde.element("Figura");
 	      Figura unaFigura = Figura.recuperar(elementoDeFigura);
@@ -39,6 +39,7 @@ public class Acorde extends ElementoDePartitura {
 	   *
 	   */
 
+	@SuppressWarnings("unchecked")
 	public Element guardar() {
 	       Element elemAcorde = DocumentHelper.createElement("Acorde");
 	       elemAcorde.add(this.getFigura().guardar());

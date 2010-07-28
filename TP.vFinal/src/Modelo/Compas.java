@@ -21,7 +21,8 @@ public class Compas {
 	/*Recupera el compas a partir de un elemento de xml
 	 *
 	 */
-	  public static Compas recuperar(Element elemCompas) {
+	  @SuppressWarnings("unchecked")
+	public static Compas recuperar(Element elemCompas) {
 
 		  ArmaduraDeClave armadura=null;
           Element elementoDeArmadura=elemCompas.element("ArmaduraDeClave");
@@ -61,7 +62,8 @@ public class Compas {
 	   *
 	   */
 
-	 public Element guardar() {
+	 @SuppressWarnings("unchecked")
+	public Element guardar() {
 	       Element elemCompas = DocumentHelper.createElement("Compas");
 	       elemCompas.add(this.getArmaduraDeClave().guardar());
 	       Iterator it = elementosDePartitura.iterator();
