@@ -19,7 +19,8 @@ public class Partitura {
 	 * Recupera la partitura a partir de un elemento de xml.
 	 */
 
-	   public static Partitura recuperar(Element elemPartitura) {
+	   @SuppressWarnings("unchecked")
+	public static Partitura recuperar(Element elemPartitura) {
 	       Partitura partitura = new Partitura();
 	       Iterator it = elemPartitura.elementIterator();
 	       while(it.hasNext()){
@@ -33,6 +34,7 @@ public class Partitura {
 		 * Guarda la partitura en un elemento de xml.
 		 */
 
+	@SuppressWarnings("unchecked")
 	public Element guardar() {
 	       Element elemPartitura = DocumentHelper.createElement("Partitura");
 	       Iterator it = compases.iterator();
