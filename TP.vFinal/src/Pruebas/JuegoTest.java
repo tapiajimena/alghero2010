@@ -70,7 +70,7 @@ public class JuegoTest extends TestCase {
 
 		nivel.cargarCancion(unaCancion);
 		nivel.setPuntajeIdeal();
-		nivel.setPuntajeMinimo();
+		nivel.setPuntajeMinimo(0);
 
 		/* Supongo acertadas las 4 notas */
 		nivel.incrementarPuntajeActual();

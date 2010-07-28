@@ -173,7 +173,7 @@ public class NivelFacilTest extends TestCase {
 		nivel.cargarCancion(unaCancion);
 
 		nivel.setPuntajeIdeal();
-		nivel.setPuntajeMinimo();
+		nivel.setPuntajeMinimo(0);
 
 		/* Comprueba que la lista tengo un puntaje minimo de 20*0.55 = 19 */
 		assertTrue(nivel.getPuntajeMinimo()== 11);
@@ -228,7 +228,7 @@ public class NivelFacilTest extends TestCase {
 		nivel.cargarCancion(unaCancion);
 
 		nivel.setPuntajeIdeal();
-		nivel.setPuntajeMinimo();
+		nivel.setPuntajeMinimo(0);
 
 		/* Supongo acertadas solamente dos notas */
 		nivel.incrementarPuntajeActual();

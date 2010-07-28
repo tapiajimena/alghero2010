@@ -173,7 +173,7 @@ public class NivelMedioTest extends TestCase {
 		nivel.cargarCancion(unaCancion);
 
 		nivel.setPuntajeIdeal();
-		nivel.setPuntajeMinimo();
+		nivel.setPuntajeMinimo(0);
 
 		/* Comprueba que la lista tengo un puntaje minimo de 20*0.75 = 15 */
 		assertTrue(nivel.getPuntajeMinimo()== 15);
@@ -228,7 +228,7 @@ public class NivelMedioTest extends TestCase {
 		nivel.cargarCancion(unaCancion);
 
 		nivel.setPuntajeIdeal();
-		nivel.setPuntajeMinimo();
+		nivel.setPuntajeMinimo(0);
 
 		/* Supongo acertadas las 4 notas */
 		nivel.incrementarPuntajeActual();
