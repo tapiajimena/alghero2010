@@ -190,21 +190,21 @@ import Modelo.Letra;
                  letraA.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la A");
-                                 unaLetra = new Letra('A');
+                                 unaLetra = new Letra('a');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraB.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la B");
-                                 unaLetra = new Letra('B');
+                                 unaLetra = new Letra('b');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraC.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la C");
-                                 unaLetra = new Letra('C');
+                                 unaLetra = new Letra('c');
                                  ingresarLetra(unaLetra);
 
                          }
@@ -212,7 +212,7 @@ import Modelo.Letra;
                  letraD.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la D");
-                                 unaLetra = new Letra('D');
+                                 unaLetra = new Letra('d');
                                  ingresarLetra(unaLetra);
 
                          }
@@ -220,7 +220,7 @@ import Modelo.Letra;
                  letraE.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la E");
-                                 unaLetra = new Letra('E');
+                                 unaLetra = new Letra('e');
                                  ingresarLetra(unaLetra);
 
                          }
@@ -228,7 +228,7 @@ import Modelo.Letra;
                  letraF.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la F");
-                                 unaLetra = new Letra('F');
+                                 unaLetra = new Letra('f');
                                  ingresarLetra(unaLetra);
 
                          }
@@ -236,140 +236,140 @@ import Modelo.Letra;
                  letraG.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la G");
-                                 unaLetra = new Letra('G');
+                                 unaLetra = new Letra('g');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraH.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la H");
-                                 unaLetra = new Letra('H');
+                                 unaLetra = new Letra('h');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraI.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la I");
-                                 unaLetra = new Letra('I');
+                                 unaLetra = new Letra('i');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraJ.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la J");
-                                 unaLetra = new Letra('J');
+                                 unaLetra = new Letra('j');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraK.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la K");
-                                 unaLetra = new Letra('K');
+                                 unaLetra = new Letra('k');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraL.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la L");
-                                 unaLetra = new Letra('L');
+                                 unaLetra = new Letra('l');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraM.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la M");
-                                 unaLetra = new Letra('M');
+                                 unaLetra = new Letra('m');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraN.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la N");
-                                 unaLetra = new Letra('N');
+                                 unaLetra = new Letra('n');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraO.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la O");
-                                 unaLetra = new Letra('O');
+                                 unaLetra = new Letra('o');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraP.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la P");
-                                 unaLetra = new Letra('P');
+                                 unaLetra = new Letra('p');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraQ.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la Q");
-                                 unaLetra = new Letra('Q');
+                                 unaLetra = new Letra('q');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraR.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la R");
-                                 unaLetra = new Letra('R');
+                                 unaLetra = new Letra('r');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraS.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la S");
-                                 unaLetra = new Letra('S');
+                                 unaLetra = new Letra('s');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraT.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la T");
-                                 unaLetra = new Letra('T');
+                                 unaLetra = new Letra('t');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraU.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la U");
-                                 unaLetra = new Letra('U');
+                                 unaLetra = new Letra('u');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraV.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la V");
-                                 unaLetra = new Letra('V');
+                                 unaLetra = new Letra('v');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraW.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la W");
-                                 unaLetra = new Letra('W');
+                                 unaLetra = new Letra('w');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraX.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la X");
-                                 unaLetra = new Letra('X');
+                                 unaLetra = new Letra('x');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraY.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la Y");
-                                 unaLetra = new Letra('Y');
+                                 unaLetra = new Letra('y');
                                  ingresarLetra(unaLetra);
                          }
                  });
                  letraZ.addActionListener(new java.awt.event.ActionListener() {
                          public void actionPerformed(java.awt.event.ActionEvent e) {
                                  System.out.println("se eligio la Z");
-                                 unaLetra = new Letra('Z');
+                                 unaLetra = new Letra('z');
                                  ingresarLetra(unaLetra);
                          }
                  });
