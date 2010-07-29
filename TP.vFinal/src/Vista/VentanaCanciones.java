@@ -30,9 +30,16 @@ public class VentanaCanciones {
         ImageIcon imagen = new ImageIcon("menuCanciones1.jpg");
         JLabel aLabel = new JLabel(imagen);
 
+        String cancion1;
+        String cancion2;
+        String cancion3;
+
         public VentanaCanciones(AlgoHero2010 algoHeroActual) {
 
                 this.elAlgoHero = algoHeroActual;
+                this.cancion1 = this.elAlgoHero.getJuego().getNiveles().get(this.elAlgoHero.getJuego().getIndiceNivel()).getListaCanciones().get(0).getNombre();
+                this.cancion2 = this.elAlgoHero.getJuego().getNiveles().get(this.elAlgoHero.getJuego().getIndiceNivel()).getListaCanciones().get(1).getNombre();
+                this.cancion3 = this.elAlgoHero.getJuego().getNiveles().get(this.elAlgoHero.getJuego().getIndiceNivel()).getListaCanciones().get(2).getNombre();
 
         comenzarJuego.setBounds(800, 650, 100, 40);
         comenzarJuego.setBackground(Color.black);
@@ -45,9 +52,9 @@ public class VentanaCanciones {
                 }
         });
 
-                botonSeleccion.add( "cancion 1" );
-        botonSeleccion.add( "cancion 2" );
-        botonSeleccion.add( "cancion 3" );
+        botonSeleccion.add(cancion1);
+        botonSeleccion.add(cancion2);
+        botonSeleccion.add(cancion3);
 
         System.out.println("Cantidad de opciones " + botonSeleccion.getItemCount());
 
