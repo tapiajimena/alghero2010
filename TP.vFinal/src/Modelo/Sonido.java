@@ -56,7 +56,7 @@ public abstract class Sonido {
 	    	sonido=new SolSostenido();
 
 	    }
-	    if((int)identificador==69){
+	    if((int)identificador==70){
 	    	sonido=new LaSostenido();
 
 	    }
