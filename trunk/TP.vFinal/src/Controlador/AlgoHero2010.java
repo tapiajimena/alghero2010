@@ -196,8 +196,15 @@ public class AlgoHero2010 implements ObjetoVivo{
 		            System.out.println("NO RECUPERA EL ARCHIVO");
 		        }
 
-		        try{
+		     /*   try{
 			         cancionTres = Cancion.recuperar("InspectorGadjet.xml");
+
+
+			        }catch(IOException ex){
+			            System.out.println("NO RECUPERA EL ARCHIVO");
+			        }*/
+		        try{
+			         cancionTres = Cancion.recuperar("TodosLosSonidos.xml");
 
 
 			        }catch(IOException ex){
