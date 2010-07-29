@@ -197,7 +197,7 @@ public class AlgoHero2010 implements ObjetoVivo{
 		        }
 
 		        try{
-			         cancionTres = Cancion.recuperar("MarchaDeLosSantosConAcordes.xml");
+			         cancionTres = Cancion.recuperar("InspectorGadjet.xml");
 
 
 			        }catch(IOException ex){
