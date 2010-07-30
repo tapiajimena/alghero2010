@@ -195,6 +195,13 @@ public class AlgoHero2010 implements ObjetoVivo{
 		        }catch(IOException ex){
 		            System.out.println("NO RECUPERA EL ARCHIVO");
 		        }
+		        try{
+			         cancionTres = Cancion.recuperar("InspectorGadjetNUEVO.xml");
+
+
+			        }catch(IOException ex){
+			            System.out.println("NO RECUPERA EL ARCHIVO");
+			        }
 
 		     /*   try{
 			         cancionTres = Cancion.recuperar("InspectorGadjet.xml");
@@ -203,13 +210,13 @@ public class AlgoHero2010 implements ObjetoVivo{
 			        }catch(IOException ex){
 			            System.out.println("NO RECUPERA EL ARCHIVO");
 			        }*/
-		        try{
+		       /* try{
 			         cancionTres = Cancion.recuperar("TodosLosSonidos.xml");
 
 
 			        }catch(IOException ex){
 			            System.out.println("NO RECUPERA EL ARCHIVO");
-			        }
+			        }*/
 
 	    NivelFacil nivelFacil = new NivelFacil();
 
